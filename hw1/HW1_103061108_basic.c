@@ -31,9 +31,11 @@ int main(int argc, char** argv){
 	}
 	MPI_Comm_size(MPI_COMM_WORLD, &numtasks);
 	MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+	// num: # of elements processors handle(except final processor)
 	num = (int)ceil(N*1.0/numtasks);
 	printf("%d", num);
 	printf("Number of tasks = %d My rank = %d\n", numtasks, rank);
+	// The first process
 	if (rank == 0){
 		MPI_Status status;
 		MPI_Request req0;
@@ -51,22 +53,18 @@ int main(int argc, char** argv){
 				printf("\n");
 				printf("received data for process one : %f %f\n", recv[0], recv[1]);
 			}
-			// even case
-			if (phase % 2 ==0){
+			// even swap(first process)
 				for(i = 0; i<num+2; i += 2){
 					if(temp[i-1]>temp[i]){
 						swap(&temp[i-1], &temp[i]);
 					}
 				}	
-			}
-			// odd case
-			else{
+			// odd swap(first process)
 				for(i = 0; i<num+1; i += 2){
 					if(temp[i]>temp[i+1]){
 						swap(&temp[i], &temp[i+1]);
 					}
 				}
-			}
 			MPI_Send(&temp[num-2], 2, MPI_FLOAT,1, 0, MPI_COMM_WORLD);
 			//printf("\nphase = %d:\n", phase);
 			//for (i=0; i<num+2; i++)
@@ -95,38 +93,34 @@ int main(int argc, char** argv){
 				printf("Received data for process last:\n");
 				printf("%f %f  \n", recv[0],recv[1]);
 			}
-			if (phase % 2 ==0){
-				if ( (numtasks-1)*num %2 ==0  ){
-					for (i = (numtasks-1)*num-2;i<N; i+=2 ){
-						if(temp1[i-1]>temp1[i]){
-							swap(&temp1[i-1], &temp1[i]);
-						}
+			if ( (numtasks-1)*num %2 ==0  ){
+				// even swap
+				for (i = (numtasks-1)*num-2;i<N; i+=2 ){
+					if(temp1[i-1]>temp1[i]){
+						swap(&temp1[i-1], &temp1[i]);
 					}
 				}
-				else{
-					for (i=(numtasks-1)*num-1; i<N; i += 2){
-						if(temp1[i-1]>temp1[i]){
-							swap(&temp1[i-1], &temp1[i]);
-						}
-					}
-				}	
+				// odd swap
+				for (i = (numtasks-1)*num-2; i<N-1; i+=2){
+                                        if(temp1[i]>temp1[i+1]){
+                                                swap(&temp1[i], &temp1[i+1]);
+                                        }
+                                }
 			}
 			else{
-				if((numtasks-1)*num % 2 !=0){
-					for (i = (numtasks-1)*num-1; i<N-1; i+=2){
-						if(temp1[i]>temp1[i+1]){
-							swap(&temp1[i], &temp1[i+1]);
-						}
+				// even swap
+				for (i=(numtasks-1)*num-1; i<N; i += 2){
+					if(temp1[i-1]>temp1[i]){
+						swap(&temp1[i-1], &temp1[i]);
 					}
 				}
-				else{
-					for (i = (numtasks-1)*num-2; i<N-1; i+=2){
-						if(temp1[i]>temp1[i+1]){
-							swap(&temp1[i], &temp1[i+1]);
-						}
-					}
-				}
-			}
+				// odd swap
+				for (i = (numtasks-1)*num-1; i<N-1; i+=2){
+                                        if(temp1[i]>temp1[i+1]){
+                                                swap(&temp1[i], &temp1[i+1]);
+                                        }
+                                }
+			}	
 			MPI_Send(&temp1[(numtasks-1)*num], 2, MPI_FLOAT,numtasks-2, 0, MPI_COMM_WORLD);
 			printf("Second process data in phase = %d\n", phase);
 			for (i=(numtasks-1)*num-2; i<N; i++)
@@ -140,7 +134,7 @@ int main(int argc, char** argv){
 		}
 		printf("\n");
 	}
-	// other processors' job
+	// Middle processors' job
 	else{
 		MPI_Status status;
                 float temp[N], recv_left[2], recv_right[2];
@@ -156,38 +150,34 @@ int main(int argc, char** argv){
 				temp[(rank+1)*num] = recv_right[0];
 				temp[(rank+1)*num+1] = recv_right[1];
 			}
-			if(phase%2==0){
-				if (rank*num % 2 == 0 ){
-                                        for (i = rank*num-2;i<(rank+1)*num+2; i+=2 ){
-                                                if(temp[i-1]>temp[i]){
-                                                        swap(&temp[i-1], &temp[i]);
-                                                }
+			if (rank*num % 2 == 0 ){
+                        	// even swap(middle process)
+				for (i = rank*num-2;i<(rank+1)*num+2; i+=2 ){
+                                        if(temp[i-1]>temp[i]){
+                                                swap(&temp[i-1], &temp[i]);
                                         }
                                 }
-                                else{
-                                        for (i = rank*num-1; i<(rank+1)*num+2; i += 2){
-                                                if(temp[i-1]>temp[i]){
-                                                        swap(&temp[i-1], &temp[i]);
-                                                }
+				// odd swap(middle process)
+				for (i = rank*num-2; i<(rank+1)*num+1; i+=2){
+                                        if(temp[i]>temp[i+1]){
+                                               	swap(&temp[i], &temp[i+1]);
                                         }
                                 }
-			}
-			else{
-				if (rank*num % 2 !=0){
-                                        for (i = rank*num-1; i<(rank+1)*num+1; i+=2){
-                                                if(temp[i]>temp[i+1]){
-                                                        swap(&temp[i], &temp[i+1]);
-                                                }
+                        }
+                        else{
+				// even swap(middle process)
+                                for (i = rank*num-1; i<(rank+1)*num+2; i += 2){
+                                        if(temp[i-1]>temp[i]){
+                                                swap(&temp[i-1], &temp[i]);
+                                        }
+                               	}
+				// odd swap(middle process)
+				for (i = rank*num-1; i<(rank+1)*num+1; i+=2){
+                                        if(temp[i]>temp[i+1]){
+                                                swap(&temp[i], &temp[i+1]);
                                         }
                                 }
-                                else{
-                                        for (i = rank*num-2; i<(rank+1)*num+1; i+=2){
-                                                if(temp[i]>temp[i+1]){
-                                                        swap(&temp[i], &temp[i+1]);
-                                                }
-                                        }
-                                }
-			}
+                       	}
 			MPI_Send(&temp[rank*num], 2, MPI_FLOAT, rank-1, 0, MPI_COMM_WORLD);
 			MPI_Send(&temp[(rank+1)*num-2], 2, MPI_FLOAT, rank+1, 0, MPI_COMM_WORLD);
 			//printf("Middle Process in phase %d : ", phase);
