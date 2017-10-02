@@ -47,7 +47,8 @@ int main(int argc, char **argv)
 	//=== allocate array to put data in======//
 	FILE *input= fopen("sorted01","rb");
 	int  k, i=fileStat.st_size;
-	float get[i/4], temp;
+	float *get, temp;
+	get = calloc(i/4, sizeof(*get));
 	//fopen("/home/pp17/ta/hw1/samples/sorted01","rb"); 
 	if ( input==NULL )
 	{
@@ -65,6 +66,7 @@ int main(int argc, char **argv)
 	{
 		printf("%f ",get[k]);
 	}
+	free(get);
 	printf("\n");
 	fclose(input);
 	fclose (pFile);

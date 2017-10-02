@@ -1,0 +1,5 @@
+srun: error: apollo32: tasks 0-2: Segmentation fault
+
+real	0m0.176s
+user	0m0.006s
+sys	0m0.008s
