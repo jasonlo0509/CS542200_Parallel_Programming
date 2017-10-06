@@ -119,7 +119,7 @@ int main(int argc, char** argv){
                 MPI_Status status;
                 MPI_Request req1;
                 int stop_recv, stop, all[numtasks];
-                float *temp1, *recv, *final, *tmp;
+                float *temp1, *recv, *final;
                 temp1 = (float*)malloc(N*sizeof(float));
                 recv = (float*)malloc(2*sizeof(float));
                 final = (float*)malloc(N*sizeof(float));
@@ -132,7 +132,6 @@ int main(int argc, char** argv){
                         stop_recv = 0;
                         if (phase != 0){
                                 MPI_Recv(&recv[0], 2, MPI_FLOAT, numtasks-2, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
-                                //MPI_Barrier(MPI_COMM_WORLD);
                                 temp1[(numtasks-1)*num-2]=recv[0];
                                 temp1[(numtasks-1)*num-1]=recv[1];
                                 printf("Received data for process last:\n");
@@ -188,6 +187,7 @@ int main(int argc, char** argv){
                                 printf("%f ", temp1[i]);
                         printf("\n");
                 }
+		free(temp1);
                 /*printf("Last Processor's Result :");
                 for(i=(numtasks-1)*num; i<N; i++){
                         result[i]=temp1[i];
@@ -212,12 +212,13 @@ int main(int argc, char** argv){
         else{
                 MPI_Status status;
                 int stop, stop_recv;
-                //float *temp, *recv_left, *recv_right;
-                //temp = (float*)malloc((num+2)*sizeof(float));
-                //recv = (float*)malloc(2*sizeof(float));
-                float temp[N], recv_left[2], recv_right[2];
+                float *temp2, *recv_left, *recv_right;
+                temp2 = (float*)malloc((N)*sizeof(float));
+                recv_left = (float*)malloc(2*sizeof(float));
+                recv_right = (float*)malloc(2*sizeof(float));
+		//float temp[N], recv_left[2], recv_right[2];
                 for (i=rank*num-2; i<(rank+1)*num+2;i++){
-                        temp[i] = array[i];
+                        temp2[i] = array[i];
                 }
                 for (phase = 0; phase < (int)N/2 && stop_recv != numtasks; phase++){
                         stop = 1;
@@ -225,23 +226,23 @@ int main(int argc, char** argv){
                         if (phase != 0){
                                 MPI_Recv(&recv_left[0], 2, MPI_FLOAT, rank-1, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
                                 MPI_Recv(&recv_right[0], 2, MPI_FLOAT, rank+1, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
-                                temp[rank*num-2] = recv_left[0];
-                                temp[rank*num-1] = recv_left[1];
-                                temp[(rank+1)*num] = recv_right[0];
-                                temp[(rank+1)*num+1] = recv_right[1];
+                                temp2[rank*num-2] = recv_left[0];
+                                temp2[rank*num-1] = recv_left[1];
+                                temp2[(rank+1)*num] = recv_right[0];
+                                temp2[(rank+1)*num+1] = recv_right[1];
                         }
                         if (rank*num % 2 == 0 ){
                                 // even swap(middle process)
                                 for (i = rank*num;i<(rank+1)*num+2; i+=2 ){
-                                    if(temp[i-1]>temp[i]){
-                                                swap(&temp[i-1], &temp[i]);
+                                    if(temp2[i-1]>temp2[i]){
+                                                swap(&temp2[i-1], &temp2[i]);
                                                 stop = 0;
                                         }
                                 }
                                 // odd swap(middle process)
                                 for (i = rank*num-2; i<(rank+1)*num+1; i+=2){
-                                        if(temp[i]>temp[i+1]){
-                                                swap(&temp[i], &temp[i+1]);
+                                        if(temp2[i]>temp2[i+1]){
+                                                swap(&temp2[i], &temp2[i+1]);
                                                 stop = 0;
                                         }
                                 }
@@ -249,26 +250,26 @@ int main(int argc, char** argv){
                         else{
                                 // even swap(middle process)
                                 for (i = rank*num-1; i<(rank+1)*num+2; i += 2){
-                                        if(temp[i-1]>temp[i]){
-                                                swap(&temp[i-1], &temp[i]);
+                                        if(temp2[i-1]>temp2[i]){
+                                                swap(&temp2[i-1], &temp2[i]);
                                                 stop = 0;
                                         }
                                 }
                                 // odd swap(middle process)
                                 for (i = rank*num-1; i<(rank+1)*num+1; i+=2){
-                                        if(temp[i]>temp[i+1]){
-                                                swap(&temp[i], &temp[i+1]);
+                                        if(temp2[i]>temp2[i+1]){
+                                                swap(&temp2[i], &temp2[i+1]);
                                                 stop = 0;
                                         }
                                 }
                         }
                         // share array data
-                        MPI_Send(&temp[rank*num], 2, MPI_FLOAT, rank-1, 0, MPI_COMM_WORLD);
-                        MPI_Send(&temp[(rank+1)*num-2], 2, MPI_FLOAT, rank+1, 0, MPI_COMM_WORLD);
+                        MPI_Send(&temp2[rank*num], 2, MPI_FLOAT, rank-1, 0, MPI_COMM_WORLD);
+                        MPI_Send(&temp2[(rank+1)*num-2], 2, MPI_FLOAT, rank+1, 0, MPI_COMM_WORLD);
                         MPI_Barrier(MPI_COMM_WORLD);
                         MPI_Allreduce(&stop, &stop_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
                         if(stop_recv==numtasks || phase == (int)N/2-1){
-                                MPI_Send(&temp[rank*num], num, MPI_FLOAT, numtasks-1, 1, MPI_COMM_WORLD);
+                                MPI_Send(&temp2[rank*num], num, MPI_FLOAT, numtasks-1, 1, MPI_COMM_WORLD);
                         }
                         // share continue or not
                         /*MPI_Send(&stop, 1, MPI_INT, numtasks-1, 0, MPI_COMM_WORLD);
@@ -276,14 +277,15 @@ int main(int argc, char** argv){
                         */
                         printf("Middle Process in phase %d : ", phase);
                         for(i = rank*num-2; i<(rank+1)*num+2; i++){
-                                printf("%f ", temp[i]);
+                                printf("%f ", temp2[i]);
                         }
                         printf("\n");
                 }
                 printf("Middle Process' Results: ");
                 for (i=rank*num; i<(rank+1)*num; i++)
-                        printf("%f ", temp[i]);
+                        printf("%f ", temp2[i]);
                 printf("\n");
+		free(temp2);
         }
         //free(array);
         MPI_Finalize();

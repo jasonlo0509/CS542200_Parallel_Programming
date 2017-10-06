@@ -9,6 +9,7 @@
 ~H
 # Command Line History (newest to oldest):
 :wq
+:w
 
 # Search String History (newest to oldest):
 
@@ -19,22 +20,74 @@
 # Input Line History (newest to oldest):
 
 # Registers:
+""1	LINE	0
+	                                //MPI_Barrier(MPI_COMM_WORLD);
 
 # File marks:
-'0  218  15  ~/hw1/HW1_103061108_basic.c
+'0  65  32  ~/hw1/HW1_103061108_basic.c
+'1  122  42  ~/hw1/HW1_103061108_basic.c
+'2  190  13  ~/hw1/HW1_103061108_basic.c
+'3  216  40  ~/hw1/HW1_103061108_basic.c
+'4  289  8  ~/hw1/HW1_103061108_basic.c
+'5  219  46  ~/hw1/HW1_103061108_basic.c
+'6  218  15  ~/hw1/HW1_103061108_basic.c
 
 # Jumplist (newest first):
--'  218  15  ~/hw1/HW1_103061108_basic.c
+-'  65  32  ~/hw1/HW1_103061108_basic.c
+-'  122  16  ~/hw1/HW1_103061108_basic.c
+-'  190  2  ~/hw1/HW1_103061108_basic.c
+-'  216  16  ~/hw1/HW1_103061108_basic.c
+-'  289  8  ~/hw1/HW1_103061108_basic.c
+-'  219  2  ~/hw1/HW1_103061108_basic.c
+-'  218  16  ~/hw1/HW1_103061108_basic.c
 -'  1  0  ~/hw1/HW1_103061108_basic.c
+-'  215  40  ~/hw1/HW1_103061108_basic.c
+-'  287  8  ~/hw1/HW1_103061108_basic.c
+-'  217  16  ~/hw1/HW1_103061108_basic.c
+-'  191  13  ~/hw1/HW1_103061108_basic.c
+-'  290  8  ~/hw1/HW1_103061108_basic.c
+-'  220  2  ~/hw1/HW1_103061108_basic.c
+-'  288  8  ~/hw1/HW1_103061108_basic.c
 
 # History of marks within files (newest to oldest):
 
 > ~/hw1/HW1_103061108_basic.c
-	"	218	15
-	^	218	16
-	.	218	16
+	"	65	32
+	^	122	43
+	.	122	43
 	+	218	17
 	+	217	17
 	+	216	17
 	+	215	17
-	+	218	16
+	+	218	17
+	+	217	16
+	+	216	16
+	+	215	16
+	+	217	24
+	+	219	1
+	+	218	60
+	+	215	27
+	+	216	20
+	+	221	28
+	+	229	36
+	+	230	36
+	+	231	36
+	+	232	36
+	+	237	54
+	+	238	71
+	+	244	47
+	+	245	69
+	+	253	47
+	+	254	71
+	+	260	47
+	+	261	69
+	+	268	38
+	+	267	38
+	+	272	46
+	+	280	50
+	+	286	42
+	+	216	40
+	+	288	13
+	+	190	13
+	+	135	0
+	+	122	43
