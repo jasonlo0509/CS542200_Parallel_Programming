@@ -1,5 +1,0 @@
-6Number of tasks = 2 My rank = 0
-6Number of tasks = 2 My rank = 1
-srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
-slurmstepd: error: *** JOB 4856 ON apollo32 CANCELLED AT 2017-10-01T23:32:51 ***
-slurmstepd: error: *** STEP 4856.0 ON apollo32 CANCELLED AT 2017-10-01T23:32:51 ***

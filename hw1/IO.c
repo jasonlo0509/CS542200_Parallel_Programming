@@ -4,6 +4,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 /*float readfloat(FILE *f, int len) {
 	float v[len];
@@ -45,31 +46,35 @@ int main(int argc, char **argv)
  
     printf("The file %s a symbolic link\n\n", (S_ISLNK(fileStat.st_mode)) ? "is" : "is not");
 	//=== allocate array to put data in======//
-	FILE *input= fopen("sorted01","rb");
-	int  k, i=fileStat.st_size;
-	float *get, temp;
-	get = calloc(i/4, sizeof(*get));
+	FILE *input= fopen(argv[1],"rb");
+	int k, i=fileStat.st_size;
+	float *get;
+	get = (float*) malloc((i/4)*sizeof(float));
+	//get[0] = 0.786;	
+	//get = calloc(i/4, sizeof(*get));
 	//fopen("/home/pp17/ta/hw1/samples/sorted01","rb"); 
 	if ( input==NULL )
 	{
 		printf("open input file fail!\n");
 		exit(0);
 	}
-	fread((void*)(&get), sizeof(get), fileStat.st_size, input);
-	FILE * pFile;
+	
+	fread(get, sizeof(float), i/4, input);
+	/*FILE * pFile;
 	pFile = fopen ("testout01.bin", "wb");
 	fwrite ((void*)(&get) , sizeof(get), i/16, pFile);	
+	*/
 	//get = readfloat(input, fileStat.st_size);
 	//printf("first num is %f \n", temp);	
 	//fread((float*)&get, sizeof(float), sizeof(get), file);
 	for (k=0; k < i/4; k++ )
 	{
-		printf("%f ",get[k]);
+		printf("%f ",*(get+k));
 	}
 	free(get);
 	printf("\n");
 	fclose(input);
-	fclose (pFile);
+	//fclose (pFile);
  
     return 0;
 }

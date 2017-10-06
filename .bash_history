@@ -1,4 +1,3 @@
-pwd
 cd ..
 ls
 cd p103061108
@@ -763,3 +762,239 @@ l
 ls
 vim HW1_103061108_basic.c 
 exit
+cd hw1/
+l
+ls
+vim HW1_103061108_basic.c 
+mpicc HW1_103061108_basic.c -o HW1_103061108_basic.o -std=gnu99 -lm
+sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW1_103061108_basic.o"
+cat slurm-5217.out 
+sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW1_103061108_basic.o"
+cat slurm-5219.out 
+vim HW1_103061108_basic.c 
+mpicc HW1_103061108_basic.c -o HW1_103061108_basic.o -std=gnu99 -lm
+sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW1_103061108_basic.o"
+cat slurm-5223.out 
+sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW1_103061108_basic.o"
+cat slurm-5224.out 
+vim HW1_103061108_basic.c 
+who
+ls
+vim IO.c 
+mpicc HW1_103061108_basic.c -o HW1_103061108_basic.o -std=gnu99 -lm
+vim IO.c 
+mpicc HW1_103061108_basic.c -o HW1_103061108_basic.o -std=gnu99 -lm
+clear
+mpicc HW1_103061108_basic.c -o HW1_103061108_basic.o -std=gnu99 -lm
+sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW1_103061108_basic.o sorted01"
+cat slurm-5228.out 
+sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW1_103061108_basic.o sorted01"
+cat slurm-5229.out 
+./IO sorted01 
+mpicc HW1_103061108_basic.c -o HW1_103061108_basic.o -std=gnu99 -lm
+vim IO.c 
+mpicc HW1_103061108_basic.c -o HW1_103061108_basic.o -std=gnu99 -lm
+sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW1_103061108_basic.o sorted01"
+cat slurm-5230.out 
+sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted02"
+cat slurm-5231.out 
+sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted05"
+cat slurm-5232.out 
+hw1-b2float /home/pp17/ta/hw1/samples/sorted02
+hw1-b2float /home/pp17/ta/hw1/samples/sorted05
+hw1-b2float /home/pp17/ta/hw1/samples/sorted03
+sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted03"
+cat slurm-5233.out 
+hw1-b2float /home/pp17/ta/hw1/samples/sorted03
+sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted02"
+cat slurm-5234.out 
+hw1-b2float /home/pp17/ta/hw1/samples/sorted02
+sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted02"
+cat slurm-5235.out 
+sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted01"
+cat slurm-5236.out 
+hw1-b2float /home/pp17/ta/hw1/samples/sorted01
+mpicc HW1_103061108_basic.c -o HW1_103061108_basic.o -std=gnu99 -lm
+sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted01"
+cat slurm-5237.out 
+mpicc HW1_103061108_basic.c -o HW1_103061108_basic.o -std=gnu99 -lm
+sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted02"
+cat slurm-5238.out 
+mpicc HW1_103061108_basic.c -o HW1_103061108_basic.o -std=gnu99 -lm
+sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted02"
+cat slurm-5239.out 
+mpicc HW1_103061108_basic.c -o HW1_103061108_basic.o -std=gnu99 -lm
+sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted02"
+cat slurm-5240.out 
+mpicc HW1_103061108_basic.c -o HW1_103061108_basic.o -std=gnu99 -lm
+sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted02"
+cat slurm-5241.out 
+sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted04"
+cat slurm-5242.out 
+hw1-b2float /home/pp17/ta/hw1/samples/sorted04
+sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted04"
+cat slurm-5243.out 
+sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted03"
+cat slurm-5244.out 
+hw1-b2float /home/pp17/ta/hw1/samples/sorted03
+mpicc HW1_103061108_basic.c -o HW1_103061108_basic.o -std=gnu99 -lm
+sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted03"
+cat slurm-5245.out 
+sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted03"
+cat slurm-5246.out 
+sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted08"
+cat slurm-5247.out 
+sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted05"
+cat slurm-5248.out 
+sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted06"
+cat slurm-5249.out 
+sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted05"
+sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted05"
+cat slurm-5250.out 
+cat slurm-5251.out 
+hw1-b2float /home/pp17/ta/hw1/samples/sorted06
+cp /home/pp17/ta/hw1/samples/sorted06 .
+ls
+./IO sorted06
+vim IO.c 
+gcc IO.c -o IO
+./IO sorted06
+vim IO.c 
+gcc IO.c -o IO
+vim IO.c 
+gcc IO.c -o IO
+./IO sorted06
+./IO sorted05
+vim IO.c 
+gcc IO.c -o IO
+vim IO.c 
+gcc IO.c -o IO
+./IO sorted05
+./IO sorted06
+cd ~
+git add *
+git add*
+git add -all
+git add --all
+git commit
+git push origin master
+git add
+git add .
+git commit
+git --help
+cd hw1/
+hw1-b2float /home/pp17/ta/hw1/samples/sorted10
+hw1-b2float /home/pp17/ta/hw1/samples/sorted20
+hw1-b2float /home/pp17/ta/hw1/samples/sorted15
+hw1-b2float /home/pp17/ta/hw1/samples/sorted12
+hw1-b2float /home/pp17/ta/hw1/samples/sorted09
+hw1-b2float /home/pp17/ta/hw1/samples/sorted08
+hw1-b2float /home/pp17/ta/hw1/samples/sorted07
+hw1-b2float /home/pp17/ta/hw1/samples/sorted06
+git add .
+cd ..
+git add .
+git commit 
+git push origin master
+cd hw1/
+vim IO.c 
+gcc IO.c -o IO
+vim IO.c 
+gcc IO.c -o IO
+vim IO.c 
+gcc IO.c -o IO
+./IO sorted05
+./IO sorted06
+./IO sorted04
+./IO /home/pp17/ta/hw1/samples/sorted04
+./IO /home/pp17/ta/hw1/samples/sorted03
+./IO /home/pp17/ta/hw1/samples/sorted02
+vim IO.c 
+gcc IO.c -o IO
+./IO /home/pp17/ta/hw1/samples/sorted04
+hw1-b2float /home/pp17/ta/hw1/samples/sorted04
+vim IO.c 
+gcc IO.c -o IO
+./IO /home/pp17/ta/hw1/samples/sorted04
+exit
+cd hw1/
+ls
+vim HW1_103061108_basic.c 
+exit
+cd hw1/
+vim IO.c 
+gcc IO.c -o IO
+./IO /home/pp17/ta/hw1/samples/sorted04
+ed hw1/
+who
+cd hw1/
+ls
+vim IO.c 
+gcc IO.c -o IO
+vim IO.c 
+gcc IO.c -o IO
+history
+./IO /home/pp17/ta/hw1/samples/sorted04
+vim IO.c 
+gcc IO.c -o IO
+./IO /home/pp17/ta/hw1/samples/sorted04
+vim IO.c 
+gcc IO.c -o IO
+./IO /home/pp17/ta/hw1/samples/sorted04
+vim IO.c 
+gcc IO.c -o IO
+./IO /home/pp17/ta/hw1/samples/sorted04
+vim IO.c 
+gcc IO.c -o IO
+./IO /home/pp17/ta/hw1/samples/sorted04
+vim IO.c 
+gcc IO.c -o IO
+vim IO.c 
+./IO /home/pp17/ta/hw1/samples/sorted04
+vim IO.c 
+gcc IO.c -o IO
+./IO /home/pp17/ta/hw1/samples/sorted04
+vim IO.c 
+gcc IO.c -o IO
+./IO /home/pp17/ta/hw1/samples/sorted04
+vim IO.c 
+./IO /home/pp17/ta/hw1/samples/sorted01
+vim IO.c 
+gcc IO.c -o IO
+./IO /home/pp17/ta/hw1/samples/sorted01
+vim IO.c 
+gcc IO.c -o IO
+./IO /home/pp17/ta/hw1/samples/sorted01
+vim IO.c 
+gcc IO.c -o IO
+./IO /home/pp17/ta/hw1/samples/sorted01
+./IO /home/pp17/ta/hw1/samples/sorted02
+./IO /home/pp17/ta/hw1/samples/sorted03
+./IO /home/pp17/ta/hw1/samples/sorted04
+vim IO.c 
+gcc IO.c -o IO
+./IO /home/pp17/ta/hw1/samples/sorted04
+vim IO.c 
+cd hw1/
+ls
+vim HW1_103061108_basic.c 
+history
+mpicc HW1_103061108_basic.c -o HW1_103061108_basic.o -std=gnu99 -lm
+sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted01"
+cat slurm-6382.out 
+sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted02"
+cat slurm-6383.out 
+sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted03"
+cat slurm-6384.out 
+vim HW1_103061108_basic.c 
+mpicc HW1_103061108_basic.c -o HW1_103061108_basic.o -std=gnu99 -lm
+sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted03"
+cat slurm-6385.out 
+vim HW1_103061108_basic.c 
+mpicc HW1_103061108_basic.c -o HW1_103061108_basic.o -std=gnu99 -lm
+sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted03"
+cat slurm-6386.out 
+vim HW1_103061108_basic.c 
+mpicc HW1_103061108_basic.c -o HW1_103061108_basic.o -std=gnu99 -lm
+sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/sorted03"
+cat slurm-6387.out 

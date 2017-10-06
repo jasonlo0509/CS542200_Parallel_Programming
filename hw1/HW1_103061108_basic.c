@@ -21,10 +21,6 @@ void swap(float *a ,float *b){
 }
 
 int main(int argc, char** argv){
-	// 		0	1	2     3     4     5      6     7        8
-	//float array[] = {11.78, 0.33, 13.78, 1.78, 0.78, 7.78, 3.78, 20.78, 0.35,  2731.78, 293.78};	
-	//int N = 11;
-	//float result[N];
 	int phase, i, rc, rank, numtasks, num;
 	//MPI_Status status;
 	if(argc != 2)
@@ -33,13 +29,20 @@ int main(int argc, char** argv){
 	struct stat fileStat;
     	int file = open(argv[1],O_RDONLY);
 	fstat(file,&fileStat);
-        //	return 1;
-	
+		
 	FILE *input= fopen(argv[1],"rb");
         int  k, N=fileStat.st_size/4;
-        float array[N], result[N], temp;
-	fread((void*)(&array), sizeof(array), fileStat.st_size, input);
-	printf("%d \n", N);
+        float *array, *result;
+	array = (float*)malloc(N*sizeof(float));
+	fread(array, sizeof(float), N, input); 
+	//float array[N], result[N], temp;
+	
+	//fread((void*)(&array), sizeof(array), fileStat.st_size, input);
+	printf("Information for %s\n",argv[1]);
+    	printf("---------------------------\n");
+    	printf("File Size: \t\t%d bytes\n",fileStat.st_size);
+	
+	printf("the initial data \n");
 	for(i=0; i<N; i++)
 		printf("%f ", array[i]);
 	rc = MPI_Init(&argc, &argv);
@@ -275,6 +278,7 @@ int main(int argc, char** argv){
 			printf("%f ", temp[i]);
 		printf("\n");
 	}
+	free(array);
 	MPI_Finalize();
 	return 0;
 }
