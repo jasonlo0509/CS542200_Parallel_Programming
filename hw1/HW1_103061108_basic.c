@@ -23,7 +23,7 @@ void swap(float *a ,float *b){
 int main(int argc, char** argv){
         int error, phase, i, rc, rank, numtasks, num;
         MPI_Offset    N;
-	MPI_File      fh;
+	MPI_File      fh, result;
 	MPI_Status status;
         rc = MPI_Init(&argc, &argv);
         if(rc != MPI_SUCCESS){
@@ -32,7 +32,7 @@ int main(int argc, char** argv){
         }
         MPI_Comm_size(MPI_COMM_WORLD, &numtasks);
         MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-	if(argc != 2)
+	if(argc != 3)
         	return 1;
 	error = MPI_File_open(MPI_COMM_WORLD, argv[1],
                   MPI_MODE_RDONLY, MPI_INFO_NULL, &fh);
@@ -59,8 +59,8 @@ int main(int argc, char** argv){
         printf("File Size: \t\t%d bytes\n",N*4);
 	
         printf("the initial data \n");
-        for(i=0; i<N; i++)
-                printf("%f ", array[i]);
+        //for(i=0; i<N; i++)
+                //printf("%f ", array[i]);
         /*rc = MPI_Init(&argc, &argv);
         if(rc != MPI_SUCCESS){
                 printf("Error starting MPI program. Terminating. \n");
@@ -72,19 +72,27 @@ int main(int argc, char** argv){
         num = (int)ceil(N*1.0/numtasks);
         printf("%d", num);
         printf("Number of tasks = %d My rank = %d\n", numtasks, rank);
+	int start, end;
+	start = num * rank;
+	if (rank == numtasks-1)
+        	end = N;
+    	else
+        	end = start + num;
         // The first process
         if (rank == 0){
                 MPI_Status status;
                 MPI_Request req0;
                 int stop, stop_recv;
                 float *temp, *recv;
-                temp = (float*)malloc((num+2)*sizeof(float));
+                temp = (float*)malloc((end+2)*sizeof(float));
                 recv = (float*)malloc(2*sizeof(float));
                 //float temp[num+2], recv[2];
                 for (i=0; i<num+2; i++){
                         temp[i] = array[i];
                         //printf("%f ",temp[i]);
                 }
+		//MPI_File_seek(fh, start, MPI_SEEK_SET);
+		//MPI_File_read(fh, temp, end+2, MPI_FLOAT, &status);
                 // Need to do N times odd even sort
                 for (phase = 0; phase < (int)N/2 && stop_recv != numtasks; phase++){
                         stop = 1;
@@ -133,17 +141,20 @@ int main(int argc, char** argv){
                 //MPI_Send(&result[0], num, MPI_FLOAT, numtasks-1, 0, MPI_COMM_WORLD);
         }
         else if(rank == numtasks-1){
-                MPI_Status status;
+                //MPI_Status status;
                 MPI_Request req1;
                 int stop_recv, stop, all[numtasks];
                 float *temp1, *recv, *final;
-                temp1 = (float*)malloc(N*sizeof(float));
+		temp1 = (float*)malloc((num+2)*sizeof(float));
                 recv = (float*)malloc(2*sizeof(float));
                 final = (float*)malloc(N*sizeof(float));
-                //float temp1[N], recv[2], final[N], tmp[num];
+                //MPI_File_seek(fh, start-1, MPI_SEEK_SET);
+                //MPI_File_read(fh, temp1, end-start+1, MPI_FLOAT, &status);
+		//float temp1[N], recv[2], final[N], tmp[num];
                 for (i=(numtasks-1)*num-2; i<N;i++){
                         temp1[i] = array[i];
                 }
+		//MPI_File_read_at(fh, 0, temp1, N-(numtasks-2)*num+3, MPI_FLOAT, &status);
                 for (phase = 0; phase < (int)N/2 && stop_recv !=numtasks; phase++){
                         stop = 1;
                         stop_recv = 0;
@@ -194,7 +205,17 @@ int main(int argc, char** argv){
                                         MPI_Recv(&temp1[i*num], num, MPI_FLOAT, i, 1, MPI_COMM_WORLD, &status);
                                 }
                                 printf("Final Answer:");
-                                for(i = 0; i<N; i++){
+				//MPI_File result;
+                                MPI_File_close(&fh);
+				MPI_File_open(MPI_COMM_WORLD, argv[2], MPI_MODE_WRONLY | MPI_MODE_CREATE, MPI_INFO_NULL, &result);
+				MPI_File_write_at(result, 0, temp1, N, MPI_FLOAT, &status);
+				MPI_File_close(&result);
+				/*MPI_File_open(MPI_COMM_WORLD, argv[2],
+                  					MPI_MODE_WRONLY | MPI_MODE_CREATE, MPI_INFO_NULL, &result);
+				//MPI_File_set_view(result, N * sizeof(float),MPI_FLOAT, MPI_FLOAT, "native", MPI_INFO_NULL);
+				MPI_File_write(result, temp1, N, MPI_FLOAT,MPI_STATUS_IGNORE);
+				MPI_File_close(&result);*/
+				for(i = 0; i<N; i++){
                                         printf("%f ", temp1[i]);
                                 }
                                 printf("\n");
@@ -204,7 +225,7 @@ int main(int argc, char** argv){
                                 printf("%f ", temp1[i]);
                         printf("\n");
                 }
-		free(temp1);
+		//free(temp1);
                 /*printf("Last Processor's Result :");
                 for(i=(numtasks-1)*num; i<N; i++){
                         result[i]=temp1[i];
@@ -230,13 +251,16 @@ int main(int argc, char** argv){
                 MPI_Status status;
                 int stop, stop_recv;
                 float *temp2, *recv_left, *recv_right;
-                temp2 = (float*)malloc((N)*sizeof(float));
+                temp2 = (float*)malloc((end-start+4)*sizeof(float));
                 recv_left = (float*)malloc(2*sizeof(float));
                 recv_right = (float*)malloc(2*sizeof(float));
 		//float temp[N], recv_left[2], recv_right[2];
                 for (i=rank*num-2; i<(rank+1)*num+2;i++){
                         temp2[i] = array[i];
                 }
+		//MPI_File_seek(fh, start-2, MPI_SEEK_SET);
+                //MPI_File_read(fh, temp2, end-start+4, MPI_FLOAT, &status);
+		//MPI_File_read_at(fh, rank*num-2, temp2, num+4, MPI_FLOAT, &status);
                 for (phase = 0; phase < (int)N/2 && stop_recv != numtasks; phase++){
                         stop = 1;
                         stop_recv =0;
@@ -302,7 +326,7 @@ int main(int argc, char** argv){
                 for (i=rank*num; i<(rank+1)*num; i++)
                         printf("%f ", temp2[i]);
                 printf("\n");
-		free(temp2);
+		//free(temp2);
         }
         //free(array);
         MPI_File_close(&fh);
