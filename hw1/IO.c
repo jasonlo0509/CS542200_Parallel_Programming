@@ -20,6 +20,7 @@ int main(int argc, char **argv)
     int file=0;
         if((file=open(argv[1],O_RDONLY)) < -1)
             return 1;
+    //fseek( input, 0, SEEK_END);    
  
     struct stat fileStat;
     if(fstat(file,&fileStat) < 0)    
@@ -48,8 +49,12 @@ int main(int argc, char **argv)
 	//=== allocate array to put data in======//
 	FILE *input= fopen(argv[1],"rb");
 	int k, i=fileStat.st_size;
+	fseek( input, 0, SEEK_END);
+	int filelen = ftell( input );
+	printf("file length = %d \n", filelen);
 	float *get;
 	get = (float*) malloc((i/4)*sizeof(float));
+	fseek( input, 0, SEEK_SET);
 	//get[0] = 0.786;	
 	//get = calloc(i/4, sizeof(*get));
 	//fopen("/home/pp17/ta/hw1/samples/sorted01","rb"); 

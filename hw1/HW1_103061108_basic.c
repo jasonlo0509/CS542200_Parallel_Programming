@@ -26,20 +26,23 @@ int main(int argc, char** argv){
         if(argc != 2)
         return 1;
 
-        struct stat fileStat;
+        //struct stat fileStat;
         int file = open(argv[1],O_RDONLY);
-        fstat(file,&fileStat);
+        //fstat(file,&fileStat);
 
         FILE *input= fopen(argv[1],"rb");
-        int  k, N=fileStat.st_size/4;
+        int  k;//, N=fileStat.st_size/4;
         float *array, *result;
-        array = (float*)malloc(N*sizeof(float));
+        fseek( input, 0, SEEK_END);
+	int N = ftell( input )/4;
+	fseek( input, 0, SEEK_SET);
+	array = (float*)malloc(N*sizeof(float));
         fread(array, sizeof(float), N, input);
         //float array[N], result[N], temp;
         //fread((void*)(&array), sizeof(array), fileStat.st_size, input);
         printf("Information for %s\n",argv[1]);
         printf("---------------------------\n");
-        printf("File Size: \t\t%d bytes\n",fileStat.st_size);
+        printf("File Size: \t\t%d bytes\n",N*4);
 
         printf("the initial data \n");
         for(i=0; i<N; i++)
