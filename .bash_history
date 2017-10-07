@@ -102,3 +102,45 @@ git commit
 git push origin master
 cd hw1/
 vim HW1_103061108_basic.c 
+cd hw1/
+ls
+vim HW1_103061108_basic.c 
+vim IO.c 
+gcc IO.c -o IO
+vim IO.c 
+gcc IO.c -o IO
+./IO  /home/pp17/ta/hw1/samples/sorted01
+./IO  /home/pp17/ta/hw1/samples/sorted02
+./IO  /home/pp17/ta/hw1/samples/sorted03
+vim HW1_103061108_basic.c 
+mpicc HW1_103061108_basic.c -o HW1_103061108_basic.o -std=gnu99 -lm
+vim HW1_103061108_basic.c 
+mpicc HW1_103061108_basic.c -o HW1_103061108_basic.o -std=gnu99 -lm
+sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/testcase03"
+cat slurm-6543.out 
+cd ..
+git add .
+git commit
+git push origin master
+cd hw1/
+vim HW1_103061108_basic.c 
+mpicc HW1_103061108_basic.c -o HW1_103061108_basic.o -std=gnu99 -lm
+sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW1_103061108_basic.o  /home/pp17/ta/hw1/samples/testcase03"
+cat slurm-6544.out 
+cd hw1/
+l
+ls
+vim IO.c 
+cd hw1/
+vim IO.c 
+ls -al
+rm .IO.c.swp 
+ls 0ak
+ls -al
+vim IO.c 
+vim HW1_103061108_basic.c 
+cd hw1/
+ls -al
+vim HW1_103061108_basic.c 
+rm .HW1_103061108_basic.c.swp 
+vim HW1_103061108_basic.c 

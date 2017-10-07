@@ -21,32 +21,10 @@ void swap(float *a ,float *b){
 }
 
 int main(int argc, char** argv){
-        int phase, i, rc, rank, numtasks, num;
-        //MPI_Status status;
-        if(argc != 2)
-        return 1;
-
-        //struct stat fileStat;
-        int file = open(argv[1],O_RDONLY);
-        //fstat(file,&fileStat);
-
-        FILE *input= fopen(argv[1],"rb");
-        int  k;//, N=fileStat.st_size/4;
-        float *array, *result;
-        fseek( input, 0, SEEK_END);
-	int N = ftell( input )/4;
-	fseek( input, 0, SEEK_SET);
-	array = (float*)malloc(N*sizeof(float));
-        fread(array, sizeof(float), N, input);
-        //float array[N], result[N], temp;
-        //fread((void*)(&array), sizeof(array), fileStat.st_size, input);
-        printf("Information for %s\n",argv[1]);
-        printf("---------------------------\n");
-        printf("File Size: \t\t%d bytes\n",N*4);
-
-        printf("the initial data \n");
-        for(i=0; i<N; i++)
-                printf("%f ", array[i]);
+        int error, phase, i, rc, rank, numtasks, num;
+        MPI_Offset    N;
+	MPI_File      fh;
+	MPI_Status status;
         rc = MPI_Init(&argc, &argv);
         if(rc != MPI_SUCCESS){
                 printf("Error starting MPI program. Terminating. \n");
@@ -54,6 +32,42 @@ int main(int argc, char** argv){
         }
         MPI_Comm_size(MPI_COMM_WORLD, &numtasks);
         MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+	if(argc != 2)
+        	return 1;
+	error = MPI_File_open(MPI_COMM_WORLD, argv[1],
+                  MPI_MODE_RDONLY, MPI_INFO_NULL, &fh);
+	error = MPI_File_get_size(fh, &N);
+	N = N/4;
+	/*
+        int file = open(argv[1],O_RDONLY);
+        FILE *input= fopen(argv[1],"rb");
+        int  k;
+        float *array, *result;
+        fseek( input, 0, SEEK_END);
+	int N = ftell( input )/4;
+	fseek( input, 0, SEEK_SET);
+	*/
+	float *array;
+	array = (float*)malloc(N*sizeof(float));
+        //fread(array, sizeof(float), N, input);
+        //float array[N], result[N], temp;
+        //fread((void*)(&array), sizeof(array), fileStat.st_size, input);
+       	 
+	error = MPI_File_read(fh, array, N, MPI_FLOAT, &status);
+	printf("Information for %s\n",argv[1]);
+        printf("---------------------------\n");
+        printf("File Size: \t\t%d bytes\n",N*4);
+	
+        printf("the initial data \n");
+        for(i=0; i<N; i++)
+                printf("%f ", array[i]);
+        /*rc = MPI_Init(&argc, &argv);
+        if(rc != MPI_SUCCESS){
+                printf("Error starting MPI program. Terminating. \n");
+                MPI_Abort(MPI_COMM_WORLD, rc);
+        }
+        MPI_Comm_size(MPI_COMM_WORLD, &numtasks);
+        MPI_Comm_rank(MPI_COMM_WORLD, &rank);*/
         // num: # of elements processors handle(except final processor)
         num = (int)ceil(N*1.0/numtasks);
         printf("%d", num);
@@ -291,6 +305,7 @@ int main(int argc, char** argv){
 		free(temp2);
         }
         //free(array);
-        MPI_Finalize();
+        MPI_File_close(&fh);
+	MPI_Finalize();
         return 0;
 }
