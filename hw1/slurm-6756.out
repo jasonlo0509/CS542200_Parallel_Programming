@@ -1,0 +1,7 @@
+Proc 0: range = [0, 20)
+Proc 1: range = [20, 40)
+Proc 2: range = [40, 60)
+
+real	0m0.210s
+user	0m0.008s
+sys	0m0.013s
