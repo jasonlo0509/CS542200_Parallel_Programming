@@ -1,0 +1,32 @@
+Proc 0: range = [0, 40)
+Proc 1: range = [24, 60)
+22976.742188 -3565.328369 -9229.855469 6123.410645 -6881.037598 24220.068359 12229.836914 -30519.386719 -9970.113281 -30362.396484 
+12229.836914 -30519.386719 -9970.113281 -30362.396484 -13902.499023 20308.919922 2977.763184 -3938.008301 14568.960938 
+Received data for process first:
+-30362.396484 -9970.113281  
+Received data for process first:
+-13902.499023 24220.068359  
+Received data for process first:
+Received data for process last:
+-30519.386719 24220.068359  
+Received data for process last:
+-30362.396484 12229.836914  
+Received data for process last:
+-13902.499023 6123.410645  
+-9970.113281 12229.836914  
+Received data for process first:
+-3938.008301 6123.410645  
+Received data for process first:
+2977.763184 22976.742188  
+Received data for process last:
+-9970.113281 22976.742188  
+Received data for process last:
+-3938.008301 -3565.328369  
+Received data for process last:
+Received data for process first:
+2977.763184 6123.410645  
+-3938.008301 -3565.328369  
+
+real	0m0.192s
+user	0m0.012s
+sys	0m0.007s

@@ -89,7 +89,7 @@ int main(int argc, char** argv){
 
 
     if (myrank == nprocs-1){
-        error = MPI_File_write_at(out, start_save, &buffer[2], end_save-start_save, MPI_BYTE, &status);
+        error = MPI_File_write_at(out, start_save, &buffer[2], end_save-start_save-4, MPI_BYTE, &status);
     	if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_write");
     }
     else if(myrank == 0){
@@ -102,9 +102,10 @@ int main(int argc, char** argv){
     }
     
 
+
     /* close the file */
     MPI_File_close(&out);
-
+    free(buffer);
     /* Finalize MPI */
     MPI_Finalize();
   
