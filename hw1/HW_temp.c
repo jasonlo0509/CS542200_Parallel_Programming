@@ -71,7 +71,7 @@ int main(int argc, char** argv){
     }
     else{
     	start -= 2*4;
-        end = start + (length+2)*4;//-2;
+        end = start + (length+4)*4;//-2;
     }
     fprintf(stdout, "Proc %d: range = [%d, %d)\n", myrank, start, end);
 
@@ -107,9 +107,6 @@ int main(int argc, char** argv){
                 buffer[1]=recv[1];
                 printf("Received data for process last:\n");
                 printf("%f %f  \n", recv[0],recv[1]);
-                for (int i=0; i<(end-start)/4; i++)
-                    printf("%f ", buffer[i]);
-                printf("\n");
             }
             if ( myrank *length %2 ==0  ){
                 // even swap
@@ -165,9 +162,6 @@ int main(int argc, char** argv){
                 buffer[(end-start)/4-1]=recv[1];
                 printf("Received data for process first:\n");
                 printf("%f %f  \n", recv[0],recv[1]);
-                for (int i=0; i<(end-start)/4; i++)
-                    printf("%f ", buffer[i]);
-                printf("\n");
             }
             // even swap
             for (i = 0; i<(end-start)/4-2; i+=2){
@@ -196,10 +190,68 @@ int main(int argc, char** argv){
         }
     }
     else{
-    	error = MPI_File_write_at(out, start_save, &buffer[2], end_save-start_save, MPI_BYTE, &status);
-    	if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_write");
+    	float *recv_left, *recv_right;
+        recv_left = (float*)malloc(2*sizeof(float));
+        recv_right = (float*)malloc(2*sizeof(float));
+        for (phase = 0; phase < (int)(filesize/4/2) && stop_recv != nprocs; phase++){
+            stop = 1;
+            stop_recv = 0;
+            if (phase != 0){
+                MPI_Recv(&recv_left[0], 2, MPI_FLOAT, myrank-1, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+                buffer[0]=recv_left[0];
+                buffer[1]=recv_left[1];
+                MPI_Recv(&recv_right[0], 2, MPI_FLOAT, myrank+1, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+                buffer[(end-start)/4-2]=recv_right[0];
+                buffer[(end-start)/4-1]=recv_right[1];
+                printf("Received data for process middle:\n");
+                printf("%f %f  \n", recv_left[0],recv_left[1]);
+                printf("%f %f  \n", recv_right[0],recv_right[1]);
+                for (int i=0; i<(end-start)/4; i++)
+                    printf("%f ", buffer[i]);
+                printf("\n");
+            }
+            if ( myrank *length %2 ==0  ){
+                // even swap
+                for (i = 0; i<(end-start)/4-1; i+=2){
+                    if(buffer[i]>buffer[i+1]){
+                        swap(&buffer[i], &buffer[i+1]);
+                        stop = 0;
+                    }
+                }
+                // odd swap
+                for (i = 2;i<(end-start)/4; i+=2 ){
+                    if(buffer[i-1]>buffer[i]){
+                        swap(&buffer[i-1], &buffer[i]);
+                        stop = 0;
+                    }
+                }
+            }
+            else{
+                // even swap
+                for (i = 1; i<(end-start)/4-1; i+=2){
+                    if(buffer[i]>buffer[i+1]){
+                        swap(&buffer[i], &buffer[i+1]);
+                        stop = 0;
+                    }
+                }
+                // odd swap
+                for (i=1; i<(end-start)/4; i += 2){
+                    if(buffer[i-1]>buffer[i]){
+                        swap(&buffer[i-1], &buffer[i]);
+                        stop = 0;
+                    }
+                }
+            }
+            MPI_Send(&buffer[2], 2, MPI_FLOAT,myrank-1, 0, MPI_COMM_WORLD);
+            MPI_Send(&buffer[(end-start)/4-4], 2, MPI_FLOAT,myrank+1, 0, MPI_COMM_WORLD);
+            MPI_Barrier(MPI_COMM_WORLD);
+            MPI_Allreduce(&stop, &stop_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
+            if(stop_recv==nprocs || phase == (int)(filesize/4/2)-1){
+                error = MPI_File_write_at(out, start_save, &buffer[2], end_save-start_save, MPI_BYTE, &status);
+                if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_write");
+            }    
+        }
     }
-    
     /* close the file */
     MPI_File_close(&out);
     free(buffer);
