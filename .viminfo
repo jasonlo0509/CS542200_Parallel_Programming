@@ -8,8 +8,9 @@
 # hlsearch on (H) or off (h):
 ~H
 # Command Line History (newest to oldest):
-:q!
 :wq
+:q!
+:q1
 :w
 
 # Search String History (newest to oldest):
@@ -43,20 +44,34 @@
 	;
 
 # File marks:
-'0  69  41  ~/hw1/MPIIO.c
-'1  60  36  ~/hw1/MPIIO.c
-'2  211  4  ~/hw1/HW1_103061108_basic.c
-'3  212  19  ~/hw1/HW1_103061108_basic.c
-'4  217  29  ~/hw1/HW1_103061108_basic.c
-'5  216  34  ~/hw1/HW1_103061108_basic.c
-'6  26  24  ~/hw1/HW1_103061108_basic.c
-'7  215  45  ~/hw1/HW1_103061108_basic.c
-'8  218  5  ~/hw1/HW1_103061108_basic.c
-'9  329  3  ~/hw1/HW1_103061108_basic.c
+'0  81  19  ~/hw1/MPIIO.c
+'1  73  4  ~/hw1/MPIIO.c
+'2  74  14  ~/hw1/MPIIO.c
+'3  59  10  ~/hw1/MPIIO.c
+'4  77  4  ~/hw1/MPIIO.c
+'5  79  14  ~/hw1/MPIIO.c
+'6  61  30  ~/hw1/MPIIO.c
+'7  75  23  ~/hw1/MPIIO.c
+'8  1  0  ~/MPIIO.c
+'9  58  23  ~/hw1/MPIIO.c
 
 # Jumplist (newest first):
--'  69  41  ~/hw1/MPIIO.c
--'  60  4  ~/hw1/MPIIO.c
+-'  81  19  ~/hw1/MPIIO.c
+-'  73  4  ~/hw1/MPIIO.c
+-'  74  1  ~/hw1/MPIIO.c
+-'  59  9  ~/hw1/MPIIO.c
+-'  77  4  ~/hw1/MPIIO.c
+-'  79  5  ~/hw1/MPIIO.c
+-'  61  10  ~/hw1/MPIIO.c
+-'  75  2  ~/hw1/MPIIO.c
+-'  58  10  ~/hw1/MPIIO.c
+-'  1  0  ~/MPIIO.c
+-'  90  4  ~/hw1/MPIIO.c
+-'  82  4  ~/hw1/MPIIO.c
+-'  92  4  ~/hw1/MPIIO.c
+-'  66  4  ~/hw1/MPIIO.c
+-'  64  0  ~/hw1/MPIIO.c
+-'  70  4  ~/hw1/MPIIO.c
 -'  1  0  ~/hw1/MPIIO.c
 -'  211  4  ~/hw1/HW1_103061108_basic.c
 -'  212  4  ~/hw1/HW1_103061108_basic.c
@@ -138,29 +153,66 @@
 -'  249  2  ~/hw1/HW1_103061108_basic.c
 -'  248  16  ~/hw1/HW1_103061108_basic.c
 -'  245  40  ~/hw1/HW1_103061108_basic.c
--'  320  8  ~/hw1/HW1_103061108_basic.c
--'  247  16  ~/hw1/HW1_103061108_basic.c
--'  221  13  ~/hw1/HW1_103061108_basic.c
--'  323  8  ~/hw1/HW1_103061108_basic.c
--'  250  2  ~/hw1/HW1_103061108_basic.c
--'  321  8  ~/hw1/HW1_103061108_basic.c
--'  69  1  ~/hw1/IO.c
--'  65  1  ~/hw1/IO.c
--'  71  1  ~/hw1/IO.c
--'  71  8  ~/hw1/HW1_103061108_basic.c
--'  69  1  ~/hw1/IO.c
--'  65  1  ~/hw1/IO.c
--'  71  1  ~/hw1/IO.c
--'  60  8  ~/hw1/HW1_103061108_basic.c
--'  103  32  ~/hw1/HW1_103061108_basic.c
 
 # History of marks within files (newest to oldest):
 
 > ~/hw1/MPIIO.c
-	"	69	41
-	^	60	37
-	.	61	36
-	+	61	36
+	"	81	19
+	^	81	20
+	.	81	19
+	+	62	36
+	+	59	9
+	+	61	31
+	+	89	17
+	+	90	4
+	+	89	17
+	+	90	41
+	+	59	18
+	+	61	30
+	+	92	16
+	+	97	16
+	+	92	29
+	+	59	10
+	+	92	5
+	+	59	19
+	+	61	31
+	+	59	19
+	+	55	3
+	+	54	15
+	+	59	15
+	+	61	29
+	+	71	57
+	+	90	69
+	+	59	9
+	+	58	24
+	+	68	4
+	+	73	20
+	+	74	3
+	+	76	3
+	+	74	10
+	+	23	20
+	+	74	24
+	+	75	12
+	+	76	14
+	+	75	23
+	+	61	32
+	+	79	4
+	+	81	3
+	+	79	30
+	+	80	23
+	+	81	17
+	+	76	5
+	+	78	3
+	+	77	4
+	+	59	18
+	+	61	30
+	+	59	10
+	+	74	14
+	+	73	5
+	+	81	19
+
+> ~/MPIIO.c
+	"	1	0
 
 > ~/hw1/HW1_103061108_basic.c
 	"	216	4
