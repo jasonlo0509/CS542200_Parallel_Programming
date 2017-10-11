@@ -81,7 +81,7 @@ int main(int argc, char** argv){
     	start -= 4;
         end = start + (length+2)*4;//-2;
     }
-    fprintf(stdout, "Proc %d: range = [%d, %d)\n", myrank, start, end);
+    //fprintf(stdout, "Proc %d: range = [%d, %d)\n", myrank, start, end);
 
     /* Allocate space */
     buffer = (float *)malloc((end - start) * sizeof(float));
@@ -91,9 +91,9 @@ int main(int argc, char** argv){
     MPI_File_seek(fh, start, MPI_SEEK_SET);
     error = MPI_File_read(fh, buffer, end-start, MPI_BYTE, &status);
     if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_read");
-    for (int i=0; i<(end-start)/4; i++){
+    /*for (int i=0; i<(end-start)/4; i++){
     	printf("%f ", buffer[i]);
-    }printf("\n");
+    }printf("\n");*/
     /* close the file */
     MPI_File_close(&fh);
 
@@ -107,7 +107,7 @@ int main(int argc, char** argv){
         start = start_save;
         for (phase = 0; phase < (int)(filesize/4) && stop != 1; phase++){
             stop = 1;
-            printf("(last)phase = %d\n", phase);
+            //printf("(last)phase = %d\n", phase);
             if(phase%2==0){
                 // even swap
                 for (i = 0; i<(end-start)/4-1; i+=2){
@@ -126,11 +126,11 @@ int main(int argc, char** argv){
                     }
                 }
             }
-            printf("Last process data after\n");
+            /*printf("Last process data after\n");
             for (int i=0; i<(end-start)/4; i++)
                 printf("%f ", buffer[i]);
-            
-            error = MPI_File_write_at(out, start_save, &buffer[0], end_save-start_save, MPI_BYTE, &status);
+            */
+            error = MPI_File_write_at(out, start_save, &buffer[1], end_save-start_save, MPI_BYTE, &status);
             if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_write");
         }
     }
@@ -140,7 +140,12 @@ int main(int argc, char** argv){
         for (phase = 0; phase < (int)(filesize/4) && stop_recv != nprocs; phase++){
             stop = 1;
             stop_recv = 0;
-            printf("(last)phase = %d\n", phase);
+            if (phase != 0){
+                MPI_Recv(&recv, 1, MPI_FLOAT, nprocs-2, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+                buffer[0]=recv;
+                //printf("First : %f \n", recv);
+            }
+            //printf("(last)phase = %d\n", phase);
             if (phase%2==0){
                 if ( myrank *length %2 ==0  ){
                     // even swap
@@ -181,9 +186,9 @@ int main(int argc, char** argv){
                     }
                 }
             }
-            printf("Last process data after\n");
+            /*printf("Last process data after\n");
             for (int i=0; i<(end-start)/4; i++)
-                printf("%f ", buffer[i]);
+                printf("%f ", buffer[i]);*/
             if(phase==0)
                 MPI_Isend(&buffer[1], 1, MPI_FLOAT, nprocs-2, 0, MPI_COMM_WORLD, &req);
             else{
@@ -194,8 +199,8 @@ int main(int argc, char** argv){
             
         
             if(stop_recv==nprocs || phase == (int)(filesize/4)){
-                    error = MPI_File_write_at(out, start_save, &buffer[1], end_save-start_save, MPI_BYTE, &status);
-                    if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_write");
+                error = MPI_File_write_at(out, start_save, &buffer[1], end_save-start_save, MPI_BYTE, &status);
+                if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_write");
             }
         }
     }   
@@ -205,11 +210,11 @@ int main(int argc, char** argv){
         for (phase = 0; phase < (int)(filesize/4) && stop_recv != nprocs; phase++){
             stop = 1;
             stop_recv = 0;
-            printf("(first)phase = %d\n", phase);
+            //printf("(first)phase = %d\n", phase);
             if (phase != 0){
                 MPI_Recv(&recv, 1, MPI_FLOAT, 1, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
                 buffer[(end-start)/4-1]=recv;
-                printf("First : %f \n", recv);
+                //printf("First : %f \n", recv);
             }
             if(phase%2==0){
                 // even swap
@@ -229,9 +234,9 @@ int main(int argc, char** argv){
                     }
                 }
             }
-            printf("First process data after\n");
-            for (int i=0; i<(end-start)/4; i++)
-                printf("%f ", buffer[i]);
+            //printf("First process data after\n");
+            /*for (int i=0; i<(end-start)/4; i++)
+                printf("%f ", buffer[i]);*/
             if(phase==0)
                 MPI_Isend(&buffer[(end-start)/4-2], 1, MPI_FLOAT, 1, 0, MPI_COMM_WORLD, &req);
             else{
@@ -252,7 +257,7 @@ int main(int argc, char** argv){
         for (phase = 0; phase < (int)(filesize/4) && stop_recv != nprocs; phase++){
             stop = 1;
             stop_recv = 0;
-            printf("(middle)phase = %d\n", phase);
+            //printf("(middle)phase = %d\n", phase);
             if (phase != 0){
                 MPI_Recv(&recv_l, 1, MPI_FLOAT, myrank-1, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
                 buffer[0]=recv_l;
@@ -300,9 +305,9 @@ int main(int argc, char** argv){
                     }
                 }
             }
-            printf("middle process data after\n");
+            /*printf("middle process data after\n");
             for (int i=0; i<(end-start)/4; i++)
-                printf("%f ", buffer[i]);
+                printf("%f ", buffer[i]);*/
             if(phase==0){
                 MPI_Isend(&buffer[1], 1, MPI_FLOAT, myrank-1, 0, MPI_COMM_WORLD, &req);
                 MPI_Isend(&buffer[(end-start)/4-2], 1, MPI_FLOAT, myrank+1, 0, MPI_COMM_WORLD, &req);

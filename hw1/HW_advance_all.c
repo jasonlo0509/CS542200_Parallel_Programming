@@ -121,16 +121,17 @@ int main(int argc, char** argv){
 
     if (myrank == nprocs-1){
         float* merge_buf;
-        int i_other, i_self, self_end, other_end;
+        int i_other, i_self, self_end, other_end, stop, stop_recv;
         other = (float *)malloc(length * sizeof(float));
         merge_buf = (float *)malloc((end_left-start_left) * sizeof(float));
-        for (phase==0; phase<filesize/4/length; phase++){
-            MPI_Barrier(MPI_COMM_WORLD);
+        for (phase==0; phase<filesize/4/length && stop_recv !=nprocs; phase++){
+            //MPI_Barrier(MPI_COMM_WORLD);
             i_other=length-1;
             i_self=(end_save-start_save)/4-1;
             self_end=0;
             other_end=0;
-            
+            stop = 1;
+            stop_recv =0;
             if(myrank%2==0){
                 if(phase%2!=0){
                     MPI_Send(local_buf, (end_save-start_save)/4, MPI_FLOAT, myrank-1, 0, MPI_COMM_WORLD);
@@ -153,12 +154,14 @@ int main(int argc, char** argv){
                                     self_end=1;
                                 }
                             }else{
+                                stop=0;
                                 merge_buf[i]=other[i_other];
                                 i_other --;
                             }
                         }
                         else{
                             if(i_other>=0 && other_end==0){
+                                stop=0;
                                 merge_buf[i]=other[i_other];
                                 if(i_other>0){
                                     i_other --;
@@ -203,12 +206,14 @@ int main(int argc, char** argv){
                                     self_end=1;
                                 }
                             }else{
+                                stop=0;
                                 merge_buf[i]=other[i_other];
                                 i_other --;
                             }
                         }
                         else{
                             if(i_other>=0 && other_end==0){
+                                stop=0;
                                 merge_buf[i]=other[i_other];
                                 if(i_other>0){
                                     i_other --;
@@ -231,27 +236,29 @@ int main(int argc, char** argv){
                     }printf("\n");
                 }
             }
- 
-            
+            MPI_Barrier(MPI_COMM_WORLD);
+            MPI_Allreduce(&stop, &stop_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);           
         }
         error = MPI_File_write_at(out, start_save, &local_buf[0], end_save-start_save, MPI_BYTE, &status);
     	if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_write");
     }
     else if(myrank == 0){
-        int i_other, i_self, self_end, other_end;
+        int i_other, i_self, self_end, other_end, stop, stop_recv;
         float* merge_buf;
         other = (float *)malloc((end_right-end_save) * sizeof(float));
         merge_buf = (float *)malloc((end_right - start_right) * sizeof(float));
-        for (phase==0; phase<filesize/4/length; phase++){
+        for (phase==0; phase<filesize/4/length && stop_recv != nprocs; phase++){
             /*printf("local local_buf:\n");
             for (int i=0; i<(end_save-start_save)/4; i++){
                 printf("%f ", local_buf[i]);
             }printf("\n");*/
-            MPI_Barrier(MPI_COMM_WORLD);
+            //MPI_Barrier(MPI_COMM_WORLD);
             i_other=0;
             i_self=0;
             self_end=0;
             other_end=0;
+            stop = 1;
+            stop_recv =0;
             // right side is bounded by filesize
             if(myrank%2==0){
                 if(phase%2==0){
@@ -279,12 +286,14 @@ int main(int argc, char** argv){
                                 }
                             }
                             else{
+                                stop=0;
                                 merge_buf[i]=other[i_other];
                                 i_other++;
                             }
                         }
                         else{
                             if(i_other<(end_right-end_save)/4 && other_end==0){
+                                stop=0;
                                 merge_buf[i]=other[i_other];
                                 if(i_other<(end_right-end_save)/4-1){
                                     i_other++;
@@ -304,19 +313,21 @@ int main(int argc, char** argv){
                     }
                 }
             }
+            MPI_Barrier(MPI_COMM_WORLD);
+            MPI_Allreduce(&stop, &stop_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD); 
         }
         error = MPI_File_write_at(out, start_save, &local_buf[0], end_save-start_save, MPI_BYTE, &status);
         if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_write");
     }
     else{
-        int i_other_left, i_self_left, i_other_right, i_self_right, self_end, other_end;
+        int i_other_left, i_self_left, i_other_right, i_self_right, self_end, other_end, stop, stop_recv;
         float *merge_buf_left, *merge_buf_right, *other_left, *other_right;
         other_right = (float *)malloc((end_right-end_save) * sizeof(float));
         other_left = (float *)malloc((start_save- start_left) * sizeof(float));
         merge_buf_right = (float *)malloc((end_right - start_right ) * sizeof(float));
         merge_buf_left = (float *)malloc((end_left - start_left ) * sizeof(float));
-        for (phase==0; phase<filesize/4/length; phase++){
-            MPI_Barrier(MPI_COMM_WORLD);
+        for (phase==0; phase<filesize/4/length && stop_recv !=nprocs; phase++){
+            //MPI_Barrier(MPI_COMM_WORLD);
             printf("phase=%d\n", phase);
             i_other_left = length-1;
             i_self_left = (end_save-start_save)/4-1;
@@ -324,6 +335,8 @@ int main(int argc, char** argv){
             i_self_right = 0;
             self_end=0;
             other_end=0;
+            stop = 1;
+            stop_recv =0;
             /*if(phase%2!=0){
                 
             }*/
@@ -352,12 +365,14 @@ int main(int argc, char** argv){
                                 }
                             }
                             else{
+                                stop=0;
                                 merge_buf_right[i]=other_right[i_other_right];
                                 i_other_right++;
                             }
                         }
                         else{
                             if(i_other_right<(end_right-end_save)/4 && other_end==0){
+                                stop=0;
                                 merge_buf_right[i]=other_right[i_other_right];
                                 if(i_other_right<(end_right-end_save)/4-1){
                                     i_other_right++;
@@ -397,12 +412,14 @@ int main(int argc, char** argv){
                                     self_end=1;
                                 }
                             }else{
+                                stop=0;
                                 merge_buf_left[i]=other_left[i_other_left];
                                 i_other_left --;
                             }
                         }
                         else{
                             if(i_other_left>=0 && other_end==0){
+                                stop=0;
                                 merge_buf_left[i]=other_left[i_other_left];
                                 if(i_other_left>0){
                                     i_other_left --;
@@ -418,7 +435,7 @@ int main(int argc, char** argv){
                         }
                     }
                     for(i=0;i<(end_save-start_save)/4; i++){
-                            local_buf[i]=merge_buf_left[length+i];
+                        local_buf[i]=merge_buf_left[length+i];
                     }
                     printf("middle(2) Received(left):\n");
                     for (int i=0; i<(start_save-start_left)/4; i++){
@@ -443,12 +460,14 @@ int main(int argc, char** argv){
                                 }
                             }
                             else{
+                                stop=0;
                                 merge_buf_left[i]=other_left[i_other_left];
                                 i_other_left --;
                             }
                         }
                         else{
                             if(i_other_left>=0 && other_end==0){
+                                stop=0;
                                 merge_buf_left[i]=other_left[i_other_left];
                                 if(i_other_left>0){
                                     i_other_left --;
@@ -483,12 +502,14 @@ int main(int argc, char** argv){
                                 }
                             }
                             else{
+                                stop=0;
                                 merge_buf_right[i]=other_right[i_other_right];
                                 i_other_right++;
                             }
                         }
                         else{
                             if(i_other_right<(end_right-end_save)/4 && other_end==0){
+                                stop=0;
                                 merge_buf_right[i]=other_right[i_other_right];
                                 if(i_other_right<(end_right-end_save)/4-1){
                                     i_other_right++;
@@ -508,6 +529,8 @@ int main(int argc, char** argv){
                     }
                 }
             }
+            MPI_Barrier(MPI_COMM_WORLD);
+            MPI_Allreduce(&stop, &stop_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
         }    
     	error = MPI_File_write_at(out, start_save, &local_buf[0], end_save-start_save, MPI_BYTE, &status);
     	if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_write");
