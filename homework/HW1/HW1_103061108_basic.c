@@ -107,10 +107,7 @@ int main(int argc, char** argv){
     MPI_File_seek(fh, start, MPI_SEEK_SET);
     error = MPI_File_read(fh, buffer, end-start, MPI_BYTE, &status);
     if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_read");
-    for (int i=0; i<(end-start)/4; i++){
-    	printf("%f ", buffer[i]);
-    }printf("\n");
-    printf("Start!!!!!!!!!\n");
+
     /* close the file */
     MPI_File_close(&fh);
     
@@ -129,7 +126,6 @@ int main(int argc, char** argv){
         start = start_save;
         for (phase = 0; phase < (int)(filesize/4) && stop != 1; phase++){
             stop = 1;
-            printf("(last)phase = %d\n", phase);
             if(phase%2==0){
                 // even swap
                 for (i = 0; i<(end-start)/4-1; i+=2){
@@ -148,10 +144,7 @@ int main(int argc, char** argv){
                     }
                 }
             }
-            /*printf("Last process data after\n");
-            for (int i=0; i<(end-start)/4; i++)
-                printf("%f ", buffer[i]);
-            */
+
             begin_IO = clock();
             error = MPI_File_write_at(out, start_save, &buffer[0], end_save-start_save, MPI_BYTE, &status);
             if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_write");
@@ -168,14 +161,12 @@ int main(int argc, char** argv){
         stop_recv = 0;
         //recv = (float*)malloc(1*sizeof(float));
         for (phase = 0; phase < (int)(filesize/4) && stop_recv != truenum; phase++){
-            printf("(last)phase = %d\n", phase);
             stop = 1;
             stop_recv = 0;
             clock_t start_comm = clock();
             if (phase != 0){
                 MPI_Recv(&recv, 1, MPI_FLOAT, nprocs-2, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
                 buffer[0]=recv;
-                printf("First : %f \n", recv);
             }
             clock_t end_comm = clock();
             com_time += (end_comm - start_comm);
@@ -220,17 +211,12 @@ int main(int argc, char** argv){
                     }
                 }
             }
-            printf("Last process data after\n");
-            for (int i=0; i<(end-start)/4; i++)
-                printf("%f ", buffer[i]);
             start_comm = clock();
             if(phase==0)
                 MPI_Isend(&buffer[1], 1, MPI_FLOAT, nprocs-2, 0, MPI_COMM_WORLD, &req);
             else{
                 MPI_Send(&buffer[1], 1, MPI_FLOAT,nprocs-2, 0, MPI_COMM_WORLD);
-                printf("Barrier\n");
                 MPI_Barrier(MPI_COMM_WORLD);
-                printf("Stuck\n");
                 MPI_Allreduce(&stop, &stop_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
             }
             end_comm = clock();
@@ -244,7 +230,6 @@ int main(int argc, char** argv){
             IO_time += (end_IO - begin_IO);
         }
         free(buffer);
-        printf("Final last!");
         MPI_Barrier(MPI_COMM_WORLD);
         MPI_File_close(&out);
         MPI_Finalize();
@@ -256,12 +241,10 @@ int main(int argc, char** argv){
         for (phase = 0; phase < (int)(filesize/4) && stop_recv != truenum; phase++){
             stop = 1;
             stop_recv = 0;
-            printf("(first)phase = %d\n", phase);
             clock_t start_comm = clock();
             if (phase != 0){
                 MPI_Recv(&recv, 1, MPI_FLOAT, 1, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
                 buffer[(end-start)/4-1]=recv;
-                //printf("First : %f \n", recv);
             }
             clock_t end_comm = clock();
             com_time += (end_comm - start_comm);
@@ -283,31 +266,24 @@ int main(int argc, char** argv){
                     }
                 }
             }
-            printf("First process data after\n");
-            for (int i=0; i<(end-start)/4; i++)
-                printf("%f ", buffer[i]);
             start_comm = clock();
             if(phase==0)
                 MPI_Isend(&buffer[(end-start)/4-2], 1, MPI_FLOAT, 1, 0, MPI_COMM_WORLD, &req);
             else{
                 MPI_Send(&buffer[(end-start)/4-2], 1, MPI_FLOAT,1, 0, MPI_COMM_WORLD);
-                printf("Barrier\n");
                 MPI_Barrier(MPI_COMM_WORLD);
-                printf("Stuck\n");
                 MPI_Allreduce(&stop, &stop_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
             }
             end_comm = clock();
             com_time += (end_comm - start_comm);
             begin_IO = clock();
             if(stop_recv==truenum || phase == (int)(filesize/4)){
-                printf("fuck!\n");
                 error = MPI_File_write_at(out, start_save, &buffer[0], end_save-start_save, MPI_BYTE, &status);
                 if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_write");
             }
             end_IO = clock();
             IO_time += (end_IO - begin_IO);    
         }
-        printf("Final 0!");
         MPI_Barrier(MPI_COMM_WORLD);
         MPI_File_close(&out);
         free(buffer);
@@ -327,7 +303,6 @@ int main(int argc, char** argv){
                 buffer[0]=recv_l;
                 MPI_Recv(&recv_r, 1, MPI_FLOAT, myrank+1, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
                 buffer[(end-start)/4-1]=recv_r;
-                printf("Phase = %d, Last : %f \n", phase, recv_r);
             }
             clock_t end_comm = clock();
             com_time += (end_comm - start_comm);
@@ -371,9 +346,6 @@ int main(int argc, char** argv){
                     }
                 }
             }
-            /*printf("middle process data after\n");
-            for (int i=0; i<(end-start)/4; i++)
-                printf("%f ", buffer[i]);*/
             start_comm = clock();
             if(phase==0){
                 MPI_Isend(&buffer[1], 1, MPI_FLOAT, myrank-1, 0, MPI_COMM_WORLD, &req);
@@ -382,9 +354,7 @@ int main(int argc, char** argv){
             else{
                 MPI_Send(&buffer[1], 1, MPI_FLOAT,myrank-1, 0, MPI_COMM_WORLD);
                 MPI_Send(&buffer[(end-start)/4-2], 1, MPI_FLOAT,myrank+1, 0, MPI_COMM_WORLD);
-                printf("Barrier\n");
                 MPI_Barrier(MPI_COMM_WORLD);
-                printf("Stuck\n");
                 MPI_Allreduce(&stop, &stop_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
             }
             end_comm = clock();
@@ -398,10 +368,8 @@ int main(int argc, char** argv){
             IO_time += (end_IO - begin_IO);
         }
         free(buffer);
-        printf("Final middle!");
         MPI_Barrier(MPI_COMM_WORLD);
         MPI_File_close(&out);
-        printf("clocse????");
         
         MPI_Finalize();
         //MPI_Finalize();

@@ -1,0 +1,20 @@
+Proc 0: range = [0, 1000000)
+Proc 1: range = [1000000, 2000000)
+Proc 2: range = [2000000, 3000000)
+Proc 3: range = [3000000, 4000000)
+process(0) IO time = 0.000000
+process(0) logic time = 0.090000
+process(0) comm time = 0.020000
+process(2) IO time = 0.000000
+process(2) logic time = 0.090000
+process(2) comm time = 0.000000
+process(1) IO time = 0.000000
+process(1) logic time = 0.090000
+process(1) comm time = 0.000000
+process(3) IO time = 0.000000
+process(3) logic time = 0.090000
+process(3) comm time = 0.010000
+
+real	0m0.321s
+user	0m0.011s
+sys	0m0.011s
