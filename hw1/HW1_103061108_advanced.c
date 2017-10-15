@@ -33,7 +33,7 @@ void ErrorMessage(int error, int rank, char* string)
 }
 int main(int argc, char** argv){
 
-    int start, end, start_save, end_save, i, phase;
+    int start, end, start_save, end_save, i, phase, counter=0;
     int length;
     int error;
     float* local_buf;
@@ -73,7 +73,7 @@ int main(int argc, char** argv){
         end_left = filesize;
         start_left = start-length*4;
     }
-    else if(myrank == nprocs-2 && myrank!=0){//unsolved
+    else if(myrank == nprocs-2 && myrank!=0){
         start_left = start-length*4;
         end_left = end_save;
         start_right = start;
@@ -95,7 +95,7 @@ int main(int argc, char** argv){
         start_right = start;
         end_right = end_save+length*4;
     }
-    ///fprintf(stdout, "Proc %d: range = [%d, %d)\n", myrank, start_save, end_save);
+    fprintf(stdout, "Proc %d: range = [%d, %d)\n", myrank, start_save, end_save);
     
     /* Allocate space */
     clock_t begin_IO = clock();
@@ -123,7 +123,10 @@ int main(int argc, char** argv){
     IO_time += (end_IO - begin_IO);
     float* other;
     // sort the local data
-    qsort(local_buf, (end_save-start_save)/4, sizeof(float), cmpfunc);
+    if(length>1){
+        qsort(local_buf, (end_save-start_save)/4, sizeof(float), cmpfunc);
+    }
+
     if(nprocs==1){
         begin_IO = clock();
         error = MPI_File_write_at(out, start_save, &local_buf[0], end_save-start_save, MPI_BYTE, &status);
@@ -133,10 +136,10 @@ int main(int argc, char** argv){
     }
     else if (myrank == nprocs-1){
         float* merge_buf;
-        int i_other, i_self, self_end, other_end, stop, stop_recv;
+        int i_other, i_self, self_end, other_end, stop, stop_recv=0;
         other = (float *)malloc(length * sizeof(float));
         merge_buf = (float *)malloc((end_left-start_left) * sizeof(float));
-        for (phase==0; phase<filesize/4/length && stop_recv !=nprocs; phase++){
+        for (phase=0; phase<filesize/4/length*2 && counter!=2; phase++){
             //MPI_Barrier(MPI_COMM_WORLD);
             i_other=length-1;
             i_self=(end_save-start_save)/4-1;
@@ -149,6 +152,7 @@ int main(int argc, char** argv){
                     clock_t start_comm = clock();
                     MPI_Send(local_buf, (end_save-start_save)/4, MPI_FLOAT, myrank-1, 0, MPI_COMM_WORLD);
                     MPI_Recv(other, length, MPI_FLOAT, myrank-1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+                    
                     clock_t end_comm = clock();
                     com_time += (end_comm - start_comm);
                     //printf("local_buf = %f, %f\n", local_buf[i_self], local_buf[i_self-1]);
@@ -209,9 +213,9 @@ int main(int argc, char** argv){
                     /*printf("last local_buf:\n");
                     for (int i=0; i<(end_save-start_save)/4; i++){
                         printf("%f ", local_buf[i]);
-                    }printf("\n");*/
+                    }printf("\n");
                     //printf("local_buf = %f, %f\n", local_buf[i_self], local_buf[i_self-1]);
-                    //printf("other = %f, %f\n", other[i_other], other[i_other-1]);
+                    printf("other = %f\n", other[i_other]);*/
                     // merge two array
                     for(i=(end_left-start_left)/4-1;i>=length; i--){
                         if(local_buf[i_self]>other[i_other] ){
@@ -254,9 +258,21 @@ int main(int argc, char** argv){
                     }printf("\n");*/
                 }
             }
+            //printf("end logic\n");
             clock_t start_comm_out = clock();
             MPI_Barrier(MPI_COMM_WORLD);
+            //printf("stop = %d\n", stop);
+            stop_recv=0;
             MPI_Allreduce(&stop, &stop_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
+            
+            if(stop_recv==nprocs){
+                counter++;
+            }
+            else{
+                counter=0;
+            }
+            printf("counter = %d\n",counter);
+            printf("stop_recv = %d\n", stop_recv);
             clock_t end_comm_out = clock();
             com_time += (end_comm_out - start_comm_out);           
         }
@@ -271,7 +287,7 @@ int main(int argc, char** argv){
         float* merge_buf;
         other = (float *)malloc((end_right-end_save) * sizeof(float));
         merge_buf = (float *)malloc((end_right - start_right) * sizeof(float));
-        for (phase==0; phase<filesize/4/length && stop_recv != nprocs; phase++){
+        for (phase=0; phase<filesize/4/length*2 && counter!=2; phase++){
             /*printf("local local_buf:\n");
             for (int i=0; i<(end_save-start_save)/4; i++){
                 printf("%f ", local_buf[i]);
@@ -342,7 +358,14 @@ int main(int argc, char** argv){
             }
             clock_t start_comm = clock();
             MPI_Barrier(MPI_COMM_WORLD);
+            stop_recv=0;
             MPI_Allreduce(&stop, &stop_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD); 
+            if(stop_recv==nprocs){
+                counter++;
+            }
+            else{
+                counter=0;
+            }
             clock_t end_comm = clock();
             com_time += (end_comm - start_comm);
         }
@@ -359,7 +382,7 @@ int main(int argc, char** argv){
         other_left = (float *)malloc((start_save- start_left) * sizeof(float));
         merge_buf_right = (float *)malloc((end_right - start_right ) * sizeof(float));
         merge_buf_left = (float *)malloc((end_left - start_left ) * sizeof(float));
-        for (phase==0; phase<filesize/4/length && stop_recv !=nprocs; phase++){
+        for (phase=0; phase<filesize/4/length*2 && counter!=2; phase++){
             //MPI_Barrier(MPI_COMM_WORLD);
             //printf("phase=%d\n", phase);
             i_other_left = length-1;
@@ -575,7 +598,14 @@ int main(int argc, char** argv){
             }
             clock_t start_comm_out = clock();
             MPI_Barrier(MPI_COMM_WORLD);
+            stop_recv=0;
             MPI_Allreduce(&stop, &stop_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
+            if(stop_recv==nprocs){
+                counter++;
+            }
+            else{
+                counter=0;
+            }
             clock_t end_comm_out = clock();
             com_time += (end_comm_out - start_comm_out);
 

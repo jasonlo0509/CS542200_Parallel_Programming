@@ -60,7 +60,7 @@ int main(int argc, char** argv){
 
     /* calculate the range for each process to read */
     length = (int)(ceil(filesize*1.0 / nprocs/4.0));
-    printf("length = %d\n", length);
+    //printf("length = %d\n", length);
     start = length * myrank * 4;
     start_save = length * myrank * 4;
     end_save = start_save + length*4;
@@ -76,8 +76,9 @@ int main(int argc, char** argv){
     	start -= 2*4;
         end = start + (length+4)*4;//-2;
     }
-    fprintf(stdout, "Proc %d: range = [%d, %d)\n", myrank, start, end);
-
+    //fprintf(stdout, "Proc %d: range = [%d, %d)\n", myrank, start, end);
+    clock_t begin_IO = clock();
+    clock_t IO_time = 0;
     /* Allocate space */
     buffer = (float *)malloc((end - start) * sizeof(float));
     if (buffer == NULL) ErrorMessage(-1, myrank, "malloc");
@@ -91,13 +92,14 @@ int main(int argc, char** argv){
     }printf("\n");*/
     /* close the file */
     MPI_File_close(&fh);
-
+    clock_t start_logic = clock();
+    clock_t com_time=0;
     /* Open file to write */
     error = MPI_File_open(MPI_COMM_WORLD, argv[2],
                   MPI_MODE_WRONLY | MPI_MODE_CREATE, MPI_INFO_NULL, &out);
     if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_open");
-    
-    clock_t begin_time = clock();
+    clock_t end_IO = clock();
+    IO_time += (end_IO - begin_IO);
     
     /* Main Logic + save file*/
     if (myrank == nprocs-1){
@@ -106,12 +108,15 @@ int main(int argc, char** argv){
         for (phase = 0; phase < (int)(filesize/4/2) && stop_recv != nprocs; phase++){
             stop = 1;
             stop_recv = 0;
+            clock_t start_comm = clock();
             if (phase != 0){
                 MPI_Recv(&recv[0], 2, MPI_FLOAT, nprocs-2, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
                 buffer[0]=recv[0];
                 buffer[1]=recv[1];
-                printf("Last : %f %f\n", recv[0], recv[1]);
+                //printf("Last : %f %f\n", recv[0], recv[1]);
             }
+            clock_t end_comm = clock();
+            com_time += (end_comm - start_comm);
             if ( myrank *length %2 ==0  ){
                 // even swap
                 for (i = 0; i<(end-start)/4-1; i+=2){
@@ -144,18 +149,19 @@ int main(int argc, char** argv){
                     }
                 }
             }
+            start_comm = clock();
             MPI_Send(&buffer[2], 2, MPI_FLOAT,nprocs-2, 0, MPI_COMM_WORLD);
             MPI_Barrier(MPI_COMM_WORLD);
             MPI_Allreduce(&stop, &stop_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
-            
+            end_comm = clock();
+            begin_IO = clock();
             if(stop_recv==nprocs || phase == (int)(filesize/4/2)-1){
                 error = MPI_File_write_at(out, start_save, &buffer[2], end_save-start_save, MPI_BYTE, &status);
                 if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_write");
-            }    
+            }
+            end_IO = clock();
+            IO_time += (end_IO - begin_IO);
         }
-        clock_t end_time_last = clock();
-        double time_spent_last = (double)(end_time_last - begin_time) / CLOCKS_PER_SEC;
-        printf("Total time(final proc)= %lf\n", time_spent_last);
     }
     else if(myrank == 0){
     	float* recv;
@@ -163,12 +169,15 @@ int main(int argc, char** argv){
         for (phase = 0; phase < (int)(filesize/4/2) && stop_recv != nprocs; phase++){
             stop = 1;
             stop_recv = 0;
+            clock_t start_comm = clock();
             if (phase != 0){
                 MPI_Recv(&recv[0], 2, MPI_FLOAT, 1, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
                 buffer[(end-start)/4-2]=recv[0];
                 buffer[(end-start)/4-1]=recv[1];
-                printf("First : %f %f\n", recv[0], recv[1]);
+                //printf("First : %f %f\n", recv[0], recv[1]);
             }
+            clock_t end_comm = clock();
+            com_time += (end_comm - start_comm);
             // even swap
             for (i = 0; i<(end-start)/4-1; i+=2){
                 if(buffer[i]>buffer[i+1]){
@@ -184,19 +193,20 @@ int main(int argc, char** argv){
                 }
             }
             
-
+            start_comm = clock();
             MPI_Send(&buffer[(end-start)/4-4], 2, MPI_FLOAT, 1, 0, MPI_COMM_WORLD);
             MPI_Barrier(MPI_COMM_WORLD);
             MPI_Allreduce(&stop, &stop_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
-            
+            end_comm = clock();
+            com_time += (end_comm - start_comm);
+            begin_IO = clock();
             if(stop_recv==nprocs || phase == (int)(filesize/4/2)-1){
                 error = MPI_File_write_at(out, start_save, &buffer[0], end_save-start_save, MPI_BYTE, &status);
                 if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_write");
-            }    
+            }
+            end_IO = clock();
+            IO_time += (end_IO - begin_IO);
         }
-        clock_t end_time_first = clock();
-        double time_spent_first = (double)(end_time_first - begin_time) / CLOCKS_PER_SEC;
-        printf("Total time(first proc)= %lf\n", time_spent_first);
     }
     else{
     	float *recv_left, *recv_right;
@@ -205,20 +215,23 @@ int main(int argc, char** argv){
         for (phase = 0; phase < (int)(filesize/4/2) && stop_recv != nprocs; phase++){
             stop = 1;
             stop_recv = 0;
+            clock_t start_comm = clock();
             if (phase != 0){
                 MPI_Recv(&recv_left[0], 2, MPI_FLOAT, myrank-1, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
                 buffer[0]=recv_left[0];
                 buffer[1]=recv_left[1];
-                printf("%d Middle(l) : %f %f\n", myrank, recv_left[0], recv_left[1]);
+                //printf("%d Middle(l) : %f %f\n", myrank, recv_left[0], recv_left[1]);
                 MPI_Recv(&recv_right[0], 2, MPI_FLOAT, myrank+1, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
                 buffer[(end-start)/4-2]=recv_right[0];
                 buffer[(end-start)/4-1]=recv_right[1];
-                printf("%d Middle(r) : %f %f\n", myrank, recv_right[0], recv_right[1]);
-                printf("rank = %d : ", myrank);
+                //printf("%d Middle(r) : %f %f\n", myrank, recv_right[0], recv_right[1]);
+                /*printf("rank = %d : ", myrank);
                 for (int i=0; i<(end-start)/4; i++)
                     printf("%f ", buffer[i]);
-                printf("\n");
+                printf("\n");*/
             }
+            clock_t end_comm = clock();
+            com_time += (end_comm - start_comm);
             if ( myrank *length %2 ==0  ){
                 // even swap
                 for (i = 0; i<(end-start)/4-1; i+=2){
@@ -251,22 +264,27 @@ int main(int argc, char** argv){
                     }
                 }
             }
+            start_comm = clock();
             MPI_Send(&buffer[2], 2, MPI_FLOAT,myrank-1, 0, MPI_COMM_WORLD);
             MPI_Send(&buffer[(end-start)/4-4], 2, MPI_FLOAT,myrank+1, 0, MPI_COMM_WORLD);
             MPI_Barrier(MPI_COMM_WORLD);
             MPI_Allreduce(&stop, &stop_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
+            end_comm = clock();
+            com_time += (end_comm - start_comm);
+            begin_IO = clock();
             if(stop_recv==nprocs || phase == (int)(filesize/4/2)-1){
                 error = MPI_File_write_at(out, start_save, &buffer[2], end_save-start_save, MPI_BYTE, &status);
                 if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_write");
-            }    
+            }
+            end_IO = clock();
+            IO_time += (end_IO - begin_IO);
         }
-        clock_t end_time_middle = clock();
-        double time_spent_middle = (double)(end_time_middle - begin_time) / CLOCKS_PER_SEC;
-        printf("Total time(middle proc)= %lf\n", time_spent_middle);
     }
-    clock_t end_time_total = clock();
-    double time_spent_total = (double)(end_time_total - begin_time) / CLOCKS_PER_SEC;
-    printf("Total time= %lf\n", time_spent_total);
+    clock_t end_logic = clock();
+    clock_t logic_time = end_logic- start_logic;
+    printf("process(%d) IO time = %lf\n", myrank, (double)(IO_time) / CLOCKS_PER_SEC);
+    printf("process(%d) logic time = %lf\n", myrank, (double)(logic_time) / CLOCKS_PER_SEC);
+    printf("process(%d) comm time = %lf\n", myrank, (double)(com_time) / CLOCKS_PER_SEC);
 
     /* close the file */
     MPI_File_close(&out);

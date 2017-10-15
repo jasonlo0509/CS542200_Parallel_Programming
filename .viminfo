@@ -10,6 +10,7 @@
 # Command Line History (newest to oldest):
 :wq
 :q!
+:Q!
 :q1
 :w
 
@@ -44,18 +45,24 @@
 	;
 
 # File marks:
-'0  81  19  ~/hw1/MPIIO.c
-'1  73  4  ~/hw1/MPIIO.c
-'2  74  14  ~/hw1/MPIIO.c
-'3  59  10  ~/hw1/MPIIO.c
-'4  77  4  ~/hw1/MPIIO.c
-'5  79  14  ~/hw1/MPIIO.c
-'6  61  30  ~/hw1/MPIIO.c
-'7  75  23  ~/hw1/MPIIO.c
-'8  1  0  ~/MPIIO.c
-'9  58  23  ~/hw1/MPIIO.c
+'0  10  15  ~/hw1/generate.c
+'1  1  0  ~/hw1/generate
+'2  3  26  ~/homework/HW1/Makefile
+'3  1  0  ~/homework/HW1/Makefile
+'4  1  0  /home/pp17/ta/hw1/Makefile
+'5  81  19  ~/hw1/MPIIO.c
+'6  73  4  ~/hw1/MPIIO.c
+'7  74  14  ~/hw1/MPIIO.c
+'8  59  10  ~/hw1/MPIIO.c
+'9  77  4  ~/hw1/MPIIO.c
 
 # Jumplist (newest first):
+-'  10  15  ~/hw1/generate.c
+-'  1  0  ~/hw1/generate
+-'  1  0  ~/hw1/generate.c
+-'  3  26  ~/homework/HW1/Makefile
+-'  1  0  ~/homework/HW1/Makefile
+-'  1  0  /home/pp17/ta/hw1/Makefile
 -'  81  19  ~/hw1/MPIIO.c
 -'  73  4  ~/hw1/MPIIO.c
 -'  74  1  ~/hw1/MPIIO.c
@@ -147,14 +154,26 @@
 -'  113  24  ~/hw1/HW1_103061108_basic.c
 -'  74  16  ~/hw1/HW1_103061108_basic.c
 -'  139  16  ~/hw1/HW1_103061108_basic.c
--'  220  2  ~/hw1/HW1_103061108_basic.c
--'  246  16  ~/hw1/HW1_103061108_basic.c
--'  322  8  ~/hw1/HW1_103061108_basic.c
--'  249  2  ~/hw1/HW1_103061108_basic.c
--'  248  16  ~/hw1/HW1_103061108_basic.c
--'  245  40  ~/hw1/HW1_103061108_basic.c
 
 # History of marks within files (newest to oldest):
+
+> ~/hw1/generate.c
+	"	10	15
+	^	10	16
+	.	10	16
+	+	10	16
+
+> ~/hw1/generate
+	"	1	0
+
+> ~/homework/HW1/Makefile
+	"	3	26
+	^	3	27
+	.	3	26
+	+	3	26
+
+> /home/pp17/ta/hw1/Makefile
+	"	1	0
 
 > ~/hw1/MPIIO.c
 	"	81	19
