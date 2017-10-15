@@ -12,7 +12,10 @@
 #include <stdio.h>
 #include <math.h>
 #include "mpi.h"
+<<<<<<< HEAD
 #include <time.h>
+=======
+>>>>>>> 10cb84a1d7b48105deeec05f4d3f89fe9f5d170b
 
 void swap(float *a ,float *b){
     float tmp;
@@ -43,7 +46,11 @@ int main(int argc, char** argv){
     MPI_File      fh, out;
     MPI_Offset    filesize;
 
+<<<<<<< HEAD
     if (argc != 4)
+=======
+    if (argc != 3)
+>>>>>>> 10cb84a1d7b48105deeec05f4d3f89fe9f5d170b
     {
           fprintf(stderr, "Usage: %s FileToRead FileToWrite\n", argv[0]);
           exit(-1);
@@ -55,7 +62,11 @@ int main(int argc, char** argv){
     MPI_Comm_rank(MPI_COMM_WORLD, &myrank);
 
     /* Open file to read */
+<<<<<<< HEAD
     error = MPI_File_open(MPI_COMM_WORLD, argv[2],
+=======
+    error = MPI_File_open(MPI_COMM_WORLD, argv[1],
+>>>>>>> 10cb84a1d7b48105deeec05f4d3f89fe9f5d170b
                   MPI_MODE_RDONLY, MPI_INFO_NULL, &fh);
     if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_open");
 
@@ -95,12 +106,18 @@ int main(int argc, char** argv){
         start_right = start;
         end_right = end_save+length*4;
     }
+<<<<<<< HEAD
     ///fprintf(stdout, "Proc %d: range = [%d, %d)\n", myrank, start_save, end_save);
     
     /* Allocate space */
     clock_t begin_IO = clock();
     clock_t IO_time = 0;
     clock_t start_logic = clock();
+=======
+    fprintf(stdout, "Proc %d: range = [%d, %d)\n", myrank, start_save, end_save);
+
+    /* Allocate space */
+>>>>>>> 10cb84a1d7b48105deeec05f4d3f89fe9f5d170b
     local_buf = (float *)malloc((end_save - start_save) * sizeof(float));
     if (local_buf == NULL) ErrorMessage(-1, myrank, "malloc");
 
@@ -114,6 +131,7 @@ int main(int argc, char** argv){
     /* close the file */
     MPI_File_close(&fh);
 
+<<<<<<< HEAD
     clock_t com_time=0;
     /* Open file to write */
     error = MPI_File_open(MPI_COMM_WORLD, argv[3],
@@ -132,6 +150,18 @@ int main(int argc, char** argv){
         IO_time += (end_IO - begin_IO);
     }
     else if (myrank == nprocs-1){
+=======
+    /* Open file to write */
+    error = MPI_File_open(MPI_COMM_WORLD, argv[2],
+                  MPI_MODE_WRONLY | MPI_MODE_CREATE, MPI_INFO_NULL, &out);
+    if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_open");
+
+    float* other;
+    // sort the local data
+    qsort(local_buf, (end_save-start_save)/4, sizeof(float), cmpfunc);
+
+    if (myrank == nprocs-1){
+>>>>>>> 10cb84a1d7b48105deeec05f4d3f89fe9f5d170b
         float* merge_buf;
         int i_other, i_self, self_end, other_end, stop, stop_recv;
         other = (float *)malloc(length * sizeof(float));
@@ -146,11 +176,16 @@ int main(int argc, char** argv){
             stop_recv =0;
             if(myrank%2==0){
                 if(phase%2!=0){
+<<<<<<< HEAD
                     clock_t start_comm = clock();
                     MPI_Send(local_buf, (end_save-start_save)/4, MPI_FLOAT, myrank-1, 0, MPI_COMM_WORLD);
                     MPI_Recv(other, length, MPI_FLOAT, myrank-1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
                     clock_t end_comm = clock();
                     com_time += (end_comm - start_comm);
+=======
+                    MPI_Send(local_buf, (end_save-start_save)/4, MPI_FLOAT, myrank-1, 0, MPI_COMM_WORLD);
+                    MPI_Recv(other, length, MPI_FLOAT, myrank-1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+>>>>>>> 10cb84a1d7b48105deeec05f4d3f89fe9f5d170b
                     //printf("local_buf = %f, %f\n", local_buf[i_self], local_buf[i_self-1]);
                     //printf("other = %f\n", other[i_other]);
                     /*printf("last local_buf:\n");
@@ -194,18 +229,29 @@ int main(int argc, char** argv){
                     for(i=0;i<(end_save-start_save)/4; i++){
                         local_buf[i]=merge_buf[length+i];
                     }
+<<<<<<< HEAD
                     /*for (int i=0; i<(end_save-start_save)/4; i++){
                         printf("%f ", local_buf[i]);
                     }printf("\n");*/
+=======
+                    for (int i=0; i<(end_save-start_save)/4; i++){
+                        printf("%f ", local_buf[i]);
+                    }printf("\n");
+>>>>>>> 10cb84a1d7b48105deeec05f4d3f89fe9f5d170b
                 }
             }
             else{
                 if(phase%2==0){
+<<<<<<< HEAD
                     clock_t start_comm = clock();
                     MPI_Send(local_buf, (end_save-start_save)/4, MPI_FLOAT, myrank-1, 0, MPI_COMM_WORLD);
                     MPI_Recv(other, length, MPI_FLOAT, myrank-1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
                     clock_t end_comm = clock();
                     com_time += (end_comm - start_comm);
+=======
+                    MPI_Send(local_buf, (end_save-start_save)/4, MPI_FLOAT, myrank-1, 0, MPI_COMM_WORLD);
+                    MPI_Recv(other, length, MPI_FLOAT, myrank-1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+>>>>>>> 10cb84a1d7b48105deeec05f4d3f89fe9f5d170b
                     /*printf("last local_buf:\n");
                     for (int i=0; i<(end_save-start_save)/4; i++){
                         printf("%f ", local_buf[i]);
@@ -249,6 +295,7 @@ int main(int argc, char** argv){
                     for(i=0;i<(end_save-start_save)/4; i++){
                         local_buf[i]=merge_buf[length+i];
                     }
+<<<<<<< HEAD
                     /*for (int i=0; i<(end_save-start_save)/4; i++){
                         printf("%f ", local_buf[i]);
                     }printf("\n");*/
@@ -265,6 +312,18 @@ int main(int argc, char** argv){
     	if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_write");
         end_IO = clock();
         IO_time += (end_IO - begin_IO);
+=======
+                    for (int i=0; i<(end_save-start_save)/4; i++){
+                        printf("%f ", local_buf[i]);
+                    }printf("\n");
+                }
+            }
+            MPI_Barrier(MPI_COMM_WORLD);
+            MPI_Allreduce(&stop, &stop_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);           
+        }
+        error = MPI_File_write_at(out, start_save, &local_buf[0], end_save-start_save, MPI_BYTE, &status);
+    	if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_write");
+>>>>>>> 10cb84a1d7b48105deeec05f4d3f89fe9f5d170b
     }
     else if(myrank == 0){
         int i_other, i_self, self_end, other_end, stop, stop_recv;
@@ -286,11 +345,16 @@ int main(int argc, char** argv){
             // right side is bounded by filesize
             if(myrank%2==0){
                 if(phase%2==0){
+<<<<<<< HEAD
                     clock_t start_comm_in = clock();
                     MPI_Recv(other, (end_right-end_save)/4, MPI_FLOAT, myrank+1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
                     MPI_Send(local_buf, length, MPI_FLOAT, myrank+1, 0, MPI_COMM_WORLD);
                     clock_t end_comm_in = clock();
                     com_time += (end_comm_in - start_comm_in);
+=======
+                    MPI_Recv(other, (end_right-end_save)/4, MPI_FLOAT, myrank+1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+                    MPI_Send(local_buf, length, MPI_FLOAT, myrank+1, 0, MPI_COMM_WORLD);
+>>>>>>> 10cb84a1d7b48105deeec05f4d3f89fe9f5d170b
                     //printf("Received\n");
                     /*printf("first local_buf:\n");
                     for (int i=0; i<(end_save-start_save)/4; i++){
@@ -340,6 +404,7 @@ int main(int argc, char** argv){
                     }
                 }
             }
+<<<<<<< HEAD
             clock_t start_comm = clock();
             MPI_Barrier(MPI_COMM_WORLD);
             MPI_Allreduce(&stop, &stop_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD); 
@@ -351,6 +416,13 @@ int main(int argc, char** argv){
         if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_write");
         end_IO = clock();
         IO_time += (end_IO - begin_IO);
+=======
+            MPI_Barrier(MPI_COMM_WORLD);
+            MPI_Allreduce(&stop, &stop_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD); 
+        }
+        error = MPI_File_write_at(out, start_save, &local_buf[0], end_save-start_save, MPI_BYTE, &status);
+        if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_write");
+>>>>>>> 10cb84a1d7b48105deeec05f4d3f89fe9f5d170b
     }
     else{
         int i_other_left, i_self_left, i_other_right, i_self_right, self_end, other_end, stop, stop_recv;
@@ -361,7 +433,11 @@ int main(int argc, char** argv){
         merge_buf_left = (float *)malloc((end_left - start_left ) * sizeof(float));
         for (phase==0; phase<filesize/4/length && stop_recv !=nprocs; phase++){
             //MPI_Barrier(MPI_COMM_WORLD);
+<<<<<<< HEAD
             //printf("phase=%d\n", phase);
+=======
+            printf("phase=%d\n", phase);
+>>>>>>> 10cb84a1d7b48105deeec05f4d3f89fe9f5d170b
             i_other_left = length-1;
             i_self_left = (end_save-start_save)/4-1;
             i_other_right = 0;
@@ -375,19 +451,29 @@ int main(int argc, char** argv){
             }*/
             if(myrank%2==0){
                 if(phase%2==0){
+<<<<<<< HEAD
                     clock_t start_comm = clock();
                     MPI_Recv(other_right, (end_right-end_save)/4, MPI_FLOAT, myrank+1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
                     MPI_Send(local_buf, length, MPI_FLOAT, myrank+1, 0, MPI_COMM_WORLD);
                     clock_t end_comm = clock();
                     com_time += (end_comm - start_comm);
                     /*printf("middle(2) local_buf:\n");
+=======
+                    MPI_Recv(other_right, (end_right-end_save)/4, MPI_FLOAT, myrank+1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+                    MPI_Send(local_buf, length, MPI_FLOAT, myrank+1, 0, MPI_COMM_WORLD);
+                    printf("middle(2) local_buf:\n");
+>>>>>>> 10cb84a1d7b48105deeec05f4d3f89fe9f5d170b
                     for (int i=0; i<(end_save-start_save)/4; i++){
                         printf("%f ", local_buf[i]);
                     }printf("\n");
                     printf("middle(2) Received(right):\n");
                     for (int i=0; i<(end_right-end_save)/4; i++){
                         printf("%f ", other_right[i]);
+<<<<<<< HEAD
                     }printf("\n");*/
+=======
+                    }printf("\n");
+>>>>>>> 10cb84a1d7b48105deeec05f4d3f89fe9f5d170b
                     // merge two array
                     for(i=0;i<length; i++){
                         if(local_buf[i_self_right]<other_right[i_other_right]){
@@ -428,6 +514,7 @@ int main(int argc, char** argv){
                     }
                 }
                 else{
+<<<<<<< HEAD
                     clock_t start_comm = clock();
                     MPI_Send(local_buf, length, MPI_FLOAT, myrank-1, 0, MPI_COMM_WORLD);
                     MPI_Recv(other_left, (start_save-start_left)/4, MPI_FLOAT, myrank-1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
@@ -438,6 +525,15 @@ int main(int argc, char** argv){
                     for (int i=0; i<(end_save-start_save)/4; i++){
                         printf("%f ", local_buf[i]);
                     }printf("\n");*/
+=======
+                    MPI_Send(local_buf, length, MPI_FLOAT, myrank-1, 0, MPI_COMM_WORLD);
+                    MPI_Recv(other_left, (start_save-start_left)/4, MPI_FLOAT, myrank-1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+                    // merge two array
+                    printf("middle(2) local_buf:\n");
+                    for (int i=0; i<(end_save-start_save)/4; i++){
+                        printf("%f ", local_buf[i]);
+                    }printf("\n");
+>>>>>>> 10cb84a1d7b48105deeec05f4d3f89fe9f5d170b
                     
                     // merge two array
                     for(i=(end_left-start_left)/4-1;i>=length; i--){
@@ -476,19 +572,32 @@ int main(int argc, char** argv){
                     for(i=0;i<(end_save-start_save)/4; i++){
                         local_buf[i]=merge_buf_left[length+i];
                     }
+<<<<<<< HEAD
                     /*printf("middle(2) Received(left):\n");
                     for (int i=0; i<(start_save-start_left)/4; i++){
                         printf("%f ", other_left[i]);
                     }printf("\n");*/
+=======
+                    printf("middle(2) Received(left):\n");
+                    for (int i=0; i<(start_save-start_left)/4; i++){
+                        printf("%f ", other_left[i]);
+                    }printf("\n");
+>>>>>>> 10cb84a1d7b48105deeec05f4d3f89fe9f5d170b
                 }
             }
             else{
                 if(phase%2==0){
+<<<<<<< HEAD
                     clock_t start_comm = clock();
                     MPI_Send(local_buf, (end_save-start_save)/4, MPI_FLOAT, myrank-1, 0, MPI_COMM_WORLD);
                     MPI_Recv(other_left, length, MPI_FLOAT, myrank-1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
                     clock_t end_comm = clock();
                     com_time += (end_comm - start_comm);
+=======
+                    MPI_Send(local_buf, (end_save-start_save)/4, MPI_FLOAT, myrank-1, 0, MPI_COMM_WORLD);
+                    MPI_Recv(other_left, length, MPI_FLOAT, myrank-1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+                    
+>>>>>>> 10cb84a1d7b48105deeec05f4d3f89fe9f5d170b
                     for(i=(end_left-start_left)/4-1;i>=length; i--){
                         if(local_buf[i_self_left]>other_left[i_other_left] ){
                             if(i_self_left>=0 && self_end==0){
@@ -528,11 +637,16 @@ int main(int argc, char** argv){
                     }
                 }
                 else{
+<<<<<<< HEAD
                     clock_t start_comm = clock();
                     MPI_Recv(other_right, (end_right-end_save)/4, MPI_FLOAT, myrank+1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
                     MPI_Send(local_buf, (end_save-start_save)/4, MPI_FLOAT, myrank+1, 0, MPI_COMM_WORLD);
                     clock_t end_comm = clock();
                     com_time += (end_comm - start_comm);
+=======
+                    MPI_Recv(other_right, (end_right-end_save)/4, MPI_FLOAT, myrank+1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+                    MPI_Send(local_buf, (end_save-start_save)/4, MPI_FLOAT, myrank+1, 0, MPI_COMM_WORLD);
+>>>>>>> 10cb84a1d7b48105deeec05f4d3f89fe9f5d170b
                     // merge two array
                     for(i=0;i<length; i++){
                         if(local_buf[i_self_right]<other_right[i_other_right]){
@@ -573,6 +687,7 @@ int main(int argc, char** argv){
                     }
                 }
             }
+<<<<<<< HEAD
             clock_t start_comm_out = clock();
             MPI_Barrier(MPI_COMM_WORLD);
             MPI_Allreduce(&stop, &stop_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
@@ -591,6 +706,15 @@ int main(int argc, char** argv){
     printf("process(%d) IO time = %lf\n", myrank, (double)(IO_time) / CLOCKS_PER_SEC);
     printf("process(%d) logic time = %lf\n", myrank, (double)(logic_time) / CLOCKS_PER_SEC);
     printf("process(%d) comm time = %lf\n", myrank, (double)(com_time) / CLOCKS_PER_SEC);
+=======
+            MPI_Barrier(MPI_COMM_WORLD);
+            MPI_Allreduce(&stop, &stop_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
+        }    
+    	error = MPI_File_write_at(out, start_save, &local_buf[0], end_save-start_save, MPI_BYTE, &status);
+    	if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_write");
+    }
+    
+>>>>>>> 10cb84a1d7b48105deeec05f4d3f89fe9f5d170b
 
 
     /* close the file */
