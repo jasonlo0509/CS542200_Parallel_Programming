@@ -1,446 +1,3 @@
-cd hw1/
-ls
-history | grep advance
-mpicc HW1_103061108_advanced.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_advance.o  1 million.bin output"
-cat slurm-26049.out 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o  1 million.bin output"
-cat slurm-26052.out 
-cat slurm-26049.out 
-sbatch -N 4 -n 16 -p batch --wrap="time srun ./HW_advance.o  1 million.bin output"
-cat slurm-26059.out 
-sbatch -N 4 -n 48 -p batch --wrap="time srun ./HW_advance.o  1 million.bin output"
-cat slurm-26073.out 
-who
-cd homework/HW1/
-make
-ls
-hw1-judge HW1_103061108_basic
-hw1-judge HW1_103061108_advanced
-squeue
-exit
-cd lab2/
-ls
-cat hello_pthread.c 
-gcc pi_pthread.c -o pi_pthread -lm
-gcc pi_pthread.c -o pi_pthread -lm -pthread
-srun -c 4 ./pi_pthread 4 500000
-gcc pi_pthread.c -o pi_pthread -lm -pthread
-clear
-gcc pi_pthread.c -o pi_pthread -lm -pthread
-srun -c 4 ./pi_pthread 4 500000
-gcc pi_pthread.c -o pi_pthread -lm -pthread
-srun -c 4 ./pi_pthread 4 500000
-gcc pi_pthread.c -o pi_pthread -lm -pthread
-srun -c 4 ./pi_pthread 4 500000
-gcc pi_pthread.c -o pi_pthread -lm -pthread
-srun -c 4 ./pi_pthread 4 500000
-gcc pi_pthread.c -o pi_pthread -lm -pthread
-srun -c 4 ./pi_pthread 4 500000
-gcc pi_pthread.c -o pi_pthread -lm -pthread
-srun -c 4 ./pi_pthread 4 500000
-top
-ls
-gcc pi_pthread.c -o pi_pthread -lm -pthread
-srun -c 4 ./pi_pthread 4 500000
-gcc pi_pthread.c -o pi_pthread -lm -pthread
-srun -c 4 ./pi_pthread 4 500000
-gcc pi_pthread.c -o pi_pthread -lm -pthread
-srun -c 4 ./pi_pthread 4 500000
-gcc pi_pthread.c -o pi_pthread -lm -pthread
-srun -c 4 ./pi_pthread 4 500000
-srun -c 4 ./pi_pthread 4 5000000000
-srun -c 4 ./pi_pthread 4 50000000
-gcc pi_pthread.c -o pi_pthread -lm -pthread
-srun -c 4 ./pi_pthread 4 50000000
-ls
-gcc pthread_cond.c -o pi_pthread -lm -pthread
-gcc pthread_cond.c -o pthread_cond -lm -pthread
-./pthread_cond 
-
-./pthread_cond 
-ls
-cat hello_omp.c 
-gcc hello_omp.c -o hello_omp -fopenmp
-srun -c 4 ./hello_omp
-srun -c 10 ./hello_omp
-srun -c 4 ./hello_omp
-srun -c 2 ./hello_omp
-srun -c 7 ./hello_omp
-ls
-vim prime.c 
-clear
-vim hello_hybrid.c 
-ls
-srun -c 4 ./pthread_cond 
-srun ./pthread_cond 
-./pthread_cond 
-ls
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 500000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 500000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 500000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 500000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 500000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 500000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 500000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 500000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 500000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 500000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 500000
-srun -c 3 -N 2 ./pi_hybrid 50
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 50000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 50000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 50000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 50000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 50000
-vim pi_hybrid.c 
-srun -c 3 -N 2 ./pi_hybrid 50000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 50000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 50000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 50000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 50000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 50000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 50000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 50000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 50000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 50000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 50000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 50000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 2 ./pi_hybrid 50000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun  -N 2 ./pi_hybrid 50000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun  -N 2 ./pi_hybrid 50000
-srun -c 3 -N 2 ./pi_hybrid 50000
-srun -c 3 -N 4 -p batch ./pi_hybrid 50000
-srun -c 3 -N 4 -p batch ./pi_hybrid 50000000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 4 -p batch ./pi_hybrid 50000000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 4 -p batch ./pi_hybrid 50000000
-srun -c 3 -N 1 -p batch ./pi_hybrid 50000000
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 1 -p batch ./pi_hybrid 50000000
-vim pi_hybrid.c 
-srun -c 3 -N 1 -p batch ./pi_hybrid 50000000
-vim pi_hybrid.c 
-vim ~/.viminfo 
-rm ~/.viminfo 
-vim pi_hybrid.c 
-mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
-srun -c 3 -N 1 -p batch ./pi_hybrid 50000000
-vim pi_hybrid.c 
-pwd
-ls
-man manMAN
-LS
-ls
-l
-ls
-cd lab1b/
-ls
-cat pi.c 
-cd ..
-cd lab2/
-cat prime.c 
-clear
-cat prime.c 
-clear
-cat hello_omp
-clear
-cat hello_omp.c 
-ls
-mpicc hello_hybrid.c -o hello_hybrid -fopenmp
-srun -c 3 -N 2 ./hello_hybrid
-ls
-cd ..
-cd lab1b/
-ls
-cp pi.c ~/lab2/
-cd ..
-cd lab2/
-ls
-mv pi.c pi_pthread.c
-vim pi_pthread.c 
-ls
-cp pi_pthread ~
-srun -c 4 ./pi_pthread 4 500000
-srun -c 4 ./pi_pthread 4 5000000
-.ls
-ls
-srun -c 4 ./pi_pthread 4 50000000
-mv pi_pthread.c pi_hybrid.c
-mpicc pi_hybrid.c -o hello_hybrid -fopenmp
-mpicc pi_hybrid.c -o hello_hybrid -fopenmp -std=c99 -lm
-srun -c 3 -N 2 ./hello_hybrid
-srun -c 3 -N 2 ./hello_hybrid 5000000
-srun -c 3 -N 2 ./hello_hybrid 50000000
-time srun -c 3 -N 2 ./hello_hybrid 50000000
-time srun -c 3 -N 1 ./hello_hybrid 50000000
-vim pi_hybrid.c 
-ls
-cat prime.c 
-gcc prime.c -o prime -pthread -fopenmp
-gcc prime.c -o prime -pthread -fopenmp -lm
-srun -c 4 ./prime 100
-srun -c 4 ./prime 1000
-srun -c 1 ./prime 1000
-vim pi_hybrid.c 
-vim prime.c
-gcc prime.c -o prime -pthread -fopenmp -lm
-srun -c 1 ./prime 1000
-srun -c 4 ./prime 1000
-vim prime.c
-clear
-gcc prime.c -o prime -pthread -fopenmp -lm
-vim prime.c
-gcc prime.c -o prime -pthread -fopenmp -lm
-srun -c 4 ./prime 1000
-vim prime.c
-gcc prime.c -o prime -pthread -fopenmp -lm
-vim prime.c
-gcc prime.c -o prime -pthread -fopenmp -lm
-srun -c 4 ./prime 1000
-srun -c 1 ./prime 1000
-vim prime.c 
-cd ..
-cd lab1b/
-cat pi.c 
-ls
-cd ..
-ls
-cd ta
-ls
-cd ..
-cp -r ta/ ~/
-cd ..
-cd ~
-ls
-rm -r ta/
-ls
-cd ta/
-ls
-cd lab2/
-ls
-l
-ls
-cd ..
-cp -r /home/pp17/ta/lab2 ~
-cd ~
-ls
-cd lab2/
-ls
-gcc hello_pthread.c -o hello_pthread -pthread
-srun -c 4 ./hello_pthread 4
-ls
-vim pi_pthread.c
-ls
-vim pthread_cond.c 
-vim pi_pthread.c
-cd homework/HW1/
-ls
-cat slurm-22232.out 
-hw1-judge-all HW1_103061108_basic
-history
-history | grep hw1-b
-hw1-b2float /home/pp17/ta/hw1/samples/testcase15
-cd /home/pp17/ta/hw1/samples/
-ls
-cd ..
-ls
-cd ..
-ls
-cd hw1/
-ls
-cd ..
-cd ~
-cd homework/HW1/
-ls
-cd ~
-ls
-cd homework/HW1/
-ls
-hw1-judge-all 
-squeue
-make
-hw1-judge-all 
-make
-hw1-judge-all 
-clear
-hw1-judge-all 
-cd ..
-ls
-cd ..
-ls
-cd homework/HW1/
-make
-hw1-judge-all 
-make
-hw1-judge-all 
-make
-hw1-judge-all 
-cd homework/HW1/
-hw1-judge-all 
-make
-hw1-judge-all 
-make
-hw1-judge-all 
-make
-hw1-judge-all 
-make
-hw1-judge-all 
-ls
-cd homework/HW1/
-hw1-judge-all 
-who
-ls
-cd /home/pp17/ta/hw2
-ls
-cd ..
-cd ~
-cp -rf /home/pp17/ta/hw2 .
-ls
-cd hw2/
-ls
-make
-cat Makefile 
-ls
- srun -n 2 ./ms_seq 4 -2 2 -2 2 400 400 out.png
-ls
-date
-ls
-cd hw2/
-ls
-who
-ls
-make
- srun -n 2 ./ms_seq 4 -2 2 -2 2 400 400 out.png
- srun -n 2 ./ms_seq 4 -2 2 -2 2 1000 1000 out.png
-mpiexec --version
-mpicc -v
-clear
-mpicc -v
-mpichversion
-mpiexec --version
-mpicc -h
-mpi -h
-
-man mpicc
-man mpilib
-man mpi.h
-sjob
-jobs
-who
-cd hw2/
-ls
-vim Makefile 
-make
-ls
- srun -n 2 ./ms_mpi_static 4 -2 2 -2 2 400 400 out.png
-ls
-ls -al
-make
- srun -n 3 ./ms_mpi_static 4 -2 2 -2 2 400 400 out.png
-make
- srun -n 3 ./ms_mpi_static 4 -2 2 -2 2 400 400 out.png
-make
- srun -n 3 ./ms_mpi_static 4 -2 2 -2 2 400 400 out.png
-make
- srun -n 3 ./ms_mpi_static 4 -2 2 -2 2 400 400 out.png
-make
- srun -n 3 ./ms_mpi_static 4 -2 2 -2 2 400 400 out.png
-ls
-make
- srun -n 3 ./ms_mpi_static 4 -2 2 -2 2 400 400 out.png
- srun -n 3 ./ms_seq 4 -2 2 -2 2 400 400 ref.png
-hw2-diff ref.png out.png 
- srun -n 3 ./ms_seq 4 -10 2 -2 2 1000 1000 ref.png
- srun -n 3 ./ms_seq 4 -10 2 -2 2 1000 1000 out.png
- srun -n 3 ./ms_seq 4 -10 2 -2 2 1000 1000 ref.png
- srun -n 3 ./ms_mpi_static 4 -10 2 -2 2 400 400 out.png
- srun -n 3 ./ms_mpi_static 4 -10 2 -2 2 1000 1000 out.png
-hw2-diff ref.png out.png 
- srun -n 10 ./ms_mpi_static 4 -10 2 -2 2 8 1000 out.png
  srun -n 7 ./ms_mpi_static 4 -10 2 -2 2 2 1000 out.png
 make
  srun -n 7 ./ms_mpi_static 4 -10 2 -2 2 2 1000 out.png
@@ -998,3 +555,446 @@ time srun -p batch -c12 ./ms_omp 12 -2 2 -2 2 4000 4000 out.png
 gcc -std=gnu99 -O3 ms_omp.c -o ms_omp -fopenmp -lm -lpng
 time srun -p batch -c12 ./ms_omp 12 -2 2 -2 2 4000 4000 out.png
 time srun -p batch -c2 -N4 -n24 ./ms_hybrid 2 -2 2 -2 2 4000 4000 out.png
+who
+squeue
+cd hw2
+time srun -p batch -c1 -N4 -n4 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N4 -n4 ./ms_hybrid 1 -2 2 -2 2 6000 4000 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_hybrid 1 -2 2 -2 2 10000 10000 out.png
+ls
+ls -al
+vim Makefile 
+make
+make cleanA
+make
+history | grep omp
+vim Makefile 
+make
+time srun -p batch -c1 -N2 -n16 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_hybrid 1 -2 2 -2 2 400 400 out.png
+make clean
+make
+ls
+cd hw2
+time srun -p batch -c4 ./ms_omp 4 -2 2 -2 2 4000 4000 out.png
+gcc -std=gnu99 -O3 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch -c12 ./ms_omp 12 -2 2 -2 2 4000 4000 out.png
+history|grep hybrid
+time srun -p batch -c2 -N4 -n48 ./ms_hybrid 2 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N4 -n48 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c2 -N4 -n24 ./ms_hybrid 2 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c2 -N4 -n24 ./ms_hybrid 2 -2 2 -2 2 10000 4000 out.png
+time srun -p batch -c1 -N4 -n4 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N1 -n4 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N4 -n48 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c4 -N4 -n12 ./ms_hybrid 4 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c8 -N4 -n6 ./ms_hybrid 8 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c12 -N4 -n4 ./ms_hybrid 12 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c12 -N1 -n4 ./ms_hybrid 12 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c12 -N2 -n4 ./ms_hybrid 12 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c12 -N4 -n16 ./ms_hybrid 12 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N1 -n4 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N1 -n4 ./ms_hybrid 1 -2 2 -2 2 6000 4000 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_hybrid 1 -2 2 -2 2 6000 4000 out.png
+time srun -p batch -c1 -N8 -n16 ./ms_hybrid 1 -2 2 -2 2 6000 4000 out.png
+time srun -p batch -c1 -N3 -n16 ./ms_hybrid 1 -2 2 -2 2 6000 4000 out.png
+time srun -p batch -c1 -N3 -n16 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 2 10000 10000 out.png
+clear
+mv ms_mpi_static_mod.c ms_mpi_static.c 
+make
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 2 1000 1000 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 4 400 400 out.png
+srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 400 400 out.png
+hw2-diff out.png ref.png 
+srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 400 400 ref.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 4 400 400 out.png
+hw2-diff out.png ref.png 
+ls
+cd ..
+git add .
+git status
+git rm hw1/sl*
+git add .
+git push origin master
+git commit
+git push origin master
+cd hw2
+srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 400 1 ref.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 4 400 1 out.png
+hw2-diff out.png ref.png 
+srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 1 400 ref.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 4 1 400out.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 4 1 400 out.png
+hw2-diff out.png ref.png 
+make clean
+ls
+make
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 4 1 400 out.png
+srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 1 400 ref.png
+hw2-diff out.png ref.png 
+srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 400 400 ref.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 4 400  out.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 4 400 2 out.png
+srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 400 2 ref.png
+hw2-diff out.png ref.png 
+srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 400 1 ref.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 4 400 1 out.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 4 1 1 out.png
+srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 1 1 ref.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 4 1 1 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 4 10 1 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 4 400 1 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 4 1 400  out.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 4 15 1 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 4 16 1 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 4 1 16 out.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 4 14 4 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 4 1 14 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 4 1 16 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 4 13 6 out.png
+mv ms_mpi_static_mod.c ms_mpi_static.c 
+make
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 4 13 6 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 4 400 6 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 4 400 400 out.png
+mv ms_mpi_static_mod.c ms_mpi_static.c 
+make
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 4 400 400 out.png
+mv ms_mpi_static_mod.c ms_mpi_static.c 
+make
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 4 400 400 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 400 400 ref.png
+hw2-diff ref.png out.png 
+mv ms_mpi_static_mod.c ms_mpi_static.c 
+make
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 400 400 ref.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 4 400 400 out.png
+hw2-diff ref.png out.png 
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 4 13 14 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 13 14 ref.png
+hw2-diff ref.png out.png 
+mv ms_mpi_static_mod.c ms_mpi_static.c 
+make
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 4 400 400 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 400 400 ref.png
+hw2-diff ref.png out.png 
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 1 1 ref.png
+hw2-diff ref.png out.png 
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static 1 -2 2 -2 4 1 1 out.png
+hw2-diff ref.png out.png 
+ls
+make
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 4 400 400 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 4 401 400 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 4 400 402 out.png
+make
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 4 401 400 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 401 400 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 4 401 400 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 401 400 ref.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 400 401 ref.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 4 400 401 out.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 4 401 400 out.png
+make
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 4 401 400 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 401 400 ref.png
+hw2-diff out.png ref.png 
+make
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 401 400 ref.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 4 401 400 out.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 401 400 ref.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 4 401 400 out.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 4 402 400 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 402 400 ref.png
+hw2-diff out.png ref.png 
+make
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 402 400 ref.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 4 402 400 out.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 4 420 400 out.png
+make
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 4 420 400 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 420 400 ref.png
+hw2-diff out.png ref.png 
+make
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 420 400 ref.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 4 420 400 out.png
+hw2-diff ref.png out.png 
+make
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 4 420 400 out.png
+hw2-diff ref.png out.png 
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 4 1 1 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 1 1 ref.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 16 1 ref.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 4 16 1 out.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 4 1 16 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 1 16 ref.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 2 16 ref.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 4 2 16 out.png
+hw2-diff out.png ref.png 
+cd hw2
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 2 16 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 400 16 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 400 600 out.png
+time srun -p batch -c2 -N4 -n16 ./ms_hybrid 2 -2 2 -2 4 400 600 out.png
+make
+make
+cd hw2/
+make
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 20 16 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 20 16 ref.png
+hw2-diff ref.png out.png 
+make
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 20 16 out.png
+hw2-diff ref.png out.png 
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 200 16 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 200 16 ref.png
+hw2-diff ref.png out.png 
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 400 400 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 400 400 ref.png
+hw2-diff ref.png out.png 
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 420 400 ref.png
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 420 400 out.png
+hw2-diff ref.png out.png 
+make
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 420 400 out.png
+make
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 420 400 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 400 400 out.png
+make
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 400 400 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 420 400 out.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 16 400 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 14 400 ref.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 14 400 ref.png
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 14 400 out.png
+hw2-diff out.png ref.png 
+make
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 14 400 out.png
+hw2-diff out.png ref.png 
+make
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 14 400 out.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 14 4000 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 4 14 4000 ref.png
+hw2-diff out.png ref.png 
+time srun -p batch -c2 -N4 -n16 ./ms_seq 2 -2 2 -2 4 14 4000 ref.png
+time srun -p batch -c2 -N4 -n16 ./ms_seq 2 -2 2 -2 4 1400 4000 ref.png
+time srun -p batch -c2 -N4 -n16 ./ms_seq 2 -2 2 -2 4 140 400 ref.png
+make
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 14 4000 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 140 4000 out.png
+time srun -p batch -c2 -N4 -n16 ./ms_hybrid 2 -2 2 -2 4 140 4000 out.png
+time srun -p batch -c4 -N4 -n16 ./ms_hybrid 4 -2 2 -2 4 140 4000 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 1400 4000 out.png
+time srun -p batch -c3 -N4 -n16 ./ms_hybrid 3 -2 2 -2 4 1400 4000 out.png
+make
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 1400 4000 out.png
+time srun -p batch -c3 -N4 -n16 ./ms_hybrid 3 -2 2 -2 4 1400 4000 out.png
+make
+time srun -p batch -c3 -N4 -n16 ./ms_hybrid 3 -2 2 -2 4 14 4000 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 14 4000 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 14 40000 out.png
+time srun -p batch -c3 -N4 -n16 ./ms_hybrid 3 -2 2 -2 4 14 40000 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 1 1 out.png
+time srun -p batch -c3 -N4 -n16 ./ms_seq 3 -2 2 -2 4 1 1 ref.png
+hw2-diff out.png ref.png 
+time srun -p batch -c3 -N4 -n16 ./ms_seq 3 -2 2 -2 4 180 1 ref.png
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 4 180 1 out.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n48 ./ms_hybrid 1 -2 2 -2 2 2560 1600 out.png
+time srun -p batch -c1 -N4 -n48 ./ms_hybrid 1 -2 2 -2 2 25600 16000 out.png
+cd hw2
+make
+time srun -p batch -c1 -N2 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 16 400 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 16 400 ref.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 15 400 ref.png
+time srun -p batch -c1 -N2 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 15 400 out.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N2 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 15 16 out.png
+make
+time srun -p batch -c1 -N2 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 15 16 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 14 16 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 15 16 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 15 16 ref.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N2 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 16 16 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 16 16 ref.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N2 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 16 15 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 16 15 ref.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n48 ./ms_mpi_dynamic 1 -2 2 -2 2 16 15 out.png
+time srun -p batch -c1 -N4 -n48 ./ms_mpi_dynamic 1 -2 2 -2 2 48 15 out.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 48 15 ref.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 48 14 ref.png
+time srun -p batch -c1 -N4 -n48 ./ms_mpi_dynamic 1 -2 2 -2 2 48 14 out.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n48 ./ms_mpi_dynamic 1 -2 2 -2 2 48 1 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 48 1 ref.png
+hw2-diff out.png ref.png 
+make
+time srun -p batch -c1 -N4 -n48 ./ms_mpi_dynamic 1 -2 2 -2 2 47 1 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 47 1 ref.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 15 1 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 10 1 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 15 1 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_ 1 -2 2 -2 2 15 1 ref.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 15 1 ref.png
+hw2-diff out.png ref.png 
+make
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 15 1 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 15 1 ref.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 16 1 ref.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 16 1 out.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 16 3 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 16 3 ref.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 16 3 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 16 3 ref.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 15 3 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 15 3 ref.png
+hw2-diff out.png ref.png 
+make
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 15 3 ref.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 15 3 out.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 1 1 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 1 1 ref.png
+hw2-diff out.png ref.png 
+make
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 1 1 ref.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 1 1 out.png
+make
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 1 1 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 1 1 ref.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 1 19 ref.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 1 19 out.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 1 16 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 1 16 ref.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 1 100 ref.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 1 100 out.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 3 100 ref.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 3 100 out.png
+hw2-diff out.png ref.png 
+make
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 3 100 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 3 100 ref.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 420 100 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 420 100 ref.png
+hw2-diff out.png ref.png 
+make
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 420 100 ref.png
+time srun -p batch -c4 -N4 -n16 ./ms_omp 4 -2 2 -2 2 420 100 out.png
+time srun -p batch -c4 -N1 -n1 ./ms_omp 4 -2 2 -2 2 420 100 out.png
+make
+time srun -p batch -c4 -N4 -n16 ./ms_omp 4 -2 2 -2 2 420 100 out.png
+time srun -p batch -c4 -N1 -n1 ./ms_omp 4 -2 2 -2 2 420 100 out.png
+hw2-diff out.png ref.png 
+time srun -p batch -c4 -N1 -n1 ./ms_omp 4 -2 2 -2 2 11 100 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 11 100 ref.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 1 100 ref.png
+time srun -p batch -c4 -N1 -n1 ./ms_omp 4 -2 2 -2 2 1 100 out.png
+hw2-diff out.png ref.png 
+time srun -p batch -c4 -N1 -n1 ./ms_omp 4 -2 2 -2 2 1 1 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 1 1 ref.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 14 1 ref.png
+time srun -p batch -c4 -N1 -n1 ./ms_omp 4 -2 2 -2 2 14 1 out.png
+hw2-diff out.png ref.png 
+make
+time srun -p batch -c4 -N1 -n1 ./ms_omp 4 -2 2 -2 2 14 1 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 14 1 ref.png
+hw2-diff out.png ref.png 
+time srun -p batch -c12 -N1 -n1 ./ms_omp 12 -2 2 -2 2 14 1 out.png
+hw2-diff out.png ref.png 
+make clean
+make
+ls
+time srun -p batch -c12 -N1 -n1 ./ms_hybrid 12 -2 2 -2 2 14 1 out.png
+time srun -p batch -c12 -N1 -n4 ./ms_omp 12 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c12 -N1 -n4 ./ms_hybrid 12 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c12 -N4 -n4 ./ms_hybrid 12 -2 2 -2 2 4000 4000 out.png
+make
+time srun -p batch -c4 -N1 -n4 ./ms_hybrid 4 -2 2 -2 2 1000 1000 out.png
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 1000 1000 out.png
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 400 1000 out.png
+make
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 400 1000 out.png
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 1 1000 out.png
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 4 1000 out.png
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 3 1000 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 3 1000 ref.png
+hw2-diff out.png ref.png 
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 2 1000 out.png
+make
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 2 1000 out.png
+make
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 2 1000 out.png
+make
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 2 1000 out.png
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 2 10 out.png
+make
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 2 10 out.png
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 3 10 out.png
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 1 10 out.png
+time srun -p batch -c3 -N1 -n2 ./ms_hybrid 3 -2 2 -2 2 1 10 out.png
+make
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 1 10 out.png
+make
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 1 10 out.png
+make
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 1 10 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 1 10 ref.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 1 10000000 ref.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 1 100000 ref.png
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 1 100000 out.png
+hw2-diff out.png ref.png 
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 1 1 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 1 1 ref.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 1493 1 ref.png
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 1493 1 out.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 1400 1 ref.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 1473 1 ref.png
+time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 1492 1 ref.png
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 143 1 out.png
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 100 1 out.png
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 20 1 out.png
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 3 1 out.png
+make
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 3 1 out.png
+time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 100 1 out.png

@@ -26,13 +26,19 @@ int main(int argc, char** argv) {
     assert(image);
 
     int tid;
-    int chunk = 20;
+    int chunk;
+    if(height*width/num_threads/5 >0){
+         chunk = height*width/num_threads/5;
+    }
+    else{
+        chunk=1;
+    }
 
     /* mandelbrot set */
 #pragma omp parallel private(tid, i, j) num_threads(num_threads)
 {
     tid = omp_get_thread_num();
-    #pragma omp for schedule(static, chunk) collapse(2)
+    #pragma omp for schedule(dynamic, chunk) collapse(2)
     for (j = 0; j < height; ++j) {
         //printf("Thread %d\n", tid);
         for (i = 0; i < width; ++i) {

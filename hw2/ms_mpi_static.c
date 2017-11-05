@@ -44,7 +44,8 @@ int main(int argc, char** argv) {
     if(height>width){
         for(int n=0; n<height/nprocs+1 ; n++){
             if(n*nprocs + myrank < height)j=n*nprocs + myrank;
-            else j=(n-1)*nprocs+myrank;
+            else if (height>nprocs)j=(n-1)*nprocs+myrank;
+            else j=0;
             double y0 = j * ((upper - lower) / height) + lower;
             for (int i = 0; i < width; ++i) {
                 double x0 = i * ((right - left) / width) + left;
@@ -66,11 +67,12 @@ int main(int argc, char** argv) {
         /*MPI Communication*/
         if(myrank==nprocs-1){
             int* temp = (int*)malloc(width * height * sizeof(int));
-            for (i = 0; i < nprocs-1; i++){\
-                MPI_Recv(&temp[0], height*width, MPI_INT, i, MPI_ANY_TAG, MPI_COMM_WORLD, &status);\
+            for (i = 0; i < nprocs-1; i++){
+                MPI_Recv(&temp[0], height*width, MPI_INT, i, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
                 for(int n=0; n<height/nprocs+1; n++){
                     if(n*nprocs+i<height)j=n*nprocs+i;
-                    else j=(n-1)*nprocs+i;\
+                    else if(height>nprocs) j=(n-1)*nprocs+i;
+                    else j=0;
                     for(int k =0; k < width; ++k){
                         image[j * width + k] = temp[j * width + k];
                     }
@@ -88,7 +90,8 @@ int main(int argc, char** argv) {
     else{
         for(int n=0; n<width/nprocs+1 ; n++){
             if(n*nprocs + myrank < width)i=n*nprocs + myrank;
-            else i=(n-1)*nprocs+myrank;
+            else if(width>nprocs)i=(n-1)*nprocs+myrank;
+            else i=0;
             for (int j = 0; j < height; ++j) {
                 double y0 = j * ((upper - lower) / height) + lower;
                 double x0 = i * ((right - left) / width) + left;
@@ -114,7 +117,8 @@ int main(int argc, char** argv) {
                 MPI_Recv(&temp[0], height*width, MPI_INT, i, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
                 for(int n=0; n<width/nprocs+1; n++){
                     if(n*nprocs+i<width)k=n*nprocs+i;
-                    else k=(n-1)*nprocs+i;
+                    else if(width>nprocs)k=(n-1)*nprocs+i;
+                    else k=0;
                     for(int j =0; j < height; ++j){
                         image[j * width + k] = temp[j * width + k];
                     }
@@ -159,4 +163,3 @@ void write_png(const char* filename, const int width, const int height, const in
     png_destroy_write_struct(&png_ptr, &info_ptr);
     fclose(fp);
 }
-
