@@ -10,12 +10,6 @@
 # Command Line History (newest to oldest):
 :wq
 :q!
-<<<<<<< HEAD
-:Q!
-=======
->>>>>>> 10cb84a1d7b48105deeec05f4d3f89fe9f5d170b
-:q1
-:w
 
 # Search String History (newest to oldest):
 
@@ -26,357 +20,127 @@
 # Input Line History (newest to oldest):
 
 # Registers:
-""1	LINE	0
-	                MPI_File_read(fh, temp, end-start+2, MPI_FLOAT, &status);
-"2	LINE	0
-	                MPI_File_seek(fh, start-2, MPI_SEEK_SET);
-"3	LINE	0
-		N = N/4
-"4	LINE	0
-	        MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-"5	LINE	0
-	        MPI_Comm_size(MPI_COMM_WORLD, &numtasks);
-"6	LINE	0
-	        }
-"7	LINE	0
-	                MPI_Abort(MPI_COMM_WORLD, rc);
-"8	LINE	0
-	                printf("Error starting MPI program. Terminating. \n");
-"9	LINE	0
-	        if(rc != MPI_SUCCESS){
-"-	CHAR	0
-	;
 
 # File marks:
-<<<<<<< HEAD
-'0  10  15  ~/hw1/generate.c
-'1  1  0  ~/hw1/generate
-'2  3  26  ~/homework/HW1/Makefile
-'3  1  0  ~/homework/HW1/Makefile
-'4  1  0  /home/pp17/ta/hw1/Makefile
-'5  81  19  ~/hw1/MPIIO.c
-'6  73  4  ~/hw1/MPIIO.c
-'7  74  14  ~/hw1/MPIIO.c
-'8  59  10  ~/hw1/MPIIO.c
-'9  77  4  ~/hw1/MPIIO.c
+'0  4  25  ~/hw2/Makefile
+'1  8  9  ~/hw2/Makefile
+'2  1  9  ~/hw2/Makefile
+'3  601  0  ~/hw1/HW1_103061108_advanced.c
+'4  6  15  ~/hw2/Makefile
+'5  11  1  ~/lab2/pi_hybrid.c
+'6  10  3  ~/lab2/pi_hybrid.c
 
 # Jumplist (newest first):
--'  10  15  ~/hw1/generate.c
--'  1  0  ~/hw1/generate
--'  1  0  ~/hw1/generate.c
--'  3  26  ~/homework/HW1/Makefile
--'  1  0  ~/homework/HW1/Makefile
--'  1  0  /home/pp17/ta/hw1/Makefile
-=======
-'0  81  19  ~/hw1/MPIIO.c
-'1  73  4  ~/hw1/MPIIO.c
-'2  74  14  ~/hw1/MPIIO.c
-'3  59  10  ~/hw1/MPIIO.c
-'4  77  4  ~/hw1/MPIIO.c
-'5  79  14  ~/hw1/MPIIO.c
-'6  61  30  ~/hw1/MPIIO.c
-'7  75  23  ~/hw1/MPIIO.c
-'8  1  0  ~/MPIIO.c
-'9  58  23  ~/hw1/MPIIO.c
-
-# Jumplist (newest first):
->>>>>>> 10cb84a1d7b48105deeec05f4d3f89fe9f5d170b
--'  81  19  ~/hw1/MPIIO.c
--'  73  4  ~/hw1/MPIIO.c
--'  74  1  ~/hw1/MPIIO.c
--'  59  9  ~/hw1/MPIIO.c
--'  77  4  ~/hw1/MPIIO.c
--'  79  5  ~/hw1/MPIIO.c
--'  61  10  ~/hw1/MPIIO.c
--'  75  2  ~/hw1/MPIIO.c
--'  58  10  ~/hw1/MPIIO.c
--'  1  0  ~/MPIIO.c
--'  90  4  ~/hw1/MPIIO.c
--'  82  4  ~/hw1/MPIIO.c
--'  92  4  ~/hw1/MPIIO.c
--'  66  4  ~/hw1/MPIIO.c
--'  64  0  ~/hw1/MPIIO.c
--'  70  4  ~/hw1/MPIIO.c
--'  1  0  ~/hw1/MPIIO.c
--'  211  4  ~/hw1/HW1_103061108_basic.c
--'  212  4  ~/hw1/HW1_103061108_basic.c
--'  217  4  ~/hw1/HW1_103061108_basic.c
--'  216  4  ~/hw1/HW1_103061108_basic.c
--'  26  1  ~/hw1/HW1_103061108_basic.c
--'  215  4  ~/hw1/HW1_103061108_basic.c
--'  218  4  ~/hw1/HW1_103061108_basic.c
--'  329  2  ~/hw1/HW1_103061108_basic.c
--'  51  1  ~/hw1/HW1_103061108_basic.c
--'  148  2  ~/hw1/HW1_103061108_basic.c
--'  95  2  ~/hw1/HW1_103061108_basic.c
--'  87  16  ~/hw1/HW1_103061108_basic.c
--'  94  2  ~/hw1/HW1_103061108_basic.c
--'  152  16  ~/hw1/HW1_103061108_basic.c
--'  262  16  ~/hw1/HW1_103061108_basic.c
--'  261  2  ~/hw1/HW1_103061108_basic.c
--'  146  16  ~/hw1/HW1_103061108_basic.c
--'  157  2  ~/hw1/HW1_103061108_basic.c
--'  130  24  ~/hw1/HW1_103061108_basic.c
--'  106  24  ~/hw1/HW1_103061108_basic.c
--'  144  16  ~/hw1/HW1_103061108_basic.c
--'  93  16  ~/hw1/HW1_103061108_basic.c
--'  55  8  ~/hw1/HW1_103061108_basic.c
--'  40  1  ~/hw1/HW1_103061108_basic.c
--'  56  1  ~/hw1/HW1_103061108_basic.c
--'  50  1  ~/hw1/HW1_103061108_basic.c
--'  64  8  ~/hw1/HW1_103061108_basic.c
--'  42  8  ~/hw1/HW1_103061108_basic.c
--'  70  8  ~/hw1/HW1_103061108_basic.c
--'  69  1  ~/hw1/IO.c
--'  65  1  ~/hw1/IO.c
--'  71  1  ~/hw1/IO.c
--'  47  1  ~/hw1/HW1_103061108_basic.c
--'  59  8  ~/hw1/HW1_103061108_basic.c
--'  102  32  ~/hw1/HW1_103061108_basic.c
--'  54  1  ~/hw1/IO.c
--'  46  4  ~/hw1/IO.c
--'  1  0  ~/hw1/IO.c
--'  121  24  ~/hw1/HW1_103061108_basic.c
--'  88  16  ~/hw1/HW1_103061108_basic.c
--'  147  16  ~/hw1/HW1_103061108_basic.c
--'  228  2  ~/hw1/HW1_103061108_basic.c
--'  254  16  ~/hw1/HW1_103061108_basic.c
--'  330  8  ~/hw1/HW1_103061108_basic.c
--'  257  2  ~/hw1/HW1_103061108_basic.c
--'  256  16  ~/hw1/HW1_103061108_basic.c
--'  1  0  ~/hw1/HW1_103061108_basic.c
--'  253  40  ~/hw1/HW1_103061108_basic.c
--'  328  8  ~/hw1/HW1_103061108_basic.c
--'  255  16  ~/hw1/HW1_103061108_basic.c
--'  229  13  ~/hw1/HW1_103061108_basic.c
--'  331  8  ~/hw1/HW1_103061108_basic.c
--'  258  2  ~/hw1/HW1_103061108_basic.c
--'  45  5  ~/hw1/IO.c
--'  63  45  ~/hw1/HW1_103061108_basic.c
--'  53  1  ~/hw1/HW1_103061108_basic.c
--'  125  24  ~/hw1/HW1_103061108_basic.c
--'  92  16  ~/hw1/HW1_103061108_basic.c
--'  151  16  ~/hw1/HW1_103061108_basic.c
--'  232  2  ~/hw1/HW1_103061108_basic.c
--'  335  8  ~/hw1/HW1_103061108_basic.c
--'  264  2  ~/hw1/HW1_103061108_basic.c
--'  260  16  ~/hw1/HW1_103061108_basic.c
--'  332  8  ~/hw1/HW1_103061108_basic.c
--'  259  16  ~/hw1/HW1_103061108_basic.c
--'  233  13  ~/hw1/HW1_103061108_basic.c
--'  336  8  ~/hw1/HW1_103061108_basic.c
--'  265  2  ~/hw1/HW1_103061108_basic.c
--'  334  8  ~/hw1/HW1_103061108_basic.c
--'  35  25  ~/hw1/HW1_103061108_basic.c
--'  48  8  ~/hw1/HW1_103061108_basic.c
--'  113  24  ~/hw1/HW1_103061108_basic.c
--'  74  16  ~/hw1/HW1_103061108_basic.c
--'  139  16  ~/hw1/HW1_103061108_basic.c
-<<<<<<< HEAD
+-'  4  25  ~/hw2/Makefile
+-'  8  0  ~/hw2/Makefile
+-'  1  0  ~/hw2/Makefile
+-'  6  0  ~/hw2/Makefile
+-'  601  0  ~/hw1/HW1_103061108_advanced.c
+-'  1  0  ~/hw1/HW1_103061108_advanced.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
+-'  1  0  ~/lab2/pi_hybrid.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
+-'  1  0  ~/lab2/pi_hybrid.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
+-'  1  0  ~/lab2/pi_hybrid.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
+-'  1  0  ~/lab2/pi_hybrid.c
+-'  601  0  ~/hw1/HW1_103061108_advanced.c
+-'  1  0  ~/hw1/HW1_103061108_advanced.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
+-'  1  0  ~/lab2/pi_hybrid.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
+-'  1  0  ~/lab2/pi_hybrid.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
+-'  1  0  ~/lab2/pi_hybrid.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
+-'  1  0  ~/lab2/pi_hybrid.c
+-'  601  0  ~/hw1/HW1_103061108_advanced.c
+-'  1  0  ~/hw1/HW1_103061108_advanced.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
+-'  1  0  ~/lab2/pi_hybrid.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
+-'  1  0  ~/lab2/pi_hybrid.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
+-'  1  0  ~/lab2/pi_hybrid.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
+-'  1  0  ~/lab2/pi_hybrid.c
+-'  601  0  ~/hw1/HW1_103061108_advanced.c
+-'  1  0  ~/hw1/HW1_103061108_advanced.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
+-'  1  0  ~/lab2/pi_hybrid.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
+-'  1  0  ~/lab2/pi_hybrid.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
+-'  1  0  ~/lab2/pi_hybrid.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
+-'  1  0  ~/lab2/pi_hybrid.c
+-'  601  0  ~/hw1/HW1_103061108_advanced.c
+-'  1  0  ~/hw1/HW1_103061108_advanced.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
+-'  1  0  ~/lab2/pi_hybrid.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
+-'  1  0  ~/lab2/pi_hybrid.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
+-'  1  0  ~/lab2/pi_hybrid.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
+-'  1  0  ~/lab2/pi_hybrid.c
+-'  601  0  ~/hw1/HW1_103061108_advanced.c
+-'  1  0  ~/hw1/HW1_103061108_advanced.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
+-'  1  0  ~/lab2/pi_hybrid.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
+-'  1  0  ~/lab2/pi_hybrid.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
+-'  1  0  ~/lab2/pi_hybrid.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
+-'  1  0  ~/lab2/pi_hybrid.c
+-'  601  0  ~/hw1/HW1_103061108_advanced.c
+-'  1  0  ~/hw1/HW1_103061108_advanced.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
+-'  1  0  ~/lab2/pi_hybrid.c
+-'  11  1  ~/lab2/pi_hybrid.c
+-'  10  1  ~/lab2/pi_hybrid.c
 
 # History of marks within files (newest to oldest):
 
-> ~/hw1/generate.c
-	"	10	15
-	^	10	16
-	.	10	16
-	+	10	16
+> ~/hw2/Makefile
+	"	4	25
+	^	4	26
+	.	4	25
+	+	4	25
 
-> ~/hw1/generate
-	"	1	0
+> ~/hw1/HW1_103061108_advanced.c
+	"	601	0
 
-> ~/homework/HW1/Makefile
-	"	3	26
-	^	3	27
-	.	3	26
-	+	3	26
-
-> /home/pp17/ta/hw1/Makefile
-	"	1	0
-
-=======
--'  220  2  ~/hw1/HW1_103061108_basic.c
--'  246  16  ~/hw1/HW1_103061108_basic.c
--'  322  8  ~/hw1/HW1_103061108_basic.c
--'  249  2  ~/hw1/HW1_103061108_basic.c
--'  248  16  ~/hw1/HW1_103061108_basic.c
--'  245  40  ~/hw1/HW1_103061108_basic.c
-
-# History of marks within files (newest to oldest):
-
->>>>>>> 10cb84a1d7b48105deeec05f4d3f89fe9f5d170b
-> ~/hw1/MPIIO.c
-	"	81	19
-	^	81	20
-	.	81	19
-	+	62	36
-	+	59	9
-	+	61	31
-	+	89	17
-	+	90	4
-	+	89	17
-	+	90	41
-	+	59	18
-	+	61	30
-	+	92	16
-	+	97	16
-	+	92	29
-	+	59	10
-	+	92	5
-	+	59	19
-	+	61	31
-	+	59	19
-	+	55	3
-	+	54	15
-	+	59	15
-	+	61	29
-	+	71	57
-	+	90	69
-	+	59	9
-	+	58	24
-	+	68	4
-	+	73	20
-	+	74	3
-	+	76	3
-	+	74	10
-	+	23	20
-	+	74	24
-	+	75	12
-	+	76	14
-	+	75	23
-	+	61	32
-	+	79	4
-	+	81	3
-	+	79	30
-	+	80	23
-	+	81	17
-	+	76	5
-	+	78	3
-	+	77	4
-	+	59	18
-	+	61	30
-	+	59	10
-	+	74	14
-	+	73	5
-	+	81	19
-
-> ~/MPIIO.c
-	"	1	0
-
-> ~/hw1/HW1_103061108_basic.c
-	"	216	4
-	^	211	55
-	.	211	54
-	+	78	8
-	+	79	4
-	+	80	8
-	+	77	0
-	+	75	15
-	+	78	15
-	+	80	25
-	+	77	20
-	+	87	49
-	+	94	2
-	+	95	36
-	+	94	26
-	+	76	18
-	+	149	17
-	+	148	16
-	+	148	1
-	+	148	2
-	+	149	16
-	+	153	1
-	+	152	0
-	+	148	36
-	+	261	2
-	+	263	1
-	+	262	0
-	+	254	48
-	+	262	38
-	+	157	3
-	+	152	38
-	+	94	25
-	+	87	49
-	+	95	36
-	+	94	20
-	+	95	30
-	+	87	43
-	+	95	30
-	+	94	24
-	+	95	30
-	+	152	44
-	+	148	29
-	+	151	40
-	+	148	36
-	+	152	51
-	+	148	36
-	+	149	17
-	+	150	16
-	+	149	16
-	+	148	30
-	+	151	16
-	+	152	17
-	+	154	16
-	+	156	17
-	+	90	16
-	+	93	17
-	+	94	3
-	+	95	3
-	+	261	3
-	+	262	17
-	+	260	17
-	+	258	16
-	+	56	1
-	+	228	3
-	+	329	3
-	+	218	3
-	+	214	22
-	+	208	19
-	+	214	82
-	+	215	72
-	+	217	25
-	+	215	34
-	+	208	5
-	+	217	29
-	+	35	12
-	+	208	4
-	+	217	28
-	+	208	5
-	+	218	4
-	+	208	4
-	+	216	3
-	+	215	87
-	+	215	5
-	+	216	27
-	+	209	32
-	+	208	5
-	+	26	24
-	+	216	35
-	+	209	33
-	+	217	29
-	+	211	3
-	+	210	50
-	+	210	50
-	+	213	3
-	+	211	70
-	+	212	4
-	+	210	106
-	+	211	62
-	+	212	19
-	+	210	4
-	+	211	4
-	+	210	93
-	+	211	54
-
-> ~/hw1/IO.c
-	"	52	1
-	^	71	3
-	.	57	16
-	+	22	21
-	+	23	5
-	+	55	1
-	+	54	37
-	+	53	4
-	+	55	0
-	+	58	0
-	+	57	16
+> ~/lab2/pi_hybrid.c
+	"	11	1
+	^	10	4
+	.	10	3
+	+	9	23
+	+	10	3

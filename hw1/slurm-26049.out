@@ -1,8 +1,0 @@
-Proc 0: range = [0, 4000000)
-process(0) IO time = 0.010000
-process(0) logic time = 0.260000
-process(0) comm time = 0.000000
-
-real	0m0.363s
-user	0m0.006s
-sys	0m0.010s

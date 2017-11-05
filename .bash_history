@@ -1,2003 +1,1000 @@
-<<<<<<< HEAD
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_advance_all.o  /home/pp17/ta/hw1/samples/testcase08 output"
-cat slurm-12912.out 
-hw1-b2float /home/pp17/ta/hw1/samples/testcase09
-hw1-b2float /home/pp17/ta/hw1/samples/testcase10
-hw1-b2float /home/pp17/ta/hw1/samples/testcase11
-hw1-b2float /home/pp17/ta/hw1/samples/testcase10
-hw1-b2float /home/pp17/ta/hw1/samples/testcase16
-hw1-b2float /home/pp17/ta/hw1/samples/testcase06
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_advance_all.o  /home/pp17/ta/hw1/samples/testcase08 output"
-cat slurm-12921.out 
-mpicc HW_advance_all.c -o HW_advance_all.o -std=gnu99 -lm
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_advance_all.o  /home/pp17/ta/hw1/samples/testcase08 output"
-cat slurm-12923.out 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance_all.o  /home/pp17/ta/hw1/samples/testcase08 output"
-cat slurm-12924.out 
-sbatch -N 4 -n 16 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase06 output"
-cat slurm-12925.out 
-sbatch -N 4 -n 16 -p batch --wrap="time srun ./HW_advance_all.o  /home/pp17/ta/hw1/samples/testcase08 output"
-cat slurm-12926.out 
-hw1-b2float output
 cd hw1/
-squeue
-who
-history | grep onebuffer
-mpicc HW_onebuffer.c -o HW_one.o -std=gnu99 -lm
-history | grep one
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase06 output"
-squeue
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase06 output"
-squeue
-car slurm-13497.out 
-cat slurm-13497.out 
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase06 output"
-squeue
-clear
-squeue
-cat slurm-13501.out 
-mpicc HW_advance_all.c -o HW_advance_all.o -std=gnu99 -lm
-mpicc HW_onebuffer.c -o HW_one.o -std=gnu99 -lm
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase06 output"
-squeue
-cat slurm-13503.out 
-mpicc HW_onebuffer.c -o HW_one.o -std=gnu99 -lm
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase06 output"
-squeue
-mpicc HW_onebuffer.c -o HW_one.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase06 output"
-sbatch -N 4 -n 16 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase06 output"
-squeue
-cat slurm-13507.out 
-cat slurm-13508.out 
-cat slurm-13509.out 
-sbatch -N 4 -n 64 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase06 output"
-sbatch -N 4 -n 48 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase06 output"
-squeue
-cat slurm-13516.out 
-history | grep temp
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase06 output"
-cat slurm-13517.out 
-squeue
-sbatch -N 1 -n 16 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase06 output"
-sbatch -N 4 -n 16 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase06 output"
-sbatch -N 4 -n 48 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase06 output"
-squeue
-cat slurm-13517.out 
-cat slurm-13519.out 
-cat slurm-13520.out 
-cd hw1/
-s
-ls
-rm slurm-1*
-l
-s
 ls
 history | grep advance
-mpicc HW_advance_all.c -o HW_advance_all.o -std=gnu99 -lm
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_advance_all.o  /home/pp17/ta/hw1/samples/testcase06 output"
-cat slurm-13532.out 
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_advance_all.o  /home/pp17/ta/hw1/samples/testcase08 output"
-cat slurm-13534.out 
-mpicc HW_advance_all.c -o HW_advance_all.o -std=gnu99 -lm
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_advance_all.o  /home/pp17/ta/hw1/samples/testcase08 output"
-cat slurm-13536.out 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance_all.o  /home/pp17/ta/hw1/samples/testcase08 output"
-cat slurm-13537.out 
-sbatch -N 4 -n 16 -p batch --wrap="time srun ./HW_advance_all.o  /home/pp17/ta/hw1/samples/testcase08 output"
-cat slurm-13539.out 
-history | grep output
-hw1-b2float output
-cd hw1/
-cd /home/pp17/ta/hw1/samples
+mpicc HW1_103061108_advanced.c -o HW_advance.o -std=gnu99 -lm
+sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_advance.o  1 million.bin output"
+cat slurm-26049.out 
+sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o  1 million.bin output"
+cat slurm-26052.out 
+cat slurm-26049.out 
+sbatch -N 4 -n 16 -p batch --wrap="time srun ./HW_advance.o  1 million.bin output"
+cat slurm-26059.out 
+sbatch -N 4 -n 48 -p batch --wrap="time srun ./HW_advance.o  1 million.bin output"
+cat slurm-26073.out 
+who
+cd homework/HW1/
+make
 ls
-pwd
-cd hw1/
-rm output 
-sbatch -N 4 -n 16 -p batch --wrap="time srun ./HW_advance_all.o  /home/pp17/ta/hw1/samples/testcase06 output"
-cat slurm-13720.out 
-diff output /home/pp17/ta/hw1/samples/sorted06
-cd hw1/
+hw1-judge HW1_103061108_basic
+hw1-judge HW1_103061108_advanced
+squeue
+exit
+cd lab2/
 ls
-rm slurm-13*
-ls
-cd hw1/
-ls
-hw1-b2float testbench.bin 
-ls
-gcc generate.c -o generate
-./generate
-ls
-hw1-b2float million.bin 
-gcc generate.c -o generate
-hw1-b2float million.bin 
-gcc generate.c -o generate
-hw1-b2float million.bin 
-./generate 
-hw1-b2float million.bin 
-gcc generate.c -o generate
-./generate 
-hw1-b2float million.bin 
-gcc generate.c -o generate
-./generate 
-hw1-b2float million.bin 
-gcc generate.c -o generate
-./generate 
+cat hello_pthread.c 
+gcc pi_pthread.c -o pi_pthread -lm
+gcc pi_pthread.c -o pi_pthread -lm -pthread
+srun -c 4 ./pi_pthread 4 500000
+gcc pi_pthread.c -o pi_pthread -lm -pthread
+clear
+gcc pi_pthread.c -o pi_pthread -lm -pthread
+srun -c 4 ./pi_pthread 4 500000
+gcc pi_pthread.c -o pi_pthread -lm -pthread
+srun -c 4 ./pi_pthread 4 500000
+gcc pi_pthread.c -o pi_pthread -lm -pthread
+srun -c 4 ./pi_pthread 4 500000
+gcc pi_pthread.c -o pi_pthread -lm -pthread
+srun -c 4 ./pi_pthread 4 500000
+gcc pi_pthread.c -o pi_pthread -lm -pthread
+srun -c 4 ./pi_pthread 4 500000
+gcc pi_pthread.c -o pi_pthread -lm -pthread
+srun -c 4 ./pi_pthread 4 500000
 top
 ls
-hw1-b2float million.bin 
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_advance_all.o  million.bin output"
-cat slurm-15992.out 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance_all.o  million.bin output"
-cat slurm-15994.out 
-sbatch -N 4 -n 16 -p batch --wrap="time srun ./HW_advance_all.o  million.bin output"
-cat slurm-15995.out 
-sbatch -N 4 -n 48 -p batch --wrap="time srun ./HW_advance_all.o  million.bin output"
-cat slurm-15997.out 
-sbatch -N 1 -n 1 -p batch --wrap="./HW_one.o  million.bin output"
-cat slurm-16009.out 
+gcc pi_pthread.c -o pi_pthread -lm -pthread
+srun -c 4 ./pi_pthread 4 500000
+gcc pi_pthread.c -o pi_pthread -lm -pthread
+srun -c 4 ./pi_pthread 4 500000
+gcc pi_pthread.c -o pi_pthread -lm -pthread
+srun -c 4 ./pi_pthread 4 500000
+gcc pi_pthread.c -o pi_pthread -lm -pthread
+srun -c 4 ./pi_pthread 4 500000
+srun -c 4 ./pi_pthread 4 5000000000
+srun -c 4 ./pi_pthread 4 50000000
+gcc pi_pthread.c -o pi_pthread -lm -pthread
+srun -c 4 ./pi_pthread 4 50000000
 ls
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_one.o  million.bin output"
-squeue
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_one.o  million.bin output"
-squeue
-sbatch -N 4 -n 16 -p batch --wrap="time srun ./HW_one.o  million.bin output"
-squeue
-sbatch -N 4 -n 48 -p batch --wrap="time srun ./HW_advance_all.o  million.bin output"
-ls
-squeue
- PD       0:00      4 (QOSMaxJobsPerUserLimit)
-             16075     batch     wrap p1030611 PD       0:00      4 (QOSMaxJobsPerUserLimit)
-ls
-squeue
-cd hw1/
-ls
-cat slurm-16023.out 
-cat slurm-16024.out 
-cat slurm-16019.out 
-sbatch -N 4 -n 16 -p batch --wrap="time srun ./HW_advance_all.o  million.bin output"
-cat slurm-16251
-cat slurm-16251.out 
-sbatch -N 4 -n 48 -p batch --wrap="time srun ./HW_advance_all.o  million.bin output"
-cat slurm-16253.out 
-ls
-gcc generate.c -o generate
-./generate 
-sbatch -N 4 -n 48 -p batch --wrap="time srun ./HW_advance_all.o  million.bin output"
-cat slurm-16258.out 
-sbatch -N 4 -n 16 -p batch --wrap="time srun ./HW_advance_all.o  million.bin output"
-cat slurm-16259.out 
-sbatch -N 4 -n 4 -p batch --wrap="time srun ./HW_advance_all.o  million.bin output"
-cat slurm-16262.out 
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_advance_all.o  million.bin output"
-cat slurm-16263.out 
-gcc generate.c -o generate
-./generate 
-sbatch -N 4 -n 48 -p batch --wrap="time srun ./HW_advance_all.o  million.bin output"
-cat slurm-16282.out 
-gcc generate.c -o generate
-./generate 
-sbatch -N 4 -n 48 -p batch --wrap="time srun ./HW_advance_all.o  million.bin output"
-cat slurm-16284.out 
-sbatch -N 4 -n 16 -p batch --wrap="time srun ./HW_advance_all.o  million.bin output"
-cat slurm-16285.out 
-sbatch -N 4 -n 4 -p batch --wrap="time srun ./HW_advance_all.o  million.bin output"
-cat slurm-16286.out 
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_advance_all.o  million.bin output"
-cat slurm-16287.out 
-history 
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_advance_all.o  /home/pp17/ta/hw1/samples/testcase06 output"
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase06 output"
-cat slurm-16290.out 
-squeue
-cat slurm-16290.out 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase06 output"
-cat slurm-16295.out 
-squeue
-cat slurm-16295.out 
-history | grep mpicc
-mpicc HW_advance_all.c -o HW_advance_all.o -std=gnu99 -lm
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-mpicc HW_onebuffer.c -o HW_one.o -std=gnu99 -lm
-hw1-judge 
-cd ..
-ls
-mkdir homework
-cd homework/
-mkdir HW1
-ls
-cd ..
-cd hw1/
-ls
-cp HW_103061108_advanced.c ~/homework/HW1/
-cp HW_103061108_basic.c ~/homework/HW1/
-cd ~/homework/HW1/
-ls
-hw1-check 
-ls
-cd ..
-hw1-check 
-cd ~/homework/HW1/
-ls
-mv HW_103061108_advanced.c HW1_103061108_advanced.c
-ls
-mv HW_103061108_basic.c HW1_103061108_basic.c
-cd ~
-hw1-check 
-cd homework/
-cd HW1/
-l
-sls
-ls
-history
-ls
-cd ~/hw1/
-ls
-make all
-cp makefile ~/homework/HW1/
-cd ~/homework/HW1/
-make all
-ls
-make
-mv makefile Makefile
-hw1-check 
-ls
-rm makefile 
-hw1-check 
-rm HW1_103061108_basic.o 
-rm HW1_103061108_advanced.o 
-hw1-check 
-hw1-ㄨ
+gcc pthread_cond.c -o pi_pthread -lm -pthread
+gcc pthread_cond.c -o pthread_cond -lm -pthread
+./pthread_cond 
 
+./pthread_cond 
 ls
-make 
-hw1-check 
-cd ~/hw1/
+cat hello_omp.c 
+gcc hello_omp.c -o hello_omp -fopenmp
+srun -c 4 ./hello_omp
+srun -c 10 ./hello_omp
+srun -c 4 ./hello_omp
+srun -c 2 ./hello_omp
+srun -c 7 ./hello_omp
 ls
-hw1-judge million1
-hw1-judge million.bin
-hw1-judge /home/pp17/ta/hw1/samples/testcase10
-hw1-judge 
-hw1-check 
-cd ~/homework/HW1/
-hw1-check 
-make
+vim prime.c 
+clear
+vim hello_hybrid.c 
 ls
-rm HW1_103061108_basic.cc 
-make
+srun -c 4 ./pthread_cond 
+srun ./pthread_cond 
+./pthread_cond 
 ls
-make
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 500000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 500000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 500000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 500000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 500000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 500000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 500000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 500000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 500000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 500000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 500000
+srun -c 3 -N 2 ./pi_hybrid 50
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 50000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 50000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 50000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 50000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 50000
+vim pi_hybrid.c 
+srun -c 3 -N 2 ./pi_hybrid 50000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 50000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 50000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 50000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 50000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 50000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 50000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 50000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 50000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 50000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 50000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 50000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 2 ./pi_hybrid 50000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun  -N 2 ./pi_hybrid 50000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun  -N 2 ./pi_hybrid 50000
+srun -c 3 -N 2 ./pi_hybrid 50000
+srun -c 3 -N 4 -p batch ./pi_hybrid 50000
+srun -c 3 -N 4 -p batch ./pi_hybrid 50000000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 4 -p batch ./pi_hybrid 50000000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 4 -p batch ./pi_hybrid 50000000
+srun -c 3 -N 1 -p batch ./pi_hybrid 50000000
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 1 -p batch ./pi_hybrid 50000000
+vim pi_hybrid.c 
+srun -c 3 -N 1 -p batch ./pi_hybrid 50000000
+vim pi_hybrid.c 
+vim ~/.viminfo 
+rm ~/.viminfo 
+vim pi_hybrid.c 
+mpicc pi_hybrid.c -o pi_hybrid -lm -fopenmp -std=c99
+srun -c 3 -N 1 -p batch ./pi_hybrid 50000000
+vim pi_hybrid.c 
+pwd
 ls
-hw1-check 
-cd  /home/pp17/ta/hw1/Makefile
-cd /home/pp17/ta/hw1/Makefile
-cd /home/pp17/ta/hw1/
+man manMAN
+LS
 ls
-vim Makefile 
-cp Makefile ~/homework/HW1/
-cd ~/homework/HW1/
-hw1-check 
+l
 ls
-vim Makefile 
-make all
-rm HW1_103061108_basic.o 
-rm HW1_103061108_advanced.o 
-make all
-vim Makefile 
-make all
+cd lab1b/
 ls
-hw1-check 
-hw1-judge
-hw1-judge /home/pp17/ta/hw1/samples/testcase01
+cat pi.c 
+cd ..
+cd lab2/
+cat prime.c 
+clear
+cat prime.c 
+clear
+cat hello_omp
+clear
+cat hello_omp.c 
 ls
-hw1-judge HW1_103061108_advanced
-hw1-judge HW1_103061108_basic
-squeue
-cd ~/j1.
+mpicc hello_hybrid.c -o hello_hybrid -fopenmp
+srun -c 3 -N 2 ./hello_hybrid
+ls
+cd ..
+cd lab1b/
+ls
+cp pi.c ~/lab2/
+cd ..
+cd lab2/
+ls
+mv pi.c pi_pthread.c
+vim pi_pthread.c 
+ls
+cp pi_pthread ~
+srun -c 4 ./pi_pthread 4 500000
+srun -c 4 ./pi_pthread 4 5000000
+.ls
+ls
+srun -c 4 ./pi_pthread 4 50000000
+mv pi_pthread.c pi_hybrid.c
+mpicc pi_hybrid.c -o hello_hybrid -fopenmp
+mpicc pi_hybrid.c -o hello_hybrid -fopenmp -std=c99 -lm
+srun -c 3 -N 2 ./hello_hybrid
+srun -c 3 -N 2 ./hello_hybrid 5000000
+srun -c 3 -N 2 ./hello_hybrid 50000000
+time srun -c 3 -N 2 ./hello_hybrid 50000000
+time srun -c 3 -N 1 ./hello_hybrid 50000000
+vim pi_hybrid.c 
+ls
+cat prime.c 
+gcc prime.c -o prime -pthread -fopenmp
+gcc prime.c -o prime -pthread -fopenmp -lm
+srun -c 4 ./prime 100
+srun -c 4 ./prime 1000
+srun -c 1 ./prime 1000
+vim pi_hybrid.c 
+vim prime.c
+gcc prime.c -o prime -pthread -fopenmp -lm
+srun -c 1 ./prime 1000
+srun -c 4 ./prime 1000
+vim prime.c
+clear
+gcc prime.c -o prime -pthread -fopenmp -lm
+vim prime.c
+gcc prime.c -o prime -pthread -fopenmp -lm
+srun -c 4 ./prime 1000
+vim prime.c
+gcc prime.c -o prime -pthread -fopenmp -lm
+vim prime.c
+gcc prime.c -o prime -pthread -fopenmp -lm
+srun -c 4 ./prime 1000
+srun -c 1 ./prime 1000
+vim prime.c 
+cd ..
+cd lab1b/
+cat pi.c 
+ls
+cd ..
+ls
+cd ta
+ls
+cd ..
+cp -r ta/ ~/
+cd ..
 cd ~
 ls
-cd j1.7ol7glb_/
+rm -r ta/
+ls
+cd ta/
+ls
+cd lab2/
+ls
+l
 ls
 cd ..
-cd j1.7rj18s4t/
+cp -r /home/pp17/ta/lab2 ~
+cd ~
 ls
-cd ..
-cat README.md 
+cd lab2/
+ls
+gcc hello_pthread.c -o hello_pthread -pthread
+srun -c 4 ./hello_pthread 4
+ls
+vim pi_pthread.c
+ls
+vim pthread_cond.c 
+vim pi_pthread.c
 cd homework/HW1/
-hw1-check 
-hw1-judge HW1_103061108_basic
-hw1-judge HW1_103061108_advanced
-cd ~/hw1/
+ls
+cat slurm-22232.out 
+hw1-judge-all HW1_103061108_basic
 history
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance_all.o  /home/pp17/ta/hw1/samples/testcase01 output"
-rm output u
-rm output 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance_all.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float ou
+history | grep hw1-b
+hw1-b2float /home/pp17/ta/hw1/samples/testcase15
+cd /home/pp17/ta/hw1/samples/
 ls
-cd ~/homework/HW1/
+cd ..
 ls
-hw1-check 
-hw1-judge  HW1_103061108_basic
-hw1-check 
-hw1-judge  HW1_103061108_basic
-ls -al
-cd ~/hw1/
-history
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 28 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase03 output"
+cd ..
 ls
-rm slu*
-ls
-sbatch -N 4 -n 28 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase03 output"
-cat slurm-18290.out 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 28 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase03 output"
-cat slurm-18290.out 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 28 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase03 output"
-cat slurm-18292
-squeue
-scancel 18292
-scancel 18289
-scancel 18290
-scancel 18291
-squeue
-scancel 18291
-squeue
-sbatch -N 4 -n 28 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase03 output"
-squeue
-scancel 18293
-cat slurm-18293.out 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 28 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase03 output"
-cat slurm-18305.out 
-squeue
-scancel 18305
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 28 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase03 output"
-cat slurm-18307.out 
-squeue
-scancel 18307
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 28 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase03 output"
-cat slurm-18328.out 
-squeue
-scancel 18328
-cat slurm-18328.out 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 28 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase03 output"
-cat slurm-18349.out 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 28 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase03 output"
-cat slurm-18365.out 
-squeue
-scancel 18349
-scancel 18365
-cat slurm-18365.out 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 28 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase03 output"
-cat slurm-18378.out 
-scancel 18378
-cat slurm-18378.out 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 28 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase03 output"
-scancel 18399
-cat slurm-18399.out 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 28 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase03 output"
-scancel 18417
-cat slurm-18417.out 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 28 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase03 output"
-cat slurm-18520.out 
-squeue
-scancel 18520
-cat slurm-18520.out 
-cd h
 cd hw1/
 ls
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 28 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase03 output"
-cat slurm-19179.out 
-scancel 19179
-cat slurm-19179.out 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 28 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase03 output"
-scancel 19180
-cat slurm-19180.out 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 28 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase03 output"
-scancel 19183
-cat slurm-19183.out 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 28 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase03 output"
-scancel 19203
-cat slurm-19203.out 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 28 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase03 output"
-scancel 19220
-cat slurm-19220.out 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 28 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase03 output"
+cd ..
+cd ~
+cd homework/HW1/
 ls
-scancel 19246
-cat slurm-19246.out 
+cd ~
 ls
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 28 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase03 output"
-scancel 19256
-cat slurm-19256.out 
-sbatch -N 4 -n 28 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase03 output"
-squeue
-scancel 19259
-sbatch -N 4 -n 6 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-scancel 19267
-cat slurm-19267.out 
+cd homework/HW1/
 ls
-hw1-b2float output 
-sbatch -N 4 -n 4 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output 
-rm output 
-sbatch -N 4 -n 4 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
+hw1-judge-all 
 squeue
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 6 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-19282.out 
-scancel 19282
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 6 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-19286.out 
-scancel 19286
-cat slurm-19286.out 
-sbatch -N 4 -n 28 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase03 output"
-scancel 19288
-cat slurm-19288.out 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 6 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-scancel 19296
-cat slurm-19296.out 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 6 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-scancel 19312
-cat slurm-19312.out 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 6 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-19322.out 
-hw1-b2float output 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 6 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-19329.out 
-squeue
-scancel 19322
-scancel 19329
-squeue
-cat slurm-19329.out 
+make
+hw1-judge-all 
+make
+hw1-judge-all 
+clear
+hw1-judge-all 
+cd ..
 ls
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 6 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-19336.out 
-scancel 19336
-cat slurm-19336.out 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 6 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-19354.out 
-scancel 19354
-cat slurm-19354.out 
-rm output 
-sbatch -N 4 -n 6 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-scancel 19355
-cat slurm-19355.out 
-rm output 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 6 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-scancel 19357
-cat slurm-19357.out 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 6 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-19362.out 
-scancel 19362
-cat slurm-19362.out 
-hw1-b2float output 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 6 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-scancel 19365
-cat slurm-19365.out 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 6 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-scancel 19367
-cat slurm-19367.out 
-sbatch -N 4 -n 6 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
+cd ..
+ls
+cd homework/HW1/
+make
+hw1-judge-all 
+make
+hw1-judge-all 
+make
+hw1-judge-all 
+cd homework/HW1/
+hw1-judge-all 
+make
+hw1-judge-all 
+make
+hw1-judge-all 
+make
+hw1-judge-all 
+make
+hw1-judge-all 
+ls
+cd homework/HW1/
+hw1-judge-all 
+who
+ls
+cd /home/pp17/ta/hw2
+ls
+cd ..
+cd ~
+cp -rf /home/pp17/ta/hw2 .
+ls
+cd hw2/
+ls
+make
+cat Makefile 
+ls
+ srun -n 2 ./ms_seq 4 -2 2 -2 2 400 400 out.png
+ls
+date
+ls
+cd hw2/
+ls
+who
+ls
+make
+ srun -n 2 ./ms_seq 4 -2 2 -2 2 400 400 out.png
+ srun -n 2 ./ms_seq 4 -2 2 -2 2 1000 1000 out.png
+mpiexec --version
+mpicc -v
+clear
+mpicc -v
+mpichversion
+mpiexec --version
+mpicc -h
+mpi -h
+
+man mpicc
+man mpilib
+man mpi.h
+sjob
+jobs
+who
+cd hw2/
+ls
+vim Makefile 
+make
+ls
+ srun -n 2 ./ms_mpi_static 4 -2 2 -2 2 400 400 out.png
+ls
+ls -al
+make
+ srun -n 3 ./ms_mpi_static 4 -2 2 -2 2 400 400 out.png
+make
+ srun -n 3 ./ms_mpi_static 4 -2 2 -2 2 400 400 out.png
+make
+ srun -n 3 ./ms_mpi_static 4 -2 2 -2 2 400 400 out.png
+make
+ srun -n 3 ./ms_mpi_static 4 -2 2 -2 2 400 400 out.png
+make
+ srun -n 3 ./ms_mpi_static 4 -2 2 -2 2 400 400 out.png
+ls
+make
+ srun -n 3 ./ms_mpi_static 4 -2 2 -2 2 400 400 out.png
+ srun -n 3 ./ms_seq 4 -2 2 -2 2 400 400 ref.png
+hw2-diff ref.png out.png 
+ srun -n 3 ./ms_seq 4 -10 2 -2 2 1000 1000 ref.png
+ srun -n 3 ./ms_seq 4 -10 2 -2 2 1000 1000 out.png
+ srun -n 3 ./ms_seq 4 -10 2 -2 2 1000 1000 ref.png
+ srun -n 3 ./ms_mpi_static 4 -10 2 -2 2 400 400 out.png
+ srun -n 3 ./ms_mpi_static 4 -10 2 -2 2 1000 1000 out.png
+hw2-diff ref.png out.png 
+ srun -n 10 ./ms_mpi_static 4 -10 2 -2 2 8 1000 out.png
+ srun -n 7 ./ms_mpi_static 4 -10 2 -2 2 2 1000 out.png
+make
+ srun -n 7 ./ms_mpi_static 4 -10 2 -2 2 2 1000 out.png
+make
+ srun -n 7 ./ms_mpi_static 4 -10 2 -2 2 2 1000 out.png
+make
+ srun -n 7 ./ms_mpi_static 4 -10 2 -2 2 2 1000 out.png
+clear
+ srun -n 7 ./ms_mpi_static 4 -10 2 -2 2 2 1000 out.png
+make
+ srun -n 7 ./ms_mpi_static 4 -10 2 -2 100 2 1000 out.png
+ srun -n 7 ./ms_seq 4 -10 2 -2 2 2 1000 ref.png
+hw2-diff ref.png out.png 
+ srun -n 7 ./ms_seq 4 -10 2 -2 2 200 2 ref.png
+ srun -n 7 ./ms_mpi_static 4 -10 2 -2 2 200 2 out.png
+hw2-diff ref.png out.png 
+ srun -n 7 ./ms_mpi_static 4 -10 2 -2 2 2 2 out.png
+ srun -n 7 ./ms_seq 4 -10 2 -2 2 2 2 ref.png
+hw2-diff ref.png out.png 
+who
+cd hw2/
+sl
+ls
+make
+top
+cd hw2/
+ls
+history | gre psrun
+top
+cd hw2/
+ls
+history | gre psrun
+history | grep srun
+srun -n 4 ./ms_mpi_dynamic 4 -2 2 -2 2 400 400 out.png
+make
+srun -n 4 ./ms_mpi_dynamic 4 -2 2 -2 2 400 400 out.png
+make
+srun -n 4 ./ms_mpi_dynamic 4 -2 2 -2 2 400 400 out.png
+make
+srun -n 4 ./ms_mpi_dynamic 4 -2 2 -2 2 400 400 out.png
 squeue
-scancel 19368
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 6 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-scancel 19375
-cat slurm-19375.out 
-sbatch -N 4 -n 6 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-scancel 19381
-cat slurm-19381.out 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 6 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
+make
 squeue
-cat slurm-19388.out 
-hw1-judge HW_basic.o
-sbatch -N 4 -n 28 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase03 output"
+srun -n 4 ./ms_mpi_dynamic 4 -2 2 -2 2 400 400 out.png
+make
+srun -n 4 ./ms_mpi_dynamic 4 -2 2 -2 2 400 400 out.png
+exit
+cd hw2
+ls
+make
+ls
+ srun -n 3 ./ms_mpi_static 4 -2 2 -2 2 100 100 out.png
+ srun -n 3 ./ms_mpi_dynamic 4 -2 2 -2 2 100 100 out.png
+make
+ srun -n 3 ./ms_mpi_dynamic 4 -2 2 -2 2 100 100 out.png
+ srun -n 4 ./ms_mpi_dynamic 4 -2 2 -2 2 100 100 out.png
+make
+ srun -n 4 ./ms_mpi_dynamic 4 -2 2 -2 2 100 100 out.png
+ srun -n 3 ./ms_mpi_static 4 -2 2 -2 2 1000 1000 out.png
+cd hw2/
 squeue
-hw1-b2float output 
-cd ~/homework/HW1/
-hw1-check 
-hw1-judge HW1_103061108_basic
-cd ~/hw1/
-sbatch -N 3 -n 15 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase02 output"
-squeue
-cat slurm-19408.out 
-rm output 
-sbatch -N 3 -n 15 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float 
-hw1-b2float output 
-sqeueu
-squeue
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float 
-hw1-b2float output 
-cat slurm-19412.out 
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-19419.out 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-19431.out 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-19436.out 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output 
-rm output 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output 
-cat slurm-19438.out 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-19439.out 
-hw1-b2float output 
-cd ~/homework/HW1/
-hw1-check 
-hw1-judge HW1_103061108_basic
-squeue
-hw1-judge HW1_103061108_basic
-cd ~/hw1/
-sbatch -N 3 -n 15 -p batch --wrap="time srun ./HW_basic.o 21 /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-19454.out 
-hw1-b2float 
-hw1-b2float output 
-mpicc HW1_103061108_advanced.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-19466.out 
-hw1-ou
-hw1-b2float output 
-rm output 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output 
+cd hw2/
+make
+srun -n 4 ./ms_mpi_dynamic 4 -2 2 -2 2 400 400 out.png
+make
+srun -n 4 ./ms_mpi_dynamic 4 -2 2 -2 2 400 400 out.png
+make
+srun -n 4 ./ms_mpi_dynamic 4 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+srun ./ms_seq 4 -2 2 -2 2 400 400 out.png
+srun ./ms_seq 4 -2 2 -2 2 400 400 ref.png 
+srun -n 4 ./ms_mpi_dynamic 4 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+make
+srun -n 4 ./ms_mpi_dynamic 4 -2 2 -2 2 400 400 out.png
+srun -n 4 ./ms_mpi_dynamic 4 -2 2 -2 2 4000 4000 out.png
+srun -n 8 ./ms_mpi_dynamic 4 -2 2 -2 2 4000 4000 out.png
+cd hw2/
+ls
+srun -n 4 ./ms_mpi_dynamic 4 -2 2 -2 2 400 400 out.png
+ls
+diff out.png ref.png 
+hw2-diff out.png ref.png 
+cd hw1
 ls
 rm sl*
+s
 ls
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output 
-mpicc HW1_103061108_advanced.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-19478.out 
-hw1-b2float output 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-rm output 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output 
-squeue
-mpicc HW1_103061108_advanced.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-19482.out 
-mpicc HW1_103061108_advanced.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-19489.out 
-mpicc HW1_103061108_advanced.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-19493.out 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase05 output"
-hw1-b2float output 
-cat slurm-19505.out 
-squeue
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase05 output"
-squeue
-
-squeue
-cat slurm-19511.out 
-hw1-b2float output 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-rm output 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-19540.out 
-mpicc HW1_103061108_advanced.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-19547.out 
-mpicc HW1_103061108_advanced.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-19550.out 
-mpicc HW1_103061108_advanced.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-19556.out 
-mpicc HW1_103061108_advanced.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-19558.out 
-hw1-b2float /home/pp17/ta/hw1/samples/testcase01
-mpicc HW1_103061108_advanced.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-19572.out 
-mpicc HW1_103061108_advanced.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-19578.out 
-scancel 19578
-cat slurm-19578.out 
-mpicc HW1_103061108_advanced.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-19591.out 
-scancel 19591
-cat slurm-19591.out 
-mpicc HW1_103061108_advanced.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-car slurm-19596.out 
-cat slurm-19596.out 
-mpicc HW1_103061108_advanced.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-19617.out 
-hw1-b2float output 
-sbatch -N 1 -n 15 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase02 output"
-sbatch -N 4 -n 15 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output 
-hw1-judge HW_advance.o 
-mpicc HW1_103061108_advanced.c -o HW_advance.o -std=gnu99 -lm
-hw1-judge HW_advance.o 
-mpicc HW1_103061108_advanced.c -o HW_advance.o -std=gnu99 -lm
-hw1-judge HW_advance.o 
-hw1-judge HW_basic.o 
-cd homework/HW1/
+vim HW1_103061108_advanced.c 
+cd ..
+cd hw2
 ls
-hw1-judge HW1_103061108_advanced
+make
+mpicc -O3 -std=gnu99  -lpng  ms_mpi_static_time.c   -o ms_mpi_static_time
+srun -n 4 ./ms_mpi_static_time 4 -2 2 -2 2 400 400 out.png
+srun -n 4 ./ms_mpi_static_time 4 -2 2 -2 2 1000 1000 out.png
+srun -n 1 ./ms_mpi_static_time 4 -2 2 -2 2 1000 1000 out.png
+srun -n 16 ./ms_mpi_static_time 4 -2 2 -2 2 1000 1000 out.png
+srun -N 4 -n 16 -p batch ./ms_mpi_static_time 4 -2 2 -2 2 1000 1000 out.png
+srun -N 4 -n 48 -p batch ./ms_mpi_static_time 4 -2 2 -2 2 1000 1000 out.png
+srun -N 1 -n 1 -p batch ./ms_mpi_static_time 4 -2 2 -2 2 4000 4000 out.png
+srun -N 1 -n 4 -p batch ./ms_mpi_static_time 4 -2 2 -2 2 4000 4000 out.png
+cd hw2
+ls
+srun -N 4 -n 16 -p batch ./ms_mpi_dynamic 4 -2 2 -2 2 1000 1000 out.png
+srun -N 4 -n 16 -p batch ./ms_seq 4 -2 2 -2 2 1000 1000 out.png
+cd hw2
+ls
+srun -N 1 -n 1 -p batch ./ms_mpi_dynamic_time 4 -2 2 -2 2 10000 10000 out.png
+srun -N 4 -n 16 -p batch ./ms_mpi_dynamic_time 4 -2 2 -2 2 4000 4000 out.png
+srun -N 4 -n 16 -p batch ./ms_mpi_static_time 4 -2 2 -2 2 4000 4000 out.png
+srun -N 4 -n 48 -p batch ./ms_mpi_static_time 4 -2 2 -2 2 4000 4000 out.png
+ls
+make
+srun -p batch ./ms_omp 1 -2 2 -2 2 400 400 out.png
+time srun -p batch ./ms_omp 4 -2 2 -2 2 400 400 out.png
+time srun -p batch ./ms_omp 1 -2 2 -2 2 400 400 out.png
+gcc ms_omp.c -o ms_omp -fopenmp
+gcc -std=gnu99 ms_omp.c -o ms_omp -fopenmp
+gcc -std=gnu99 ms_omp.c -o ms_omp -fopenmp -lm
+make
+gcc -std=gnu99 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+srun -c3 -n1 ./ms_omp
+srun -N 4 -n 16 -p batch ./ms_omp 4 -2 2 -2 2 4000 4000 out.png
+srun -N 4 -n 16 -p batch ./ms_omp 4 -2 2 -2 2 400 400 out.png
+time srun -N 4 -n 16 -p batch ./ms_omp 4 -2 2 -2 2 400 400 out.png
+time srun -N 4 -n 16 -p batch ./ms_omp 1 -2 2 -2 2 400 400 out.png
+time srun -c3 -n2 16 -p batch ./ms_omp 1 -2 2 -2 2 400 400 out.png
+time srun -c3 -n2 -p batch ./ms_omp 1 -2 2 -2 2 400 400 out.png
+time srun -c1 -n1 -p batch ./ms_omp 4 -2 2 -2 2 400 400 out.png
+time srun -c1 -n1 -p batch ./ms_omp 1 -2 2 -2 2 400 400 out.png
+time srun -p batch ./ms_omp 1 -2 2 -2 2 400 400 out.png
+time srun -p batch ./ms_omp 9 -2 2 -2 2 400 400 out.png
+gcc -std=gnu99 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+ls -al
+time srun -p batch ./ms_omp 9 -2 2 -2 2 400 400 out.png
+gcc -std=gnu99 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch ./ms_omp 9 -2 2 -2 2 400 400 out.png
+gcc -std=gnu99 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch ./ms_omp 9 -2 2 -2 2 400 400 out.png
+gcc -std=gnu99 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch ./ms_omp 9 -2 2 -2 2 400 400 out.png
+gcc -std=gnu99 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch ./ms_omp 9 -2 2 -2 2 400 400 out.png
+gcc -std=gnu99 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch ./ms_omp 9 -2 2 -2 2 400 400 out.png
+gcc -std=gnu99 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch ./ms_omp 2 -2 2 -2 2 400 400 out.png
+time srun -p batch ./ms_seq 2 -2 2 -2 2 400 400 out.png
+time srun -p batch ./ms_seq 2 -2 2 -2 2 400 400 ref.png
+time srun -p batch ./ms_seq 2 -2 2 -2 2 400 400 out.png
+time srun -p batch ./ms_seq 2 -2 2 -2 2 400 400 ref.png
+time srun -p batch ./ms_omp 2 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+time srun -p batch ./ms_omp 9 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+time srun -p batch ./ms_omp 9 -2 2 -2 2 1000 1000 out.png
+time srun -p batch ./ms_omp 4 -2 2 -2 2 1000 1000 out.png
+gcc -std=gnu99 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch ./ms_omp 4 -2 2 -2 2 1000 1000 out.png
+squeue
+srun -N 4 -n 1 -p batch ./ms_mpi_static_time 4 -2 2 -2 2 4000 4000 out.png
+srun -N 1 -n 4 -p batch ./ms_mpi_static_time 4 -2 2 -2 2 4000 4000 out.png
+cd hw2
+srun -N 1 -n 4 -p batch ./ms_mpi_static_time 4 -2 2 -2 2 4000 4000 out.png
+mpicc -O3 -std=gnu99  -lpng  ms_mpi_dynamic_time.c -o ms_mpi_dynamic_time
+srun -N 1 -n 4 -p batch ./ms_mpi_dynamic_time 4 -2 2 -2 2 4000 4000 out.png
+mpicc -O3 -std=gnu99  -lpng  ms_mpi_dynamic_time.c -o ms_mpi_dynamic_time
+srun -N 1 -n 4 -p batch ./ms_mpi_dynamic_time 4 -2 2 -2 2 4000 4000 out.png
+srun -N 4 -n 16 -p batch ./ms_mpi_dynamic_time 4 -2 2 -2 2 4000 4000 out.png
+srun -N 4 -n 48 -p batch ./ms_mpi_dynamic_time 4 -2 2 -2 2 4000 4000 out.png
+srun -N 1 -n 4 -p batch ./ms_mpi_dynamic_time 4 -2 2 -2 2 10000 10000 out.png
 who
-cd hw1/
-hw1-judge HW_advance.o
-sbatch -N 4 -n 17 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase05 output"
-cat slurm-19823.out 
-hw1-b2float output 
-diff output /home/pp17/ta/hw1/samples/sorted05
-diff output /home/pp17/ta/hw1/samples/sorted06
-diff output /home/pp17/ta/hw1/samples/sorted05
-sbatch -N 4 -n 13 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase05 output"
-diff output /home/pp17/ta/hw1/samples/sorted05
-sbatch -N 4 -n 7 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase05 output"
-diff output /home/pp17/ta/hw1/samples/sorted05
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-hw1-judge HW_advance.o
-mpicc HW1_103061108_advanced.c -o HW_advance.o -std=gnu99 -lm
-hw1-judge HW_advance.o
-mpicc HW1_103061108_advanced.c -o HW_advance.o -std=gnu99 -lm
-hw1-judge HW_advance.o
-mpicc HW1_103061108_advanced.c -o HW_advance.o -std=gnu99 -lm
-hw1-judge HW_advance.o
-mpicc HW1_103061108_advanced.c -o HW_advance.o -std=gnu99 -lm
-hw1-judge HW_advance.o
-mpicc HW1_103061108_advanced.c -o HW_advance.o -std=gnu99 -lm
-hw1-judge HW_advance.o
-sbatch -N 2 -n 10 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase06 output"
-hw1-b2float output 
+squeue
+who
+cd hw2
 ls
-diff -qs output /home/pp17/ta/hw1/samples/testcase06
-cmp -b output /home/pp17/ta/hw1/samples/testcase06
-cmp ---print-bytes output /home/pp17/ta/hw1/samples/testcase06
-cmp --print-bytes output /home/pp17/ta/hw1/samples/testcase06
-sbatch -N 2 -n 10 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase07 output"
-cmp --print-bytes output /home/pp17/ta/hw1/samples/testcase07
-sbatch -N 2 -n 10 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase09 output"
-cmp --print-bytes output /home/pp17/ta/hw1/samples/testcase09
-rm output 
-sbatch -N 2 -n 10 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-sbatch -N 2 -n 10 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase09 output"
-cmp --print-bytes output /home/pp17/ta/hw1/samples/sorted09
-diff -c output /home/pp17/ta/hw1/samples/sorted09
-diff -h output /home/pp17/ta/hw1/samples/sorted09
-
-hw1-b2float output 
-hw1-b2float /home/pp17/ta/hw1/samples/sorted09
-hw1-b2float output 
-hw1-b2float /home/pp17/ta/hw1/samples/sorted09
-hw1-judge HW_advance.o
-mpicc HW1_103061108_advanced.c -o HW_advance.o -std=gnu99 -lm
-hw1-judge HW_advance.o
-sbatch -N 2 -n 10 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase09 output"
-cat slurm-20370.out 
-sbatch -N 2 -n 24 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase09 output"
-cat slurm-20371.out 
-scancel 20371
-cat slurm-20371.out 
-sbatch -N 2 -n 3 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase7 output"
-cat slurm-20373.out 
-sbatch -N 2 -n 3 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase7 output"
-cat slurm-20374.out 
-sbatch -N 2 -n 3 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase1 output"
-cat slurm-20375.out 
-mpicc HW1_103061108_advanced.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 2 -n 3 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase1 output"
+cd hw2/
 ls
-cat slurm-20377.out 
-hw1-judge HW_advance.o
-sbatch -N 2 -n 3 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase1 output"
-cat slurm-20392.out 
+history 
+gcc -std=gnu99 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch ./ms_omp 4 -2 2 -2 2 2000 2000 out.png
+squeue
+gcc -std=gnu99 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch ./ms_omp 4 -2 2 -2 2 1000 1000 out.png
+gcc -std=gnu99 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch ./ms_omp 4 -2 2 -2 2 1000 1000 out.png
+gcc -std=gnu99 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch ./ms_omp 4 -2 2 -2 2 1000 1000 out.png
+gcc -std=gnu99 ms_omp_time.c -o ms_omp_time -fopenmp -lm -lpng
+time srun -p batch ./ms_omp 4 -2 2 -2 2 1000 1000 out.png
+time srun -p batch ./ms_omp_time 4 -2 2 -2 2 1000 1000 out.png
+time srun -p batch ./ms_omp_time 10 -2 2 -2 2 1000 1000 out.png
+gcc -std=gnu99 ms_omp_time.c -o ms_omp_time -fopenmp -lm -lpng
+time srun -p batch ./ms_omp_time 10 -2 2 -2 2 1000 1000 out.png
+time srun -p batch ./ms_omp_time 1 -2 2 -2 2 1000 1000 out.png
+gcc -std=gnu99 ms_omp_time.c -o ms_omp_time -fopenmp -lm -lpng
+time srun -p batch ./ms_omp_time 1 -2 2 -2 2 1000 400 out.png
+time srun -p batch ./ms_omp_time 10 -2 2 -2 2 1000 400 out.png
+gcc -std=gnu99 ms_omp_time.c -o ms_omp_time -fopenmp -lm -lpng
+time srun -p batch ./ms_omp_time 10 -2 2 -2 2 1000 400 out.png
+time srun -p batch ./ms_omp_time 4 -2 2 -2 2 1000 400 out.png
+time srun -p batch -c4 ./ms_omp_time 4 -2 2 -2 2 1000 400 out.png
+time srun -p batch -c10 ./ms_omp_time 10 -2 2 -2 2 1000 400 out.png
+time srun -p batch -c10 ./ms_seq 10 -2 2 -2 2 1000 400 out.png
+time srun -p batch -c10 ./ms_seq 10 -2 2 -2 2 1000 400 ref.png
+time srun -p batch -c20 ./ms_seq 20 -2 2 -2 2 1000 400 ref.png
+time srun -p batch -c12 ./ms_seq 12 -2 2 -2 2 1000 400 ref.png
+time srun -p batch -c12 ./ms_omp_time 12 -2 2 -2 2 1000 400 out.png
+hw2-diff out.png ref.png 
+who
+jo s
+jobs
+job
+cd hw2
+ls
+time srun -p batch -c12 ./ms_omp_time 12 -2 2 -2 2 1000 1000 out.png
+cd hw2
+time srun -p batch -c12 ./ms_omp_time 12 -2 2 -2 2 1000 1000 out.png
+time srun -p batch -c2 ./ms_omp_time 2 -2 2 -2 2 1000 1000 out.png
+gcc -std=gnu99 ms_omp_time.c -o ms_omp_time -fopenmp -lm -lpng
+time srun -p batch -c12 ./ms_omp_time 12 -2 2 -2 2 1000 1000 out.png
+time srun -p batch -c2 ./ms_omp_time 2 -2 2 -2 2 1000 1000 out.png
+ls
+cd hw2/
+make
+gcc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
+mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
+clear
+mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
+time srun -p batch -c12 ./ms_hybrid 12 -2 2 -2 2 1000 1000 out.png
+cd hw2
+ls
+time srun -p batch -c 2-n2 -N2 ./ms_hybrid 2 -2 2 -2 2 1000 1000 out.png
+time srun -p batch -c 2 -n2 -N2 ./ms_hybrid 2 -2 2 -2 2 1000 1000 out.png
+mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
+time srun -p batch -c 2 -n2 -N2 ./ms_hybrid 2 -2 2 -2 2 1000 1000 out.png
+mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
+time srun -p batch -c 4 -n2 -N2 ./ms_hybrid 4 -2 2 -2 2 1000 1000 out.png
+time srun -p batch -c 12 -n2 -N2 ./ms_hybrid 12 -2 2 -2 2 1000 1000 out.png
+time srun -p batch -c 12 -n3 -N2 ./ms_hybrid 12 -2 2 -2 2 1000 1000 out.png
+time srun -p batch -c 12 -n2 -N4 ./ms_hybrid 12 -2 2 -2 2 1000 1000 out.png
+time srun -p batch -c 12 -n4 -N4 ./ms_hybrid 12 -2 2 -2 2 1000 1000 out.png
+cd ..
+ls
+cd lab2/
+ls
+cat hello_hybrid.c 
+cd hw2
+cd ../hw2
+ls
+history
+make
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -n 4 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+srun -n 2 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -n 2 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -n 2 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+srun -n 2 ./ms_seq 4 -2 2 -2 2 400 400 ref.png
+hw2-diff ref.png out.png 
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -n 2 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+hw2-diff ref.png out.png 
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -n 2 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+hw2-diff ref.png out.png 
+srun -n 1 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+hw2-diff ref.png out.png 
+history | time
+cd hw2
+time srun -p batch -c12 ./ms_seq 12 -2 2 -2 2 1000 1000 ref.png
+hw2-diff ref.png out.png 
+squeue
+scancel 105038
+squeue
+cd hw2
+ls
+time srun -p batch -c 2-n2 -N2 ./ms_hybrid 2 -2 2 -2 2 1000 1000 out.png
+time srun -p batch -c 2 -n2 -N2 ./ms_hybrid 2 -2 2 -2 2 1000 1000 out.png
+mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
+time srun -p batch -c 2 -n2 -N2 ./ms_hybrid 2 -2 2 -2 2 1000 1000 out.png
+mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
+time srun -p batch -c 4 -n2 -N2 ./ms_hybrid 4 -2 2 -2 2 1000 1000 out.png
+time srun -p batch -c 12 -n2 -N2 ./ms_hybrid 12 -2 2 -2 2 1000 1000 out.png
+time srun -p batch -c 12 -n3 -N2 ./ms_hybrid 12 -2 2 -2 2 1000 1000 out.png
+time srun -p batch -c 12 -n2 -N4 ./ms_hybrid 12 -2 2 -2 2 1000 1000 out.png
+time srun -p batch -c 12 -n4 -N4 ./ms_hybrid 12 -2 2 -2 2 1000 1000 out.png
+cd ..
+ls
+cd lab2/
+ls
+cat hello_hybrid.c 
+cd hw2
+cd ../hw2
+ls
+history
+make
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -n 4 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+srun -n 2 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -n 2 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -n 2 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+srun -n 2 ./ms_seq 4 -2 2 -2 2 400 400 ref.png
+hw2-diff ref.png out.png 
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -n 2 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+hw2-diff ref.png out.png 
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -n 2 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+hw2-diff ref.png out.png 
+srun -n 1 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+hw2-diff ref.png out.png 
+history | time
+history | grep time
+time srun -p batch -c 1 -n4 -N48 ./ms_hybrid 2 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c 1 -n48 -N4 ./ms_hybrid 2 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c 4 -N4 -n12  ./ms_hybrid 2 -2 2 -2 2 4000 4000 out.png
+history | grep hybrid
+mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
+time srun -p batch -c1 -N4 -n48  ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c2 -N4 -n24  ./ms_hybrid 2 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c4 -N4 -n12  ./ms_hybrid 4 -2 2 -2 2 4000 4000 out.png
+mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
+time srun -p batch -c1 -N4 -n48  ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+ls
+mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
+time srun -p batch -c1 -N4 -n48  ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N2 -n24  ./ms_hybrid 2 -2 2 -2 2 4000 4000 out.png
+history 
+srun -n 4 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+srun -N 4 -n 16 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+srun -N 2 -n 16 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+srun -n 2 -N 16 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+srun -n 4 -N 16 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+srun -p batch -n 4 -N 16 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+srun -p batch -N 4 -n 48 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+srun -p batch -N 4 -n 16 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+srun -p batch -N 4 -n 48 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+history
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -p batch -N 4 -n 48 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -p batch -N 4 -n 48 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -p batch -N 4 -n 48 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -p batch -N 4 -n 48 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -p batch -N 4 -n 48 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -p batch -N 4 -n 48 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -p batch -N 4 -n 48 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+srun -p batch -N 4 -n 15 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+srun -p batch -N 4 -n 17 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -p batch -N 4 -n 17 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -p batch -N 4 -n 17 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -p batch -N 4 -n 17 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -p batch -N 4 -n 17 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -p batch -N 4 -n 17 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -p batch -N 4 -n 17 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -p batch -N 4 -n 17 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -p batch -N 4 -n 17 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
+srun -p batch -N 4 -n 17 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+srun -p batch -N 4 -n 17 ./ms_mpi_static_mod 4 -2 2 -2 2 400 1000 out.png
+hw2-diff out.png ref.png 
+srun -p batch -N 4 -n 17 ./ms_mpi_static_mod 4 -2 2 -2 2 1000 400 out.png
+ls
+srun -p batch -N 1 -n 1 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+make
+history | grep dynamic
+srun -N 1 -n 4 -p batch ./ms_mpi_dynamic 4 -2 2 -2 2 400 400 out.png
+make
+srun -N 1 -n 4 -p batch ./ms_mpi_dynamic 4 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+srun -N 4 -n 16 -p batch ./ms_mpi_dynamic 4 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+cd hw2
+ls
+make
+history | grep hybrid.c
+vim Makefile 
+mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
+history | grep hybrid
+time srun -p batch -c 1 -N4 -n48 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N4 -n48 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
+time srun -p batch -c1 -N4 -n48 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
+time srun -p batch -c1 -N4 -n48 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
+time srun -p batch -c1 -N4 -n48 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N4 -n48 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
+time srun -p batch -c1 -N4 -n48 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+time srun -p batch -c1 -N4 -n16 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N4 -n48 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
+time srun -p batch -c1 -N4 -n48 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
+time srun -p batch -c1 -N4 -n48 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+squeue
+who
+cd hw2
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_mod_time 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N1 -n4 ./ms_mpi_mod_time 1 -2 2 -2 2 4000 4000 out.png
+mpicc -O3 -std=gnu99 ms_mpi_static_time.c -o ms_mpi_static_time -fopenmp -lm -lpng
+time srun -p batch -c1 -N1 -n4 ./ms_mpi_static_time 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N1 -n1 ./ms_mpi_static_time 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N4 -n48 ./ms_mpi_static_time 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N4 -n48 ./ms_mpi_row_nproc 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N1 -n1 ./ms_mpi_row_nproc 1 -2 2 -2 2 4000 4000 out.png
+who
+squeue
+clear
+squeue
+time srun -p batch -c1 -N4 -n48 ./ms_mpi_static_time 1 -2 2 -2 2 4000 4000 out.png
+cd hw2/
+time srun -p batch -c1 -N4 -n48 ./ms_mpi_static_time 1 -2 2 -2 2 4000 4000 out.png
+squeue
+cd hw2
+time srun -p batch -c1 -N4 -n48 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c4 -N4 -n48 ./ms_hybrid 4 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c2 -N4 -n48 ./ms_hybrid 2 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c2 -N4 -n16 ./ms_hybrid 2 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c2 -N4 -n24 ./ms_hybrid 2 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c4 -N4 -n12 ./ms_hybrid 4 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c6 -N4 -n8 ./ms_hybrid 6 -2 2 -2 2 4000 4000 out.png
+history | grep mpi_static
+mpicc -O3 -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
+time srun -p batch -c2 -N4 -n48 ./ms_hybrid 2 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N4 -n48 ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
+mpicc -std=gnu99 ms_mpi_mod_time.c -o ms_mpi_static_mod -lm -lpng
+mpicc -std=gnu99 ms_mpi_mod_time.c -o ms_mpi_mod_time -lm -lpng
+time srun -p batch -N4 -n48 ./ms_mpi_mod_time 1 -2 2 -2 2 4000 4000 out.png
+mpicc -std=gnu99 ms_mpi_mod_time.c -o ms_mpi_mod_time -lm -lpng -O3
+time srun -p batch -N4 -n48 ./ms_mpi_mod_time 1 -2 2 -2 2 4000 4000 out.png
+make
+cat Makefile 
+time srun -p batch -N1 -n1 ./ms_mpi_mod_time 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -N1 -n1 ./ms_mpi_mod_time 1 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+time srun -p batch -N1 -n1 ./ms_mpi_mod_time 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_static_time 1 -2 2 -2 2 4000 4000 out.png
+mpicc -std=gnu99 ms_mpi_row_nproc.c -o ms_mpi_row_nproc -lm -lpng -O3
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_row_nproc 1 -2 2 -2 2 4000 4000 out.png
+mpicc -std=gnu99 ms_mpi_row_nproc.c -o ms_mpi_row_nproc -lm -lpng -O3
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_row_nproc 1 -2 2 -2 2 4000 4000 out.png
+mpicc -std=gnu99 ms_mpi_row_nproc.c -o ms_mpi_row_nproc -lm -lpng -O3
+time srun -p batch -c1 -N4 -n16 ./ms_mpi_row_nproc 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N4 -n48 ./ms_mpi_row_nproc 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N1 -n4 ./ms_mpi_row_nproc 1 -2 2 -2 2 4000 4000 out.png
+cd hw2
+ls
+squeue
 sqeuue
 squeue
-cat slurm-20392.out 
-sbatch -N 2 -n 3 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase07 output"
-cat slurm-20394.out 
-sbatch -N 2 -n 3 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase07 output"
-cat slurm-20397.out 
-cd h
-cd hw1/
-mpicc advance_modify.c -o advance.o -std=gnu99 -lm
-sbatch -N 2 -n 3 -p batch --wrap="time srun ./HW_advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-21521.out 
-sbatch -N 2 -n 3 -p batch --wrap="time srun ./advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-21530.out 
-rm output 
-sbatch -N 2 -n 3 -p batch --wrap="time srun ./advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output 
-sbatch -N 2 -n 3 -p batch --wrap="time srun ./advance.o 21 /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output 
-
-rm output 
-sbatch -N 2 -n 15 -p batch --wrap="time srun ./advance.o 21 /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-21560.out 
-sbatch -N 2 -n 4 -p batch --wrap="time srun ./advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output 
-cat slurm-21584.out 
-mpicc advance_modify.c -o advance.o -std=gnu99 -lm
-sbatch -N 2 -n 4 -p batch --wrap="time srun ./advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-21608.out 
-hw1-b2float output 
-hw1-judge HW_advance.o
-mpicc advance_modify.c -o advance.o -std=gnu99 -lm
-hw1-judge HW_advance.o
-mpicc advance_modify.c -o advance.o -std=gnu99 -lm
-hw1-judge HW_advance.o
-mpicc advance_modify.c -o advance.o -std=gnu99 -lm
-sbatch -N 2 -n 4 -p batch --wrap="time srun ./advance.o 21 /home/pp17/ta/hw1/samples/testcase07 output"
-cat slurm-21689.out 
-squeue
-scancel 21689
-cat slurm-21689.out 
-sbatch -N 2 -n 4 -p batch --wrap="time srun ./advance.o 21 /home/pp17/ta/hw1/samples/testcase06 output"
-cat slurm-21694.out 
-scancel 21694
-cat slurm-21694.out 
-sbatch -N 2 -n 24 -p batch --wrap="time srun ./advance.o 21 /home/pp17/ta/hw1/samples/testcase09 output"
-cat slurm-21739
-cat slurm-21730.out 
-scancel 21730
-cat slurm-21730.out 
-sbatch -N 2 -n 15 -p batch --wrap="time srun ./advance.o 21 /home/pp17/ta/hw1/samples/testcase04 output"
-cat slurm-21732.out 
-scancel 21732
-cat slurm-21732.out 
-mpicc advance_modify.c -o advance.o -std=gnu99 -lm
-sbatch -N 2 -n 15 -p batch --wrap="time srun ./advance.o 21 /home/pp17/ta/hw1/samples/testcase04 output"
-scancel 21738
-cat slurm-21738.out 
-mpicc advance_modify.c -o advance.o -std=gnu99 -lm
-sbatch -N 2 -n 15 -p batch --wrap="time srun ./advance.o 21 /home/pp17/ta/hw1/samples/testcase04 output"
-scancel 21792
-cat slurm-21792.out 
-mpicc advance_modify.c -o advance.o -std=gnu99 -lm
-sbatch -N 2 -n 15 -p batch --wrap="time srun ./advance.o 21 /home/pp17/ta/hw1/samples/testcase04 output"
-cat slurm-21797.out 
-hw1-judge HW_advance.o
-hw1-judge advance.o
-sbatch -N 2 -n 4 -p batch --wrap="time srun ./advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-21815.out 
-scancel 21815
-cat slurm-21815.out 
-cd ~/homework/HW1/
-make
-make all
-make
-hw1-judge HW1_103061108_advanced
-cd ~/hw1/
-mpicc advance_modify.c -o advance.o -std=gnu99 -lm
-sbatch -N 2 -n 4 -p batch --wrap="time srun ./advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-21880.out 
-scancel 21880
-cat slurm-21880.out 
-mpicc advance_modify.c -o advance.o -std=gnu99 -lm
-sbatch -N 2 -n 4 -p batch --wrap="time srun ./advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-squeue
-scancel 21935
-cat slurm-21935.out 
-mpicc advance_modify.c -o advance.o -std=gnu99 -lm
-sbatch -N 2 -n 4 -p batch --wrap="time srun ./advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-scancel 21964
-cat slurm-21964
-cat slurm-21964.out 
-mpicc advance_modify.c -o advance.o -std=gnu99 -lm
-sbatch -N 2 -n 4 -p batch --wrap="time srun ./advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-21982.out 
-mpicc advance_modify.c -o advance.o -std=gnu99 -lm
-sbatch -N 2 -n 4 -p batch --wrap="time srun ./advance.o 21 /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-21987.out 
-hw1-judge advance.o 
-hw1-b2float output 
-hw1-judge advance.o 
-sbatch -N 2 -n 4 -p batch --wrap="time srun ./advance.o 21 /home/pp17/ta/hw1/samples/testcase07 output"
-cat slurm-22077.out 
-diff output /home/pp17/ta/hw1/samples/sorted07
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./advance.o 21 /home/pp17/ta/hw1/samples/testcase07 output"
-cat slurm-22096.out 
-diff output /home/pp17/ta/hw1/samples/sorted07
-rm output 
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./advance.o 21 /home/pp17/ta/hw1/samples/testcase07 output"
-diff output /home/pp17/ta/hw1/samples/sorted07
-cd ~/homework/HW1/
-ls
-hw1-judge  HW1_103061108_advanced
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./basic.o 21 /home/pp17/ta/hw1/samples/testcase07 output"
-cat slurm-22232.out 
-ls
-cd ~/hw1/
-ls
-rm slurm-*
-ls
-sbatch -N 4 -n 16 -p batch --wrap="time srun ./HW1_103061108_basic.o 21 million.bin output"
-cat slurm-22245.out 
-sbatch -N 4 -n 16 -p batch --wrap="time srun ./HW1_103061108_basic.o million.bin output"
-cat slurm-22248.out 
-ls
-sbatch -N 4 -n 16 -p batch --wrap="time srun ./HW_basic.o million.bin output"
-cat slurm-22251.out 
-cd hw1/
-ls
-hw1-b2float million.bin 
-who
-ls
-vim generate.c 
-gcc generate.c -o generate
-rm million.bin 
-./generate 
-ls
-history | grep million
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_advance_all.o  million.bin output"
-history | grep HW_advance_all.o
-mpicc advance_modify.c -o advance.o -std=gnu99 -lm
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./advance.o  million.bin output
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./advance.o  million.bin output"
-cat slurm-24868.out 
-ls
-cat slurm-24862
-cat slurm-24861.out 
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_advance_all.o  /home/pp17/ta/hw1/samples/testcase06 output"
-cat slurm-24873.out 
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./advance.o  1 million.bin output
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./advance.o  1 million.bin output"
-cat slurm-24875.out 
-vim generate
-vim generate.c 
-gcc generate.c -o generate
-./generate 
-ls
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./advance.o  1 million.bin output"
-cat slurm-24878.out 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./advance.o  1 million.bin output"
-cat slurm-24879.out 
-squeue
-scancel 24879
-cat slurm-24879.out 
-sbatch -N 4 -n 16 -p batch --wrap="time srun ./advance.o  1 million.bin output"
-cat slurm-24881.out 
-sbatch -N 4 -n 48 -p batch --wrap="time srun ./advance.o  1 million.bin output"
-cat slurm-24883.out 
-sbatch -N 4 -n 48 -p batch --wrap="time srun ./advance.o  1 million.bin output"
-squeue
-cat slurm-24883.out 
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./advance.o  1 /home/pp17/ta/hw1/samples/testcase06 output"
-cat slurm-24903.out 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./advance.o  1 /home/pp17/ta/hw1/samples/testcase06 output"
-cat slurm-24904.out 
-rm output 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./advance.o  1 /home/pp17/ta/hw1/samples/testcase06 output"
-hw1-b2float output 
-mpicc advance_modify.c -o advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./advance.o  1 /home/pp17/ta/hw1/samples/testcase06 output"
-hw1-b2float output 
-sbatch -N 4 -n 48 -p batch --wrap="time srun ./advance.o  1 million.bin output"
-cat slurm-24925.out 
-squeue
-cat slurm-24925.out 
-hw1-judge advance.o 
-cd ~/homework/HW1/
-make
-hw1-judge HW1_103061108_advanced
-make
-hw1-judge HW1_103061108_advanced
-cd ~/hw1/
-ls
-mpicc advance_modify.c -o advance.o -std=gnu99 -lm
-hw1-judge advance.o 
-mpicc advance_modify.c -o advance.o -std=gnu99 -lm
-hw1-judge advance.o 
-mpicc advance_modify.c -o advance.o -std=gnu99 -lm
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./advance.o  1 /home/pp17/ta/hw1/samples/testcase06 output"
-cat slurm-25015.out 
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./advance.o  1 /home/pp17/ta/hw1/samples/testcase08 output"
-cat slurm-25016.out 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./advance.o  1 /home/pp17/ta/hw1/samples/t output"
-cat slurm-25017.out 
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./advance.o  1 million.bin output"
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./advance.o  1 million.bin output"
-sbatch -N 4 -n 16 -p batch --wrap="time srun ./advance.o  1 million.bin output"
-sbatch -N 4 -n 48 -p batch --wrap="time srun ./advance.o  1 million.bin output"
-cat slurm-25019.out 
-squeue
-cat slurm-25019.out 
-cat slurm-25020.out 
-cat slurm-25021.out 
-cat slurm-25022.out 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./advance.o  1 /home/pp17/ta/hw1/samples/testcase06 output"
-cat slurm-25024.out 
-sbatch -N 4 -n 16 -p batch --wrap="time srun ./advance.o  1 /home/pp17/ta/hw1/samples/testcase06 output"
-cat slurm-25026.out 
-history | grep basic
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 4 -n 16 -p batch --wrap="time srun ./HW1_basic.o 21 million.bin output"
-cat slurm-25112.out 
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./basic.o 21 /home/pp17/ta/hw1/samples/testcase07 output"
-cat slurm-25113.out 
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./basic.o /home/pp17/ta/hw1/samples/testcase07 output"
-cat slurm-25114.out 
-ls
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_basic.o /home/pp17/ta/hw1/samples/testcase07 output"
-cat slurm-25115.out 
-mpicc HW1_103061108_basic.c -o HW_basic.o -std=gnu99 -lm
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_basic.o 15 /home/pp17/ta/hw1/samples/testcase07 output"
-cat slurm-25121.out 
-squeue
-cat slurm-25121.out 
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_basic.o 15 million.bin output"
-cat slurm-25124.out 
-squeue
-scancel 25124
-vim generate
-vim generate.c 
-gcc generate.c -o generate
-./generate 
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_basic.o 15 million.bin output"
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_basic.o 15 million.bin output"
-sbatch -N 4 -n 16 -p batch --wrap="time srun ./HW_basic.o 15 million.bin output"
-sbatch -N 4 -n 48 -p batch --wrap="time srun ./HW_basic.o 15 million.bin output"
-squeue
-cd ~/homework/HW1/
-make
-hw1-judge HW1_103061108_advanced
-cd ..
-cd hw1/
-ls
-rm sl*
-squeue
-cd ~/
-git add .
-cd hw1/
-ls
-exit
-cd homework/HW1/
-make
-squeue
-exit
-=======
-vim MPIIO.c 
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./MPIIO.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-vim MPIIO.c 
-mpicc MPIIO.c -o MPIIO.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./MPIIO.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./MPIIO.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-mpicc MPIIO.c -o MPIIO.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./MPIIO.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-7230.out 
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./MPIIO.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-mpicc MPIIO.c -o MPIIO.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./MPIIO.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-7232.out 
-hw1-b2float output
-mpicc MPIIO.c -o MPIIO.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./MPIIO.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-7236.out 
-mpicc MPIIO.c -o MPIIO.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./MPIIO.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-7237.out 
-hw1-b2float output
-mpicc MPIIO.c -o MPIIO.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./MPIIO.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-7239.out 
-hw1-b2float output
-mpicc MPIIO.c -o MPIIO.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./MPIIO.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-7241.out 
-mpicc MPIIO.c -o MPIIO.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./MPIIO.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-7242.out 
-mpicc MPIIO.c -o MPIIO.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./MPIIO.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-7243.out 
-mpicc MPIIO.c -o MPIIO.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./MPIIO.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-7245.out 
-mpicc MPIIO.c -o MPIIO.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./MPIIO.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-7248.out 
-mpicc MPIIO.c -o MPIIO.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./MPIIO.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-7254.out 
-hw1-b2float output
-mpicc MPIIO.c -o MPIIO.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./MPIIO.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-7255.out 
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./MPIIO.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-7257.out 
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./MPIIO.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-mpicc MPIIO.c -o MPIIO.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./MPIIO.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-cat slurm-7265.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-cat slurm-7288.out 
-squeue
-scancel 7288
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-7289.out 
-hw1-b2float output
-cd ..
-git add .
-git status
-git rm -f hw1/sl*
-git add .
-git status
-git rm -f hw1/sl*
-git status
-git add .
-git commit
-git push origin master
-cd hw1/
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-hw1-b2float /home/pp17/ta/hw1/samples/testcase03
-cat slurm-7291.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-7292.out 
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-cat slurm-72924out 
-cat slurm-72924.out 
-cat slurm-7294.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-7297.out 
-hw1-b2float output
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-cat slurm-7298.out 
-hw1-b2float /home/pp17/ta/hw1/samples/testcase03
-hw1-b2float output
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-cat slurm-7298.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-cat slurm-7303.out 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-hw1-b2float /home/pp17/ta/hw1/samples/testcase03
-cat slurm-7305.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-history | sbatch
-history | grep sbatch
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./MPIIO.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-hw1-b2float /home/pp17/ta/hw1/samples/testcase02
-mpicc MPIIO.c -o MPIIO.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./MPIIO.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-7308.out 
-hw1-b2float output
-mpicc MPIIO.c -o MPIIO.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./MPIIO.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-mpicc MPIIO.c -o MPIIO.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./MPIIO.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./MPIIO.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-rm output 
-mpicc MPIIO.c -o MPIIO.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./MPIIO.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-hw1-b2float /home/pp17/ta/hw1/samples/testcase02
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-cat slurm-7314.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-7316.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-cd ..
-git add .
-git commit
-git push origin master
-cd hw1/
-l
-ls
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-cat slurm-7325.out 
-hw1-b2float output
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-cat slurm-7326.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-cat slurm-7326.out 
-hw1-b2float output
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-cat slurm-7328.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-cat slurm-7333.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-cat slurm-7353.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-cat slurm-7354.out 
-hw1-b2float output
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-cat slurm-7358.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase04 output"
-hw1-b2float output
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase04 output"
-hw1-b2float output
-cd ..
-git add .
-git commit 
-git push origin master
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-cd hw1/
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase04 output"
-hw1-b2float output
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase04 output"
-cat slurm-7386.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase04 output"
-cat slurm-7387.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase04 output"
-cat slurm-7388.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase04 output"
-cat slurm-7391.out 
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase05 output"
-cat slurm-7392.out 
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase06 output"
-cat slurm-7393.out 
-rm slurm-7*
-ls
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase06 output"
-cat slurm-7398.out 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase06 output"
-cat slurm-7399.out 
-who
-exit
-cd hw1/
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase05 output"
-cat slurm-7695.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase05 output"
-cat slurm-7696.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase05 output"
-cat slurm-7697.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase05 output"
-cat slurm-7698.out 
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase05 output"
-cat slurm-7699.out 
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase06 output"
-cat slurm-7700.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase06 output"
-cat slurm-7703.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase06 output"
-cat slurm-7706.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase06 output"
-cat slurm-7707.out 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase06 output"
-cat slurm-7708.out 
-
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-cat slurm-7709.out 
-hw1-b2float output
-rm output
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-hw1-b2float /home/pp17/ta/hw1/samples/testcase03
-rm output 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-hw1-b2float /home/pp17/ta/hw1/samples/testcase03
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-rm output 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-rm output 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-cat slurm-7725.out 
-rm output 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-cat slurm-7726.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-cat slurm-7728.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-rm output 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-cd hw1/
-who
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-cat slurm-7753.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-cat slurm-7764.out 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-cat slurm-7766.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-cat slurm-7767.out 
-hw1-b2float output
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-cat slurm-7768.out 
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase04 output"
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase04 output"
-hw1-b2float output
-rm slurm-7*
-cd hw1/
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase05 output"
-hw1-b2float output
-cd hw1/
-sbatch -N 1 -n 17 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cd hw1/
-mpicc HW_special.c -o HW_special.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase01 output"
-rm output 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-hw1-b2float /home/pp17/ta/hw1/samples/testcase01
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-cd hw1/
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_temp.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-cat slurm-7789.out 
-rm output 
-mpicc HW_special.c -o HW_special.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_special.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-cat slurm-7792.out 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_special.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-mpicc HW_special.c -o HW_special.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_special.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-7795.out 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_special.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_special.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-mpicc HW_special.c -o HW_special.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_special.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-cat slurm-7801.out 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_special.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-7802.out 
-suqeue
-squeue
-mpicc HW_special.c -o HW_special.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_special.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-cat slurm-7803.out 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_special.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-cat slurm-7805.out 
-mpicc HW_special.c -o HW_special.o -std=gnu99 -lm
-rm output 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_special.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-7806.out 
-hw1-b2float output
-cd hw1/
-mpicc HW_temp.c -o HW_temp.o -std=gnu99 -lm
-history
-mpicc HW_special.c -o HW_special.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_special.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-7816.out 
-mpicc HW_special.c -o HW_special.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_special.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-7818.out 
-mpicc HW_special.c -o HW_special.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_special.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-7819.out 
-cd hw1/
-who
-cd ~
-exit
-who
-cd hw1/
-mpicc HW_o -o HW_one.o -std=gnu99 -lm
-mpicc HW_onebuffer.c -o HW_one.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-cat slurm-8055.out 
-mpicc HW_onebuffer.c -o HW_one.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8056.out 
-hw1-b2float output
-cd hw1/
-mpicc HW_onebuffer.c -o HW_one.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-cat slurm-8106.out 
-mpicc HW_onebuffer.c -o HW_one.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8119.out 
-mpicc HW_onebuffer.c -o HW_one.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8120.out 
-mpicc HW_onebuffer.c -o HW_one.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8136.out 
-mpicc HW_onebuffer.c -o HW_one.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8146.out 
-hw1-b2float output
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase03 output"
-rm output 
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase03 output"
-rm output 
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-cat slurm-8152.out 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-ls
-squeue
-scancel 8153
-scancel 8152
-scancel 8151
-scancel 8154
-squeue
-mpicc HW_onebuffer.c -o HW_one.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8167.out 
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-squeue
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-cat slurm-8173.out 
-mpicc HW_onebuffer.c -o HW_one.o -std=gnu99 -lm
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase02 output"
-rm output 
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-mpicc HW_onebuffer.c -o HW_one.o -std=gnu99 -lm
-rm output 
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-cat slurm-8215.out 
-mpicc HW_onebuffer.c -o HW_one.o -std=gnu99 -lm
-rm output 
-sbatch -N 1 -n 1 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-cd hw1/
-ls
-rm slu*
-ls
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-rm output 
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-sbatch -N 1 -n 7 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-cat slurm-8293.out 
-cd hw1/
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-rm output 
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8056.out 
-hw1-b2float output
-cat slurm-8309.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-hw1-b2float /home/pp17/ta/hw1/samples/testcase01
-cat slurm-8311.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-cat slurm-8318.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-cd hw1/
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-cat slurm-8326.out 
-cd hw1/
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8588.out 
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8601.out 
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8624.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8627.out 
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8635.out 
-hw1-b2float output
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-cat slurm-8637.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8643.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8644.out 
-hw1-b2float output
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8651.out 
-hw1-b2float /home/pp17/ta/hw1/samples/testcase01
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8655.out 
-hw1-b2float output
-hw1-b2float /home/pp17/ta/hw1/samples/testcase01
-exit
-cat slurm-8655.out 
-cd hw1/
-cat slurm-8655.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8775.out 
-hw1-b2float output
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8776.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8778.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8779.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8780.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8781.out 
-hw1-b2float output
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-cat slurm-8783.out 
-cd hw1/
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8787.out 
-rm output 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-squeue
-scancel 8787
-scncel8789
-scncel 8789
-scancel 8789
-scancel 8790
-scancel 8791
-scancel 8792
-scancel 8793
-squeue
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-squeue
-cat slurm-8794.out 
-hw1-b2float output
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-cd hw1/
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8814.out 
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-hw1-b2float /home/pp17/ta/hw1/samples/testcase01
-cat slurm-8815.out 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-cat slurm-8817.out 
-hw1-b2float /home/pp17/ta/hw1/samples/testcase01
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-cat slurm-8820.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-hw1-b2float output
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8822.out 
-cd hw1/
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
 clear
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-8845.out 
 squeue
-scancel 8845
-squeue
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-8846.out 
-hw1-b2float output
-cd hw1/
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8860.out 
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-hw1-b2float /home/pp17/ta/hw1/samples/testcase01
-cat slurm-8861.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8882.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8887.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8891.out 
-hw1-b2float output
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8896.out 
-hw1-b2float output
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-cat slurm-8902.out 
-squeue
-scancel 8902
-squeue
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat 8904
-cat slurm-8904.out 
-hw1-b2float output
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-8920.out 
-hw1-b2float output
-squeue
-scancel 8920
-squeue
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-scancel 8932
-cat slurm-8932.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-8945.out 
-scancel 8945
-hw1-b2float output
-cat slurm-8945.out 
-squeue
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-8949.out 
-hw1-b2float output
-cd hw1/
+cd hw2
 ls
-rm slurm-8*
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-9009.out 
-hw1-b2float output
-hw1-b2float /home/pp17/ta/hw1/samples/testcase01
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-cat slurm-9060.out 
-hw1-b2float output
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-scancel 9118
-cat slurm-9118.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-9172.out 
-scancel 9172
-cat slurm-9172.out 
-hw1-b2float output
-cd hw1/
+history | grep omp
+gcc -std=gnu99 -O3 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch -c4 ./ms_omp_time 4 -2 2 -2 2 4000 4000 out.png
 ls
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-9834.out 
-scancel 9834
-cat slurm-9834.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-scancel 9835
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-9836.out 
-scancel 9836
-cat slurm-9836.out 
-cd hw1/
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-9837.out 
-hw1-b2float output
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-9838.out 
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-cat slurm-9839.out 
-squeue
-scancel 9838
-scancel 9839
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-9840.out 
-scancel 9840
-cat slurm-9840.out 
-hw1-b2float /home/pp17/ta/hw1/samples/testcase02
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-9841.out 
-scancel 9841
-cat slurm-9841.out 
-squeue
-sbatch -N 1 -n 2 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-squeue
-scancel 9843
-cat slurm-9843.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-scancel 9844
-cat slurm-9844
-cat slurm-9844.out 
-cd hw1/
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-9845.out 
-rm output 
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-9849.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-9850.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-9851.out 
-hw1-b2float output
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-9852.out 
-hw1-b2float output
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-squeue
-cat slurm-9853.out 
-hw1-b2float output
-hw1-b2float /home/pp17/ta/hw1/samples/testcase02
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-9855.out 
-hw1-b2float output
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 3 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-cat slurm-9857.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-9858.out 
-hw1-b2float /home/pp17/ta/hw1/samples/testcase02
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-9860.out 
-hw1-b2float output
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-cat slurm-9868.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-9876.out 
-hw1-b2float /home/pp17/ta/hw1/samples/testcase02
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-cat slurm-9876.out 
-hw1-b2float output
-hw1-b2float /home/pp17/ta/hw1/samples/testcase02
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-9892.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-9895.out 
-hw1-b2float /home/pp17/ta/hw1/samples/testcase02
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-9898.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-9899.out 
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-cat slurm-9900.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-9902.out 
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-hw1-b2float output
-cat slurm-9905.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-9913.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-9918.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-9920.out 
-mpicc HW_advance.c -o HW_advance.o -std=gnu99 -lm
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase02 output"
-cat slurm-9922.out 
-hw1-b2float output
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-cd ..
-git add .
-git status
-git rm -f hw1/sl*
-git status
-git add .
-git rm -f hw1/sl*
-git add .
-git commit 
-git push origin master
-cd hw1/
+time srun -p batch -c4 ./ms_omp 4 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c4 ./ms_omp 4 -2 2 -2 2 400 400 out.png
+time srun -p batch -c12 ./ms_omp 12 -2 2 -2 2 400 400 out.png
+hw2-diff out.png ref.png 
+gcc -std=gnu99 -O3 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch -c12 ./ms_omp 12 -2 2 -2 2 400 400 out.png
+time srun -p batch -c4 ./ms_omp 4 -2 2 -2 2 400 400 out.png
+time srun -p batch -c4 ./ms_omp 4 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c8 ./ms_omp 8 -2 2 -2 2 4000 4000 out.png
+gcc -std=gnu99 -O3 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch -c4 ./ms_omp 4 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c8 ./ms_omp 8 -2 2 -2 2 4000 4000 out.png
+gcc -std=gnu99 -O3 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch -c4 ./ms_omp 4 -2 2 -2 2 4000 4000 out.png
+gcc -std=gnu99 -O3 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch -c4 ./ms_omp 4 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c8 ./ms_omp 8 -2 2 -2 2 4000 4000 out.png
+gcc -std=gnu99 -O3 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch -c8 ./ms_omp 8 -2 2 -2 2 4000 4000 out.png
+gcc -std=gnu99 -O3 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch -c8 ./ms_omp 8 -2 2 -2 2 4000 4000 out.png
+cd hw2
+time srun -p batch -c1 -N1 -n1 ./ms_mpi_row_nproc 1 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c1 -N1 -n1 ./ms_mpi_row_nproc 1 -2 2 -2 2 400 400 out.png
+time srun -p batch -c1 -N1 -n2 ./ms_mpi_row_nproc 1 -2 2 -2 2 400 400 out.png
+time srun -p batch -c8 ./ms_omp 8 -2 2 -2 2 4000 4000 out.png
+gcc -std=gnu99 -O3 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch -c4 ./ms_omp 4 -2 2 -2 2 4000 4000 out.png
+gcc -std=gnu99 -O3 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch -c4 ./ms_omp 4 -2 2 -2 2 4000 4000 out.png
+gcc -std=gnu99 -O3 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch -c4 ./ms_omp 4 -2 2 -2 2 4000 4000 out.png
+gcc -std=gnu99 -O3 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch -c4 ./ms_omp 4 -2 2 -2 2 4000 4000 out.png
+gcc -std=gnu99 -O3 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch -c4 ./ms_omp 4 -2 2 -2 2 4000 4000 out.png
+cd hw2
 ls
-sbatch -N 1 -n 5 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-rm output 
-sbatch -N 1 -n 5 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase03 output"
-hw1-b2float output
-sbatch -N 1 -n 5 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase04 output"
-hw1-b2float output
-sbatch -N 1 -n 6 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase04 output"
-hw1-b2float output
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase01 output"
-hw1-b2float output
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_advance.o  /home/pp17/ta/hw1/samples/testcase05 output"
 squeue
-cat slurm-9934.out 
-hw1-b2float output
-sbatch -N 1 -n 4 -p batch --wrap="time srun ./HW_one.o  /home/pp17/ta/hw1/samples/testcase05 output"
-cat slurm-9935.out 
-hw1-b2float output
->>>>>>> 10cb84a1d7b48105deeec05f4d3f89fe9f5d170b
+time srun -p batch -c4 ./ms_omp 4 -2 2 -2 2 4000 4000 out.png
+cd hw2
+who
+ls
+history | grep srun
+time srun -p batch -c1 -N4 -n48 ./ms_mpi_row_nproc 1 -2 2 -2 2 40000 4000 out.png
+history
+gcc -std=gnu99 -O3 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch -c8 ./ms_omp 8 -2 2 -2 2 4000 4000 out.png
+gcc -std=gnu99 -O3 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch -c8 ./ms_omp 8 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c12 ./ms_omp 12 -2 2 -2 2 4000 4000 out.png
+gcc -std=gnu99 -O3 ms_omp.c -o ms_omp -fopenmp -lm -lpng
+time srun -p batch -c12 ./ms_omp 12 -2 2 -2 2 4000 4000 out.png
+time srun -p batch -c2 -N4 -n24 ./ms_hybrid 2 -2 2 -2 2 4000 4000 out.png

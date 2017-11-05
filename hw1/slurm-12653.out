@@ -1,8 +1,0 @@
-Proc 0: range = [0, 28)
-Proc 1: range = [28, 56)
-Proc 2: range = [56, 84)
-phase=0
-
-real	0m0.208s
-user	0m0.007s
-sys	0m0.013s

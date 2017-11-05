@@ -71,6 +71,7 @@ int main(int argc, char** argv){
     start = length * myrank * 4;
     start_save = length * myrank * 4;
     end_save = start + length*4;
+    end = end_save;
     if(nprocs==1){
         end_save = filesize;
         end = end_save;
@@ -79,14 +80,21 @@ int main(int argc, char** argv){
     else if (myrank == nprocs-1 && nprocs>1){
         end_save = filesize;
         end = filesize;
-      	start -= 4;
+        if(length>0)
+      	     start -= 4;
     }
     else if(myrank == 0 && nprocs>1){
-    	end = start + (length+1)*4;
+    	if(length>0)
+            end = start + (length+1)*4;
     }
     else if(myrank<nprocs){
-    	start -= 4;
-        end = start + (length+2)*4;//-2;
+    	if(length>0){
+            start -= 4;
+            end = start + (length+2)*4;//-2;
+        }else{
+            start=start_save;
+            end=end_save;
+        }
     }
     else{
         start=0;
@@ -124,7 +132,8 @@ int main(int argc, char** argv){
     if(nprocs==1){
         end = end_save;
         start = start_save;
-        for (phase = 0; phase < (int)(filesize/4) && stop != 1; phase++){
+        int counter =0;
+        for (phase = 0; phase < (int)(filesize/4) && counter!=2; phase++){
             stop = 1;
             if(phase%2==0){
                 // even swap
@@ -144,7 +153,12 @@ int main(int argc, char** argv){
                     }
                 }
             }
-
+            if(stop==1){
+                counter++;
+            }
+            else{
+                counter=0;
+            }
             begin_IO = clock();
             error = MPI_File_write_at(out, start_save, &buffer[0], end_save-start_save, MPI_BYTE, &status);
             if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_write");
@@ -158,9 +172,10 @@ int main(int argc, char** argv){
     }
     else if (myrank == nprocs-1){
         float recv;
+        int counter=0;
         stop_recv = 0;
         //recv = (float*)malloc(1*sizeof(float));
-        for (phase = 0; phase < (int)(filesize/4) && stop_recv != truenum; phase++){
+        for (phase = 0; phase < (int)(filesize/4) && counter!=2; phase++){
             stop = 1;
             stop_recv = 0;
             clock_t start_comm = clock();
@@ -218,11 +233,17 @@ int main(int argc, char** argv){
                 MPI_Send(&buffer[1], 1, MPI_FLOAT,nprocs-2, 0, MPI_COMM_WORLD);
                 MPI_Barrier(MPI_COMM_WORLD);
                 MPI_Allreduce(&stop, &stop_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
+                if(stop_recv==truenum){
+                    counter++;
+                }
+                else{
+                    counter=0;
+                }
             }
             end_comm = clock();
             com_time += (end_comm - start_comm);
             begin_IO = clock();
-            if(stop_recv==truenum || phase == (int)(filesize/4)){
+            if(counter==2 || phase == (int)(filesize/4)-1){
                 error = MPI_File_write_at(out, start_save, &buffer[1], end_save-start_save, MPI_BYTE, &status);
                 if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_write");
             }
@@ -236,9 +257,10 @@ int main(int argc, char** argv){
     }   
     else if(myrank == 0){
         float recv;
+        int counter=0;
         stop_recv = 0;
         //recv = (float*)malloc(1*sizeof(float));
-        for (phase = 0; phase < (int)(filesize/4) && stop_recv != truenum; phase++){
+        for (phase = 0; phase < (int)(filesize/4) && counter!=2; phase++){
             stop = 1;
             stop_recv = 0;
             clock_t start_comm = clock();
@@ -273,11 +295,17 @@ int main(int argc, char** argv){
                 MPI_Send(&buffer[(end-start)/4-2], 1, MPI_FLOAT,1, 0, MPI_COMM_WORLD);
                 MPI_Barrier(MPI_COMM_WORLD);
                 MPI_Allreduce(&stop, &stop_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
+                if(stop_recv==truenum){
+                    counter++;
+                }
+                else{
+                    counter=0;
+                }
             }
             end_comm = clock();
             com_time += (end_comm - start_comm);
             begin_IO = clock();
-            if(stop_recv==truenum || phase == (int)(filesize/4)){
+            if(counter==2 || phase == (int)(filesize/4)-1){
                 error = MPI_File_write_at(out, start_save, &buffer[0], end_save-start_save, MPI_BYTE, &status);
                 if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_write");
             }
@@ -290,10 +318,11 @@ int main(int argc, char** argv){
         MPI_Finalize();
     }
     else if(myrank<nprocs){
+        int counter=0;
     	float recv_l, recv_r;
         stop_recv = 0;
         //recv = (float*)malloc(1*sizeof(float));
-        for (phase = 0; phase < (int)(filesize/4) && stop_recv != truenum; phase++){
+        for (phase = 0; phase < (int)(filesize/4) && counter!=2; phase++){
             stop = 1;
             stop_recv = 0;
             //printf("(middle)phase = %d\n", phase);
@@ -356,11 +385,17 @@ int main(int argc, char** argv){
                 MPI_Send(&buffer[(end-start)/4-2], 1, MPI_FLOAT,myrank+1, 0, MPI_COMM_WORLD);
                 MPI_Barrier(MPI_COMM_WORLD);
                 MPI_Allreduce(&stop, &stop_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
+                if(stop_recv==truenum){
+                    counter++;
+                }
+                else{
+                    counter=0;
+                }
             }
             end_comm = clock();
             com_time += (end_comm - start_comm);
             begin_IO = clock();
-            if(stop_recv==truenum || phase == (int)(filesize/4)){
+            if(counter==2 || phase == (int)(filesize/4)-1){
                     error = MPI_File_write_at(out, start_save, &buffer[1], end_save-start_save, MPI_BYTE, &status);
                     if(error != MPI_SUCCESS) ErrorMessage(error, myrank, "MPI_File_write");
             }
@@ -375,11 +410,18 @@ int main(int argc, char** argv){
         //MPI_Finalize();
     }
     else{
-        int stop=1, stop_recv=0;
-        for (phase = 0; phase < (int)(filesize/4) && stop_recv != truenum; phase++){
+        int stop=1, stop_recv=0, counter=0;
+        for (phase = 0; phase < (int)(filesize/4) && counter!=2; phase++){
+            stop_recv=0;
             if(phase!=0){
                 MPI_Barrier(MPI_COMM_WORLD);
                 MPI_Allreduce(&stop, &stop_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
+                if(stop_recv==truenum){
+                    counter++;
+                }
+                else{
+                    counter=0;
+                }
             }
         }
         MPI_Barrier(MPI_COMM_WORLD);
@@ -394,11 +436,6 @@ int main(int argc, char** argv){
     printf("process(%d) comm time = %lf\n", myrank, (double)(com_time) / CLOCKS_PER_SEC);
 
 
-    /* close the file */
-    
-    
-    /* Finalize MPI */
-    
-    //}
+
 	return 0;
 }
