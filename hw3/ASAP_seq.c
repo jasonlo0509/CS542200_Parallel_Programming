@@ -6,26 +6,17 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <pthread.h>
 
 #define INF 999
 
-typedef struct {
-    int id;
-    int k;
-    int *map_addr;
-    int vertice;
-}pthread_asap;
-
-void floydWarshall (int *map, int vertice, int *dist, int num_threads);
+void floydWarshall (int *map, int vertice, int *dist);
 
 void printSolution(int *map, int vertice);
 
 void *Compare(void *dist);
 
-int main(int argc, char** argv){
+int main(void){
 	FILE * pFile;
-	int num_threads = strtol(argv[1], 0, 10);
 	int in, counter=0, vertice;
 	int i, j;
 	int *map;
@@ -62,55 +53,38 @@ int main(int argc, char** argv){
       }
 
     }
-    printf("hello");
-    floydWarshall(map, vertice, dist, num_threads);
+
+    floydWarshall(map, vertice, dist);
 
   	fclose (pFile);
 
 	return 0;
 }
 
-void floydWarshall (int *map, int vertice, int *dist, int num_threads){
+void floydWarshall (int *map, int vertice, int *dist){
 	
 	int i, j, k;
-	pthread_t ts[num_threads];
-	pthread_asap pass_data[num_threads];
 	for (i = 0; i < vertice; i++)
         for (j = 0; j < vertice; j++)
             dist[i*vertice + j] = map[i*vertice + j];
 
     for (k = 0; k < vertice; k++)
     {
-    	for(i = 0; i< num_threads; i++){
-    		pass_data[i].map_addr = dist;
-    		pass_data[i].id = i;
-    		pass_data[i].k = k;
-    		pass_data[i].vertice = vertice;
-    		pthread_create(&ts[i], NULL, Compare, (void *)&pass_data[i]);
-    	}
-
+        for (i = 0; i < vertice; i++)
+        {
+            for (j = 0; j < vertice; j++)
+            {
+                if (dist[i*vertice + k] + dist[k*vertice + j] < dist[i*vertice + j])
+                    dist[i*vertice + j] = dist[i*vertice + k] + dist[k*vertice + j];
+            }
+        }
     }
-    pthread_exit(NULL);
     printSolution(dist, vertice);
 }
 
 void *Compare(void *dist){
-	pthread_asap *dist_thread = (pthread_asap *)dist;
-	int k, id, *dist_local, vertice;
-	k = dist_thread->k;
-	id = dist_thread->id;
-	dist_local = dist_thread->map_addr;
-	vertice = dist_thread->vertice;
-	printf("hello");
-	for (int i = 0; i < vertice; i++)
-    {
-        for (int j = 0; j < vertice; j++)
-        {
-            if (dist_local[i*vertice + k] + dist_local[k*vertice + j] < dist_local[i*vertice + j])
-                dist_local[i*vertice + j] = dist_local[i*vertice + k] + dist_local[k*vertice + j];
-        }
-    }
-    pthread_exit(NULL);
+	int *dist_thread = (int *)dist;
+
 }
 
 void printSolution(int *dist, int vertice){
