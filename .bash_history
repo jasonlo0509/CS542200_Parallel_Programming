@@ -1,193 +1,3 @@
-time srun -p batch ./ms_omp 2 -2 2 -2 2 400 400 out.png
-time srun -p batch ./ms_seq 2 -2 2 -2 2 400 400 out.png
-time srun -p batch ./ms_seq 2 -2 2 -2 2 400 400 ref.png
-time srun -p batch ./ms_seq 2 -2 2 -2 2 400 400 out.png
-time srun -p batch ./ms_seq 2 -2 2 -2 2 400 400 ref.png
-time srun -p batch ./ms_omp 2 -2 2 -2 2 400 400 out.png
-hw2-diff out.png ref.png 
-time srun -p batch ./ms_omp 9 -2 2 -2 2 400 400 out.png
-hw2-diff out.png ref.png 
-time srun -p batch ./ms_omp 9 -2 2 -2 2 1000 1000 out.png
-time srun -p batch ./ms_omp 4 -2 2 -2 2 1000 1000 out.png
-gcc -std=gnu99 ms_omp.c -o ms_omp -fopenmp -lm -lpng
-time srun -p batch ./ms_omp 4 -2 2 -2 2 1000 1000 out.png
-squeue
-srun -N 4 -n 1 -p batch ./ms_mpi_static_time 4 -2 2 -2 2 4000 4000 out.png
-srun -N 1 -n 4 -p batch ./ms_mpi_static_time 4 -2 2 -2 2 4000 4000 out.png
-cd hw2
-srun -N 1 -n 4 -p batch ./ms_mpi_static_time 4 -2 2 -2 2 4000 4000 out.png
-mpicc -O3 -std=gnu99  -lpng  ms_mpi_dynamic_time.c -o ms_mpi_dynamic_time
-srun -N 1 -n 4 -p batch ./ms_mpi_dynamic_time 4 -2 2 -2 2 4000 4000 out.png
-mpicc -O3 -std=gnu99  -lpng  ms_mpi_dynamic_time.c -o ms_mpi_dynamic_time
-srun -N 1 -n 4 -p batch ./ms_mpi_dynamic_time 4 -2 2 -2 2 4000 4000 out.png
-srun -N 4 -n 16 -p batch ./ms_mpi_dynamic_time 4 -2 2 -2 2 4000 4000 out.png
-srun -N 4 -n 48 -p batch ./ms_mpi_dynamic_time 4 -2 2 -2 2 4000 4000 out.png
-srun -N 1 -n 4 -p batch ./ms_mpi_dynamic_time 4 -2 2 -2 2 10000 10000 out.png
-who
-squeue
-who
-cd hw2
-ls
-cd hw2/
-ls
-history 
-gcc -std=gnu99 ms_omp.c -o ms_omp -fopenmp -lm -lpng
-time srun -p batch ./ms_omp 4 -2 2 -2 2 2000 2000 out.png
-squeue
-gcc -std=gnu99 ms_omp.c -o ms_omp -fopenmp -lm -lpng
-time srun -p batch ./ms_omp 4 -2 2 -2 2 1000 1000 out.png
-gcc -std=gnu99 ms_omp.c -o ms_omp -fopenmp -lm -lpng
-time srun -p batch ./ms_omp 4 -2 2 -2 2 1000 1000 out.png
-gcc -std=gnu99 ms_omp.c -o ms_omp -fopenmp -lm -lpng
-time srun -p batch ./ms_omp 4 -2 2 -2 2 1000 1000 out.png
-gcc -std=gnu99 ms_omp_time.c -o ms_omp_time -fopenmp -lm -lpng
-time srun -p batch ./ms_omp 4 -2 2 -2 2 1000 1000 out.png
-time srun -p batch ./ms_omp_time 4 -2 2 -2 2 1000 1000 out.png
-time srun -p batch ./ms_omp_time 10 -2 2 -2 2 1000 1000 out.png
-gcc -std=gnu99 ms_omp_time.c -o ms_omp_time -fopenmp -lm -lpng
-time srun -p batch ./ms_omp_time 10 -2 2 -2 2 1000 1000 out.png
-time srun -p batch ./ms_omp_time 1 -2 2 -2 2 1000 1000 out.png
-gcc -std=gnu99 ms_omp_time.c -o ms_omp_time -fopenmp -lm -lpng
-time srun -p batch ./ms_omp_time 1 -2 2 -2 2 1000 400 out.png
-time srun -p batch ./ms_omp_time 10 -2 2 -2 2 1000 400 out.png
-gcc -std=gnu99 ms_omp_time.c -o ms_omp_time -fopenmp -lm -lpng
-time srun -p batch ./ms_omp_time 10 -2 2 -2 2 1000 400 out.png
-time srun -p batch ./ms_omp_time 4 -2 2 -2 2 1000 400 out.png
-time srun -p batch -c4 ./ms_omp_time 4 -2 2 -2 2 1000 400 out.png
-time srun -p batch -c10 ./ms_omp_time 10 -2 2 -2 2 1000 400 out.png
-time srun -p batch -c10 ./ms_seq 10 -2 2 -2 2 1000 400 out.png
-time srun -p batch -c10 ./ms_seq 10 -2 2 -2 2 1000 400 ref.png
-time srun -p batch -c20 ./ms_seq 20 -2 2 -2 2 1000 400 ref.png
-time srun -p batch -c12 ./ms_seq 12 -2 2 -2 2 1000 400 ref.png
-time srun -p batch -c12 ./ms_omp_time 12 -2 2 -2 2 1000 400 out.png
-hw2-diff out.png ref.png 
-who
-jo s
-jobs
-job
-cd hw2
-ls
-time srun -p batch -c12 ./ms_omp_time 12 -2 2 -2 2 1000 1000 out.png
-cd hw2
-time srun -p batch -c12 ./ms_omp_time 12 -2 2 -2 2 1000 1000 out.png
-time srun -p batch -c2 ./ms_omp_time 2 -2 2 -2 2 1000 1000 out.png
-gcc -std=gnu99 ms_omp_time.c -o ms_omp_time -fopenmp -lm -lpng
-time srun -p batch -c12 ./ms_omp_time 12 -2 2 -2 2 1000 1000 out.png
-time srun -p batch -c2 ./ms_omp_time 2 -2 2 -2 2 1000 1000 out.png
-ls
-cd hw2/
-make
-gcc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
-mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
-clear
-mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
-time srun -p batch -c12 ./ms_hybrid 12 -2 2 -2 2 1000 1000 out.png
-cd hw2
-ls
-time srun -p batch -c 2-n2 -N2 ./ms_hybrid 2 -2 2 -2 2 1000 1000 out.png
-time srun -p batch -c 2 -n2 -N2 ./ms_hybrid 2 -2 2 -2 2 1000 1000 out.png
-mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
-time srun -p batch -c 2 -n2 -N2 ./ms_hybrid 2 -2 2 -2 2 1000 1000 out.png
-mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
-time srun -p batch -c 4 -n2 -N2 ./ms_hybrid 4 -2 2 -2 2 1000 1000 out.png
-time srun -p batch -c 12 -n2 -N2 ./ms_hybrid 12 -2 2 -2 2 1000 1000 out.png
-time srun -p batch -c 12 -n3 -N2 ./ms_hybrid 12 -2 2 -2 2 1000 1000 out.png
-time srun -p batch -c 12 -n2 -N4 ./ms_hybrid 12 -2 2 -2 2 1000 1000 out.png
-time srun -p batch -c 12 -n4 -N4 ./ms_hybrid 12 -2 2 -2 2 1000 1000 out.png
-cd ..
-ls
-cd lab2/
-ls
-cat hello_hybrid.c 
-cd hw2
-cd ../hw2
-ls
-history
-make
-mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
-srun -n 4 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
-srun -n 2 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
-mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
-srun -n 2 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
-mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
-srun -n 2 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
-srun -n 2 ./ms_seq 4 -2 2 -2 2 400 400 ref.png
-hw2-diff ref.png out.png 
-mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
-srun -n 2 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
-hw2-diff ref.png out.png 
-mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
-srun -n 2 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
-hw2-diff ref.png out.png 
-srun -n 1 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
-hw2-diff ref.png out.png 
-history | time
-cd hw2
-time srun -p batch -c12 ./ms_seq 12 -2 2 -2 2 1000 1000 ref.png
-hw2-diff ref.png out.png 
-squeue
-scancel 105038
-squeue
-cd hw2
-ls
-time srun -p batch -c 2-n2 -N2 ./ms_hybrid 2 -2 2 -2 2 1000 1000 out.png
-time srun -p batch -c 2 -n2 -N2 ./ms_hybrid 2 -2 2 -2 2 1000 1000 out.png
-mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
-time srun -p batch -c 2 -n2 -N2 ./ms_hybrid 2 -2 2 -2 2 1000 1000 out.png
-mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
-time srun -p batch -c 4 -n2 -N2 ./ms_hybrid 4 -2 2 -2 2 1000 1000 out.png
-time srun -p batch -c 12 -n2 -N2 ./ms_hybrid 12 -2 2 -2 2 1000 1000 out.png
-time srun -p batch -c 12 -n3 -N2 ./ms_hybrid 12 -2 2 -2 2 1000 1000 out.png
-time srun -p batch -c 12 -n2 -N4 ./ms_hybrid 12 -2 2 -2 2 1000 1000 out.png
-time srun -p batch -c 12 -n4 -N4 ./ms_hybrid 12 -2 2 -2 2 1000 1000 out.png
-cd ..
-ls
-cd lab2/
-ls
-cat hello_hybrid.c 
-cd hw2
-cd ../hw2
-ls
-history
-make
-mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
-srun -n 4 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
-srun -n 2 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
-mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
-srun -n 2 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
-mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
-srun -n 2 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
-srun -n 2 ./ms_seq 4 -2 2 -2 2 400 400 ref.png
-hw2-diff ref.png out.png 
-mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
-srun -n 2 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
-hw2-diff ref.png out.png 
-mpicc -std=gnu99 ms_mpi_static_mod.c -o ms_mpi_static_mod -lm -lpng
-srun -n 2 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
-hw2-diff ref.png out.png 
-srun -n 1 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
-hw2-diff ref.png out.png 
-history | time
-history | grep time
-time srun -p batch -c 1 -n4 -N48 ./ms_hybrid 2 -2 2 -2 2 4000 4000 out.png
-time srun -p batch -c 1 -n48 -N4 ./ms_hybrid 2 -2 2 -2 2 4000 4000 out.png
-time srun -p batch -c 4 -N4 -n12  ./ms_hybrid 2 -2 2 -2 2 4000 4000 out.png
-history | grep hybrid
-mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
-time srun -p batch -c1 -N4 -n48  ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
-time srun -p batch -c2 -N4 -n24  ./ms_hybrid 2 -2 2 -2 2 4000 4000 out.png
-time srun -p batch -c4 -N4 -n12  ./ms_hybrid 4 -2 2 -2 2 4000 4000 out.png
-mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
-time srun -p batch -c1 -N4 -n48  ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
-ls
-mpicc -std=gnu99 ms_hybrid.c -o ms_hybrid -fopenmp -lm -lpng
-time srun -p batch -c1 -N4 -n48  ./ms_hybrid 1 -2 2 -2 2 4000 4000 out.png
-time srun -p batch -c1 -N2 -n24  ./ms_hybrid 2 -2 2 -2 2 4000 4000 out.png
-history 
-srun -n 4 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
-srun -N 4 -n 16 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
-srun -N 2 -n 16 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
-srun -n 2 -N 16 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
 srun -n 4 -N 16 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
 srun -p batch -n 4 -N 16 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
 srun -p batch -N 4 -n 48 ./ms_mpi_static_mod 4 -2 2 -2 2 400 400 out.png
@@ -998,3 +808,193 @@ stat ms_mpi_static.c
 clear
 stat ms_*c
 hw2-judge-all 
+git add .
+git commit 
+git push -u origin master
+who
+cd homework/HW2
+ls
+who
+cd  /home/pp17/ta/hw3 
+ls
+cat seq_FW 
+cat seq_FW ls
+ls
+cat 1.out 
+cat 1.in 
+cat 2.out 
+cat 1.out 
+cat 2.IN 
+cat 2.in
+ls
+cd ~
+ls
+mkdir hw3
+l
+cd hw3
+sl
+ls
+cp  /home/pp17/ta/hw3/* .
+ls
+ls
+cd hw3
+ls
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+cat 1.in 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+cd ..
+cd homework/HW1/
+gcc ASAP_seq.c -o ASAP_seq
+cd ~/hw3
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+cat 1.in
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+cd hw3
+ls
+cat 1.in 
+who
+cd hw3
+ls
+cat 1.in
+cat 1.out 
+cat 1.in
+cat 2.in
+ls
+gcc ASAP_seq.c ASAP_seq
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+cat 3.in 
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+cat 1.out 
+cat 2.out 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+cat 2.in 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+cat 2.out 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+cat 3.out 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+diff out.out 1.out 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+diff out.out 2.out 
+diff out.out 1.out 
+diff out.out 2.out 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+diff out.out 3.out 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+diff out.out 4.out 
+diff out.out 3.out 
+diff out.out 4.out 
+cd hw3
+ls
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+ls
+diff out.out 3.oi
+diff out.out 3.out 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+diff out.out 3.out 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+diff out.out 3.out 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+diff out.out 3.out 
+diff out.out 4.out 
+diff out.out 3.out 
+gcc ASAP_seq.c -o ASAP_seq
+./ASAP_seq 
+diff out.out 3.out 
+who
+clear
+diff out.out 3.out 
