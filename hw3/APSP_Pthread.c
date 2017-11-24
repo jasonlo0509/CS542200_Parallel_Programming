@@ -1,7 +1,7 @@
 /*
- * Time: 2017/11/22
+ * Time: 2017/11/23
  * Author: Yun Chen Lo
- * Purpose: Test ASAP loop logic and IO.
+ * Purpose: Part I
  */
 
 #include <stdio.h>
@@ -10,15 +10,18 @@
 
 #define INF 999
 
-void floydWarshall (int *map, int vertice, int *dist);
+void floydWarshall (int *map, int vertice, int *dist, const char* outfile);
 
-void printSolution(int *map, int vertice);
+void printSolution(int *map, int vertice, const char* outfile);
 
 void *Compare(void *dist);
 
 int main(int argc, char** argv){
-	assert(argc == 2);
-	int num_threads = strtol(argv[1], 0, 10);
+    /* argument parsing */
+	assert(argc == 4);
+    const char* infile = argv[1];
+    const char* outfile = argv[2];
+	int num_threads = strtol(argv[3], 0, 10);
 	printf("num_threads = %d \n", num_threads);
 	FILE * pFile;
 	int in, counter=0, vertice;
@@ -27,7 +30,7 @@ int main(int argc, char** argv){
 	int *dist;
 
 
-	pFile = fopen ( "3.in" , "r" );
+	pFile = fopen ( infile , "r" );
 
 	fscanf (pFile, "%d", &in);
 	vertice = in;
@@ -58,14 +61,14 @@ int main(int argc, char** argv){
 
     }
 
-    floydWarshall(map, vertice, dist);
+    floydWarshall(map, vertice, dist, outfile);
 
   	fclose (pFile);
 
 	return 0;
 }
 
-void floydWarshall (int *map, int vertice, int *dist){
+void floydWarshall (int *map, int vertice, int *dist, const char* outfile){
 	
 	int i, j, k;
 	for (i = 0; i < vertice; i++)
@@ -83,7 +86,7 @@ void floydWarshall (int *map, int vertice, int *dist){
             }
         }
     }
-    printSolution(dist, vertice);
+    printSolution(dist, vertice, outfile);
 }
 
 void *Compare(void *dist){
@@ -91,10 +94,10 @@ void *Compare(void *dist){
 
 }
 
-void printSolution(int *dist, int vertice){
+void printSolution(int *dist, int vertice, const char* outfile){
 	int i, j;
 	FILE *out;
-	out=fopen("out.out", "w");
+	out=fopen(outfile, "w");
 	for (i = 0; i <  vertice; i++){
       for (j = 0; j < vertice; j++){
          fprintf(out, "%d ", dist[vertice*i + j]);
