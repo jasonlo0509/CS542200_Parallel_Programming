@@ -1,87 +1,3 @@
-time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 2 1000 out.png
-make
-time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 2 1000 out.png
-make
-time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 2 1000 out.png
-time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 2 10 out.png
-make
-time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 2 10 out.png
-time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 3 10 out.png
-time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 1 10 out.png
-time srun -p batch -c3 -N1 -n2 ./ms_hybrid 3 -2 2 -2 2 1 10 out.png
-make
-time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 1 10 out.png
-make
-time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 1 10 out.png
-make
-time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 1 10 out.png
-time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 1 10 ref.png
-hw2-diff out.png ref.png 
-time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 1 10000000 ref.png
-time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 1 100000 ref.png
-time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 1 100000 out.png
-hw2-diff out.png ref.png 
-time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 1 1 out.png
-time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 1 1 ref.png
-hw2-diff out.png ref.png 
-time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 1493 1 ref.png
-time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 1493 1 out.png
-time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 1400 1 ref.png
-time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 1473 1 ref.png
-time srun -p batch -c1 -N2 -n16 ./ms_seq 1 -2 2 -2 2 1492 1 ref.png
-time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 143 1 out.png
-time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 100 1 out.png
-time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 20 1 out.png
-time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 3 1 out.png
-make
-time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 3 1 out.png
-time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 100 1 out.png
-git add .
-git commit 
-git push
-time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 25600 25600 out.png
-cd hw2
-time srun -p batch -c3 -N1 -n4 ./ms_hybrid 3 -2 2 -2 2 25600 25600 out.png
-time srun -p batch -c1 -N4 -n48 ./ms_hybrid 1 -2 2 -2 2 25600 25600 out.png
-squeue
-who
-squeue
-cd homework/
-ls
-mkdir HW2
-cd ..
-cd hw2
-ls
-cp * ../homework/HW2/
-cd ..
-hw2-judge-all 
-cd hw2
-make
-cd ..
-cd homework/HW2/
-ls
-make
-history | grep srun
-time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 420 100 out.png
-time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 2 420 100 out.png
-time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 2 420 100 ref.png
-time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 420 100 out.png
-hw2-diff out.png ref.png 
-time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 4200 1 out.png
-time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 2 4200 1 ref.png
-hw2-diff out.png ref.png 
-time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 2 420000000 1 ref.png
-time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 2 42000000 1 ref.png
-time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 2 4200000 1 ref.png
-time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 2 420000 1 ref.png
-time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 420000 1 out.png
-hw2-diff out.png ref.png 
-time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 2 1 1 ref.png
-time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 1 1 out.png
-hw2-diff out.png ref.png 
-time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 1 1000000 out.png
-time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 2 1 1000000 ref.png
-hw2-diff out.png ref.png 
 time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 10 1000000 out.png
 time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 2 10 1000000 ref.png
 cd ~/hw2/
@@ -998,3 +914,87 @@ diff out.out 2.out
 srun -p batch -N1 -n10 ./APSP_MPI_sync 2.in out.out 10
 diff out.out 2.out 
 srun -p batch -N1 -n10 ./APSP_MPI_sync 2.in out.out 10
+cd hw3
+ls
+cat out.out 
+cd ..
+git add .
+git add . --ignore-removal
+git commit -m "part II done"
+git push
+cd hw3
+mpicc -std=c99 APSP_MPI_sync.c -o APSP_MPI_sync
+srun -p batch -N1 -n10 ./APSP_MPI_sync 2.in out.out 10
+diff out.out 2.out 
+mpicc -std=c99 APSP_MPI_sync.c -o APSP_MPI_sync
+srun -p batch -N1 -n10 ./APSP_MPI_sync 2.in out.out 10
+diff out.out 2.out 
+srun -p batch -N1 -n3 ./APSP_MPI_sync 1.in out.out 3
+diff out.out 2.out 
+diff out.out 1.out 
+cd ..
+git add .
+git add . --ignore-removal
+git commit -m "part II without printf"
+git push
+cd hw3
+mpicc -std=c99 APSP_MPI_sync.c -o APSP_MPI_sync
+srun -p batch -N1 -n3 ./APSP_MPI_sync 1.in out.out 3
+diff out.out 1.out 
+srun -p batch -N1 -n10 ./APSP_MPI_sync 2.in out.out 10
+diff out.out 2.out 
+srun -p batch -N1 -n10 ./APSP_MPI_sync 2.in out.out 10
+diff out.out 2.out 
+cd hw3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+cd ..
+git add .
+git add . --ignore-removal
+git commit -m "part III buggy"
+git push
+cd hw3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+who
+cd hw3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
