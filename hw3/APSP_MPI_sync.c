@@ -69,12 +69,8 @@ int main(int argc, char** argv) {
 			}
       	}
     }
-    /*printf("[%d, %d, %d]\n",map[0], map[1], map[2]);
-    printf("[%d, %d, %d]\n",map[3], map[4], map[5]);
-    printf("[%d, %d, %d]\n",map[6], map[7], map[8]);
-*/
+
     for(int v=0; v < vertex; v++){
-    	printf("v= %d\n", v);
     	/* Root Vertex */ 
     	if(myrank == v){
     		/* Initilization */
@@ -88,7 +84,6 @@ int main(int argc, char** argv) {
     		for(int i =0; i<vertex; i++){
     			weight[i] = map[v * vertex + i];
     			dist[i] = map[v * vertex + i];
-    			printf("vertex %d = %d\n", i, map[v * vertex + i]);
     		}
     		/* first send */
 	    	for (int i = 0; i < vertex; i++){
@@ -110,7 +105,7 @@ int main(int argc, char** argv) {
 		    			if(dist[proc_num] > new_dist){
 		    				dist[proc_num] = new_dist;
 		    				done = 0;
-		    			}// don't know whether or not need to resend to other vertex
+		    			}
 	    			}
 	    		}
 	    		MPI_Allreduce(&done, &done_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
@@ -119,12 +114,8 @@ int main(int argc, char** argv) {
 	    	MPI_Barrier(MPI_COMM_WORLD);
 	    	for(int i =0; i<vertex; i++){
 	    		if(i != myrank)
-	    			//map[v * vertex + i] = dist[i];
     				MPI_Recv(&map[v * vertex + i], 1, MPI_INT, i, vertex+v , MPI_COMM_WORLD, &status);
     		}
-    		printf("dist = [%d, %d, %d]\n",dist[0],dist[1], dist[2]);
-			printf("other = [%d, %d, %d]\n",map[v * vertex], map[v * vertex + 1], map[v * vertex + 2]);    		
-
     		MPI_Barrier(MPI_COMM_WORLD);
     	}
     	else{ // other vertex
@@ -151,11 +142,10 @@ int main(int argc, char** argv) {
 		    			int proc_num = status.MPI_SOURCE;
 		    			MPI_Recv(&new_dist, 1, MPI_INT, proc_num, v, MPI_COMM_WORLD, &status);
 		    			if(dist > new_dist){
-		    				printf("old, new = %d, %d\n", dist,new_dist);
 		    				dist_source = proc_num;
 		    				dist = new_dist;
 		    				done = 0;
-		    			}// don't know whether or not need to resend to other vertex
+		    			}
 	    			}
 	    		}
 	    		MPI_Allreduce(&done, &done_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
@@ -163,13 +153,11 @@ int main(int argc, char** argv) {
 	    		for( int j=0; j<vertex; j++){
 	    			if( j != myrank && weight[j] != INF && j != dist_source){
 	    				d = weight[j] + dist;
-	    				//printf("#%d d = %d\n", dist_source, d);
 	    				MPI_Isend(&d, 1, MPI_INT, j, v, MPI_COMM_WORLD, &req1);
 	    			}
 	    		}
 	    		MPI_Barrier(MPI_COMM_WORLD);
 	    	}
-	    	printf("#%d dist = %d\n", myrank, dist);
 	    	MPI_Barrier(MPI_COMM_WORLD);
 	    	MPI_Send(&dist, 1, MPI_INT, v, vertex+v, MPI_COMM_WORLD);
 	    	MPI_Barrier(MPI_COMM_WORLD);
@@ -178,12 +166,6 @@ int main(int argc, char** argv) {
 
     if(myrank ==0){
     	MPI_Status status;
-    	for (i = 0; i <  vertex; i++){
-			for (j = 0; j < vertex; j++){
-				printf("%d ", map[vertex*i + j]);
-			}
-				printf("\n");
-		}
     	for(int i=1; i<vertex; i++){
     		MPI_Recv(&map[i*vertex], vertex, MPI_INT, i, 2 * vertex, MPI_COMM_WORLD, &status);
     	}
