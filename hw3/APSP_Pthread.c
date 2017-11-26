@@ -30,15 +30,16 @@ int main(int argc, char** argv){
 	assert(argc == 4);
     const char* infile = argv[1];
     const char* outfile = argv[2];
-    printf("%s\n", outfile);
 	int num_threads = strtol(argv[3], 0, 10);
-	printf("num_threads = %d \n", num_threads);
 	FILE * pFile;
 	int in, counter=0, vertice;
 	int i, j;
 	int *map;
 	int *dist;
 
+    /*error handling*/
+    if(num_threads<vertice*vertice)
+        num_threads = vertice;
 
 	pFile = fopen ( infile , "r" );
 
@@ -78,7 +79,6 @@ int main(int argc, char** argv){
 }
 
 void floydWarshall (int *map, int vertice, int *dist, const char* outfile, int num_threads){
-	printf("%s\n", outfile);
 	int tid, i, j, k;
 	for (i = 0; i < vertice; i++)
         for (j = 0; j < vertice; j++)
@@ -90,22 +90,16 @@ void floydWarshall (int *map, int vertice, int *dist, const char* outfile, int n
     {
         pthread_t threads[num_threads];
         for(tid=0; tid<num_threads; tid++){
-            fprintf(stderr, "k, %d \n", k);
-            //fprintf(stderr, "hello, world\n", );
             data_tmp[tid].addr = dist;
             data_tmp[tid].l_start = (vertice*vertice/num_threads)*tid;
-            fprintf(stderr, "hello, %d \n", (vertice*vertice/num_threads)*tid);
-            fprintf(stderr, "vertice, %d \n", vertice);
             data_tmp[tid].vertice = vertice;
             data_tmp[tid].k = k;
             data_tmp[tid].id = tid;
             if(tid == num_threads-1){
                 data_tmp[tid].l_end = vertice*vertice;
-                fprintf(stderr, "l_end = %d \n", vertice*vertice);
             }
             else{
                 data_tmp[tid].l_end = (vertice*vertice/num_threads)*(tid+1);
-                fprintf(stderr, "l_end = %d \n", (vertice*vertice/num_threads)*(tid+1));
             }
             
             pthread_create(&threads[tid], NULL, Compare, (void *)&data_tmp[tid]);
@@ -128,15 +122,11 @@ void *Compare(void *data_tmp){
     dist = data_thread->addr;
 
     int l, i, j, k, vertice;
-    //fprintf(stderr, "dist[0]= %d \n", data_thread->addr[0]);
-    //fprintf(stderr, "start, end= %d %d\n", data_thread->l_start, data_thread->l_end);
     k = data_thread->k;
     vertice = data_thread->vertice;
     for(l=data_thread->l_start; l<data_thread->l_end; l++){
-        //fprintf(stderr, "l= %d \n", l);
         i=l/vertice;
         j=l%vertice;
-        //fprintf(stderr, "i,j= %d %d \n", i, j);
         if (dist[i*vertice + k] + dist[k*vertice + j] < dist[i*vertice + j])
             dist[i*vertice + j] = dist[i*vertice + k] + dist[k*vertice + j];
     }
@@ -145,7 +135,6 @@ void *Compare(void *data_tmp){
 
 void printSolution(int *dist, int vertice, const char* outfile){
 	int i, j;
-    fprintf(stderr," %s\n", outfile);
 	FILE *out;
 	out=fopen(outfile, "w");
 	for (i = 0; i <  vertice; i++){

@@ -7,11 +7,15 @@
 
 # hlsearch on (H) or off (h):
 ~H
+# Last Search Pattern:
+~MSle0~/req
+
 # Command Line History (newest to oldest):
-:wq
 :q!
+:wq
 
 # Search String History (newest to oldest):
+?/req
 
 # Expression History (newest to oldest):
 
@@ -22,15 +26,18 @@
 # Registers:
 
 # File marks:
-'0  4  25  ~/hw2/Makefile
-'1  8  9  ~/hw2/Makefile
-'2  1  9  ~/hw2/Makefile
-'3  601  0  ~/hw1/HW1_103061108_advanced.c
-'4  6  15  ~/hw2/Makefile
-'5  11  1  ~/lab2/pi_hybrid.c
-'6  10  3  ~/lab2/pi_hybrid.c
+'0  42  14  ~/lab1b/pi.c
+'1  4  25  ~/hw2/Makefile
+'2  8  9  ~/hw2/Makefile
+'3  1  9  ~/hw2/Makefile
+'4  601  0  ~/hw1/HW1_103061108_advanced.c
+'5  6  15  ~/hw2/Makefile
+'6  11  1  ~/lab2/pi_hybrid.c
+'7  10  3  ~/lab2/pi_hybrid.c
 
 # Jumplist (newest first):
+-'  42  14  ~/lab1b/pi.c
+-'  1  0  ~/lab1b/pi.c
 -'  4  25  ~/hw2/Makefile
 -'  8  0  ~/hw2/Makefile
 -'  1  0  ~/hw2/Makefile
@@ -126,8 +133,12 @@
 -'  1  0  ~/lab2/pi_hybrid.c
 -'  11  1  ~/lab2/pi_hybrid.c
 -'  10  1  ~/lab2/pi_hybrid.c
+-'  4  25  ~/hw2/Makefile
 
 # History of marks within files (newest to oldest):
+
+> ~/lab1b/pi.c
+	"	42	14
 
 > ~/hw2/Makefile
 	"	4	25
