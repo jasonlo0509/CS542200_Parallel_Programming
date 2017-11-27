@@ -75,7 +75,6 @@ int main(int argc, char** argv) {
     }
 
     for(int v=0; v < vertex; v++){
-    	printf("===v = %d ===\n", v);
     	/* Root Vertex */ 
     	if(myrank == v){
     		/* Initilization */
@@ -119,11 +118,9 @@ int main(int argc, char** argv) {
 		    			}
 	    			}
 	    		}
-	    		printf("from %d\n", rank_pre);
 	    		MPI_Iprobe(rank_pre, 2*vertex +v, MPI_COMM_WORLD, &flag_token, &status);
 	    			if(flag_token == 1){
     					MPI_Recv(&token, 1, MPI_INT, rank_pre, 2*vertex +v, MPI_COMM_WORLD, &status);
-	    				printf("root token = %d\n", token);
 	    				if(token==WHITE)
 	    					done = DONE;
 	    				else{
@@ -143,9 +140,6 @@ int main(int argc, char** argv) {
     		}
     		
     		MPI_Barrier(MPI_COMM_WORLD);
-    		printf("[%d, %d, %d]\n",map[0], map[1], map[2]);
-			printf("[%d, %d, %d]\n",map[3], map[4], map[5]);
-			printf("[%d, %d, %d]\n",map[6], map[7], map[8]);
     	}
     	else{ // other vertex
     		int dist, new_dist, dist_source, d;
@@ -177,7 +171,6 @@ int main(int argc, char** argv) {
     		/* Read several times & send */
     		MPI_Barrier(MPI_COMM_WORLD);
 	    	while(done_recv){
-	    		printf("token = %d\n", token);
 	    		dist_source = vertex;
 	    		activate = 0;
 	    		/* Read State */
@@ -215,13 +208,11 @@ int main(int argc, char** argv) {
 
 		    				if(j_modified<rank_modified){
 		    					token = BLACK;
-		    					printf("BLACK\n");
 		    				}
 		    			}
 		    		}
 		    	}
 	    		if(flag_token==1){
-	    			printf("# %d real token = %d\n", myrank, token);
 	    			MPI_Send(&token, 1, MPI_INT, (myrank+1)%vertex, 2*vertex+v, MPI_COMM_WORLD);
 	    		}
 	    		MPI_Barrier(MPI_COMM_WORLD);
@@ -230,7 +221,6 @@ int main(int argc, char** argv) {
 	    			MPI_Send(&done_recv, 1, MPI_INT, (myrank+1)%vertex, 4*vertex +v, MPI_COMM_WORLD);
 	    		}
 	    	}
-	    	printf("#%d done \n", myrank);
 	    	MPI_Send(&dist, 1, MPI_INT, v, vertex+v, MPI_COMM_WORLD);
 	    	MPI_Barrier(MPI_COMM_WORLD);
     	}

@@ -1,356 +1,3 @@
-time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 10 1000000 out.png
-time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 2 10 1000000 ref.png
-cd ~/hw2/
-cd ..
-ls
-cd homework/HW2/
-ls
-time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 2 1000000 out.png
-time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 2 2 1000000 ref.png
-hw2-diff out.png ref.png 
-cd ~/hw2/
-ls
-stat ms_mpi_dynamic.c 
-cd ~/homework/HW2/
-ls
-make
-hw2-judge-all -only=ms_mpi_dynamic
-hw2-judge-all --only=ms_mpi_dynamic
-239 137 ref.png
-time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 2 239 137 out.png
-time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 2 239 137 ref.png
-time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 2 239 137 out.png
-time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 2 1000000 out.png
-time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 239 137 out.png
-hw2-diff out.png ref.png 
-time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 1 10000  out.png
-time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 2 1 10000 ref.png
-hw2-diff out.png ref.png 
-time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 239 137 out.png
-time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 2 239 137 ref.png
-hw2-diff out.png ref.png 
-time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 2 1393 137 ref.png
-time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 1393 137 out.png
-hw2-diff out.png ref.png 
-time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 2 239 137 ref.png
-time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 2 239 13 ref.png
-time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 1393 13 out.png
-hw2-diff out.png ref.png 
-time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 239 13 out.png
-hw2-diff out.png ref.png 
-make
-time srun -p batch -c1 -N4 -n16 ./ms_mpi_dynamic 1 -2 2 -2 2 239 13 out.png
-time srun -p batch -c1 -N4 -n16 ./ms_seq 1 -2 2 -2 2 239 13 ref.png
-hw2-diff out.png ref.png 
-history | grep hw2-judge
-hw2-judge-all -only=ms_mpi_dynamic
-hw2-judge-all --only=ms_mpi_dynamic
-ls
-cd ..
-ls
-cd homework/
-ls
-stat HW2
-cd ..
-stat hw2
-cd hw2/
-ls
-stat ms_mpi_static.c 
-stat out.png 
-mv out.png ../homework/HW2/
-cd ../homework/HW2/
-stat out.png 
-ls
-cd ..
-cd HW2
-stat ref.png 
-stat out.png 
-cd ..
-cd hw2
-ls
-cd ..
-cd homework/HW2/
-ls
-cd ..
-cd hw2
-stat ref.png 
-cd ..
-cd homework/
-mv HW2 HW2_mod
-ls
-cd ..
-mv /hw2 ~/homework/HW2
-ld
-ls
-mv ~/hw2 ~/homework/HW2
-ls
-cd homework/
-stat HW2
-cd HW2
-stat ref.png 
-cd ..
-cp HW2_mod/ms_mpi_dynamic.c HW2/
-cd HW2
-ls
-hw2-judge-all 
-cd homework/HW2
-ls
-stat ms_mpi_static.c
-clear
-stat ms_*c
-hw2-judge-all 
-git add .
-git commit 
-git push -u origin master
-who
-cd homework/HW2
-ls
-who
-cd  /home/pp17/ta/hw3 
-ls
-cat seq_FW 
-cat seq_FW ls
-ls
-cat 1.out 
-cat 1.in 
-cat 2.out 
-cat 1.out 
-cat 2.IN 
-cat 2.in
-ls
-cd ~
-ls
-mkdir hw3
-l
-cd hw3
-sl
-ls
-cp  /home/pp17/ta/hw3/* .
-ls
-ls
-cd hw3
-ls
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-cat 1.in 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-cd ..
-cd homework/HW1/
-gcc ASAP_seq.c -o ASAP_seq
-cd ~/hw3
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-cat 1.in
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-cd hw3
-ls
-cat 1.in 
-who
-cd hw3
-ls
-cat 1.in
-cat 1.out 
-cat 1.in
-cat 2.in
-ls
-gcc ASAP_seq.c ASAP_seq
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-cat 3.in 
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-cat 1.out 
-cat 2.out 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-cat 2.in 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-cat 2.out 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-cat 3.out 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-diff out.out 1.out 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-diff out.out 2.out 
-diff out.out 1.out 
-diff out.out 2.out 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-diff out.out 3.out 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-diff out.out 4.out 
-diff out.out 3.out 
-diff out.out 4.out 
-cd hw3
-ls
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-ls
-diff out.out 3.oi
-diff out.out 3.out 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-diff out.out 3.out 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-diff out.out 3.out 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-diff out.out 3.out 
-diff out.out 4.out 
-diff out.out 3.out 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-diff out.out 3.out 
-who
-clear
-diff out.out 3.out 
-cd hw3
-ls
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-diff out.out 3.out 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-diff out.out 3.out 
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-diff out.out 3.out 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-diff out.out 3.out 
-gcc ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-diff out.out 3.out 
-gcc pthread.c -o pthread
-gcc pthread.c -o pthread -std=c99
-ls
-gcc -std=c99 pthread.c -o pthread
-gcc ASAP_seq.c -o ASAP_seq
-clear
-gcc ASAP_seq.c -o ASAP_seq
-clear
-gcc ASAP_seq.c -o ASAP_seq
-gcc -std=c99 ASAP_seq.c -o ASAP_seq
-clear
-gcc -std=c99 ASAP_seq.c -o ASAP_seq
-gcc -std=c99 ASAP_seq.c -o ASAP_seq -pthread
-./ASAP_seq 
-gcc -std=c99 ASAP_seq.c -o ASAP_seq -pthread
-./ASAP_seq 
-gcc -std=c99 ASAP_seq.c -o ASAP_seq -pthread
-./ASAP_seq 
-gcc -std=c99 ASAP_seq.c -o ASAP_seq -pthread
-clear
-gcc -std=c99 ASAP_seq.c -o ASAP_seq -pthread
-./ASAP_seq 
-cd ..
-git add .
-git status
-git add .
-git add --ignore-removal
-git add --ignore-removal .
-git commit -m "segmentation fault lol"
-git push
-cd hw3
-gcc -std=c99 ASAP_seq.c -o ASAP_seq -pthread
-./ASAP_seq 
-gcc -std=c99 ASAP_seq.c -o ASAP_seq -pthread
-./ASAP_seq 
-gcc -std=c99 ASAP_seq.c -o ASAP_seq
 ./ASAP_seq 
 gcc -std=c99 ASAP_seq.c -o ASAP_seq
 ./ASAP_seq 
@@ -998,3 +645,356 @@ mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
 srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
 mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
 srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+cd hw3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+cd hw3
+ls
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+cat out.out 
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+cat out.out 
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+cd hw3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+cat out.out 
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+srun -p batch -N1 -n3 ./APSP_MPI_async 1.in out.out 3
+cat out.out 
+srun -p batch -N1 -n10 ./APSP_MPI_async 2.in out.out 10
+cat out.out 
+diff out.out 2.out 
+cd hw3
+mpicc -std=c99 APSP_MPI_sync.c -o APSP_MPI_sync
+srun -p batch -N1 -n10 ./APSP_MPI_sync 2.in out.out 10
+mpicc -std=c99 APSP_MPI_sync.c -o APSP_MPI_sync
+srun -p batch -N1 -n10 ./APSP_MPI_sync 2.in out.out 10
+mpicc -std=c99 APSP_MPI_sync.c -o APSP_MPI_sync
+srun -p batch -N1 -n10 ./APSP_MPI_sync 2.in out.out 10
+mpicc -std=c99 APSP_MPI_sync.c -o APSP_MPI_sync
+srun -p batch -N1 -n10 ./APSP_MPI_sync 2.in out.out 10
+diff out.out 2.out 
+time srun -p batch -N1 -n10 ./APSP_MPI_sync 2.in out.out 10
+cd hw3
+srun -p batch -N4 -n50 ./APSP_MPI_sync 3.in out.out 50 --overcommit
+srun -p batch --overcommit -N4 -n50 ./APSP_MPI_sync 3.in out.out 50
+diff out.out 3.out 
+srun -p batch --overcommit -N4 -n50 ./APSP_MPI_sync 3.in out.out 50
+diff out.out 3.out 
+srun -p batch --overcommit -N4 -n50 ./APSP_MPI_sync 3.in out.out 50
+diff out.out 3.out 
+srun -p batch --overcommit -N4 -n50 ./APSP_MPI_sync 3.in out.out 50
+diff out.out 3.out 
+srun -p batch --overcommit -N4 -n50 ./APSP_MPI_sync 3.in out.out 50
+time srun -p batch --overcommit -N4 -n50 ./APSP_MPI_sync 3.in out.out 50
+cat 4.in 
+time srun -p batch --overcommit -N4 -n100 ./APSP_MPI_sync 4.in out.out 100
+diff out.out 4.out 
+vim 5.in 
+time srun -p batch --overcommit -N4 -n150 ./APSP_MPI_sync 5.in out.out 150
+diff out.out 5.out 
+time srun -p batch --overcommit -N4 -n150 ./APSP_MPI_sync 5.in out.out 150
+diff out.out 5.out 
+time srun -p batch --overcommit -N4 -n100 ./APSP_MPI_sync 4.in out.out 100
+diff out.out 4.out 
+time srun -p batch --overcommit -N4 -n100 ./APSP_MPI_sync 4.in out.out 100
+diff out.out 4.out 
+time srun -p batch --overcommit -N4 -n50 ./APSP_MPI_async 3.in out.out 50
+diff out.out 3.out 
+time srun -p batch --overcommit -N4 -n100 ./APSP_MPI_async 4.in out.out 100
+diff out.out 4.out 
+git add .
+git add . --ignore-removal
+git commit -m "part 3 done"
+git push
+cd hw3
+squeue
+cleaar
+clear
+cleaar
+squeue
+cleaar
+squeue
+cd hw3
+ls
+srun -p batch -N1 -n50 --overcommit  ./APSP_MPI_sync 3.in out.out 50
+srun -p batch -N1 -n50 --overcommit  ./APSP_MPI_sync 3.in out.out 50 &
+time srun -p batch -N1 -n50 --overcommit  ./APSP_MPI_sync 3.in out.out 50 &
+cd hw3
+diff out.out 2.out 
+diff out.out 3.out 
+time srun -p batch -N2 -n10 ./APSP_MPI_sync 2.in out.out 10
+time srun -p batch -N2 -n10 ./APSP_MPI_sync 2.in out.out 10 &
+squeue
+time srun -p batch -N3 -n10 ./APSP_MPI_sync 2.in out.out 10 &
+time srun -p batch -N4 -n10 ./APSP_MPI_sync 2.in out.out 10 &
+squeue
+time srun -p batch -N4 -n150 --overcommit ./APSP_MPI_sync 5.in out.out 150 &
+diff 5.out out.out 
+time srun -p batch -N2 -n150 --overcommit ./APSP_MPI_sync 5.in out.out 150 &
+time srun -p batch -N1 -n150 --overcommit ./APSP_MPI_sync 5.in out.out 150 &
+time srun -p batch -N8 -n150 --overcommit ./APSP_MPI_sync 5.in out.out 150 &
+time srun -p batch -N6 -n150 --overcommit ./APSP_MPI_sync 5.in out.out 150 &
+time srun -p batch -N4 -n150 --overcommit ./APSP_MPI_sync 5.in out.out 150 &
+diff 5.out out.out 
+cd hw3
+history | grep pthread
+gcc APSP_Pthread.c -o APSP_Pthread -std=c99 -pthread
+history | grep Pthread
+./APSP_Pthread 1.in out.out 10
+time ./APSP_Pthread 1.in out.out 10
+cat out.out 
+time ./APSP_Pthread 2.in out.out 10
+diff out.out 2.out 
+time ./APSP_Pthread 3.in out.out 10
+diff out.out 3.out 
+time ./APSP_Pthread 4.in out.out 10
+time ./APSP_Pthread 4.in out.out 1
+diff out.out 3.out 
+diff out.out 4.out 
+time ./APSP_Pthread 4.in out.out 4
+time ./APSP_Pthread 4.in out.out 1
+./graph_ge 
+ls
+cp /home/pp17/ta/hw3/seq_FW .
+ls
+./seq_FW 6.in 6.out
+cat 6.out 
+vim 6.in 
+time ./APSP_Pthread 6.in out.out 3
+time ./APSP_Pthread 6.in out.out 2
+diff out.out 6.out 
+time ./APSP_Pthread 6.in out.out 4
+time ./APSP_Pthread 6.in out.out 8
+diff out.out 6.out 
+./graph_ge 
+ls
+./seq_FW 7.in 7.out
+./seq_FW 1.in 1.out
+./seq_FW 0.in 0.out
+cat 0.in
+cat 1.in 
+ls
+history | grep Pthread
+histroy | grep srun
+histroy | grep MPI
+history | grep srun
+time srun -p batch -N1 -n1 -c4  ./APSP_Pthread 2.in out.out 4
+cat out.out 
+time srun -p batch -N1 -n1 -c8  ./APSP_Pthread 2.in out.out 8
+time srun -p batch -N1 -n1 -c8  ./APSP_Pthread 4.in out.out 8
+time srun -p batch -N1 -n1 -c4  ./APSP_Pthread 4.in out.out 4
+gcc APSP_Pthread.c -o APSP_Pthread -std=c99 -pthread
+time srun -p batch -N1 -n1 -c4  ./APSP_Pthread 4.in out.out 4
+time srun -p batch -N1 -n1 -c8  ./APSP_Pthread 4.in out.out 8
+gcc APSP_Pthread.c -o APSP_Pthread -std=c99 -pthread
+time srun -p batch -N1 -n1 -c4  ./APSP_Pthread 3.in out.out 4
+diff out.out 3.out 
+gcc APSP_Pthread.c -o APSP_Pthread -std=c99 -pthread
+gcc APSP_Pthread.c -o APSP_Pthread -std=c99 -pthread -O3 
+time srun -p batch -N1 -n1 -c1  ./APSP_Pthread 3.in out.out 1
+time srun -p batch -N1 -n1 -c2  ./APSP_Pthread 3.in out.out 2
+time srun -p batch -N1 -n1 -c4  ./APSP_Pthread 3.in out.out 4
+time srun -p batch -N1 -n1 -c8  ./APSP_Pthread 3.in out.out 8
+time srun -p batch -N1 -n1 -c8  ./APSP_Pthread 7.in out.out 8
+diff 7.out out.out 
+time srun -p batch -N1 -n1 -c4  ./APSP_Pthread 7.in out.out 4
+time srun -p batch -N1 -n1 -c2  ./APSP_Pthread 7.in out.out 2
+time srun -p batch -N1 -n1 -c1  ./APSP_Pthread 7.in out.out 1
+cd hw3
+history | grep gcc
+gcc Pthread_time.c -o Pthread_time -std=c99 -pthread
+history | grep Pthread
+history | grep srun
+time srun -p batch --overcommit -N1 -n1 -c1  ./Pthread_time 7.in out.out 1
+gcc Pthread_time.c -o Pthread_time -std=c99 -pthread
+time srun -p batch --overcommit -N1 -n1 -c1  ./Pthread_time 2.in out.out 1
+time srun -p batch -N1 -n1 -c1  ./Pthread_time 2.in out.out 1
+cat out.out 
+gcc Pthread_time.c -o Pthread_time -std=c99 -pthread
+time srun -p batch -N1 -n1 -c1  ./Pthread_time 2.in out.out 1
+srun -p batch -N1 -n1 -c1  ./Pthread_time 2.in out.out 1
+gcc Pthread_time.c -o Pthread_time -std=c99 -pthread -lm
+srun -p batch -N1 -n1 -c1  ./Pthread_time 2.in out.out 1
+gcc Pthread_time.c -o Pthread_time -std=c99 -pthread
+srun -p batch -N1 -n1 -c1  ./Pthread_time 2.in out.out 
+srun -p batch -N1 -n1 -c1  ./Pthread_time 2.in out.out 1
+gcc Pthread_time.c -o Pthread_time -std=c99 -pthread
+srun -p batch -N1 -n1 -c1  ./Pthread_time 2.in out.out 1
+gcc Pthread_time.c -o Pthread_time -std=c99 -pthread
+srun -p batch -N1 -n1 -c1  ./Pthread_time 2.in out.out 1
+srun -p batch -N1 -n1 -c1  ./Pthread_time 7.in out.out 1
+diff 7.out out.out 
+srun -p batch -N1 -n1 -c2  ./Pthread_time 7.in out.out 2 &
+srun -p batch -N1 -n1 -c4  ./Pthread_time 7.in out.out 4 &
+srun -p batch -N1 -n1 -c8  ./Pthread_time 7.in out.out 8 &
+time srun -p batch -N1 -n1 -c1  ./Pthread_time 7.in out.out 1 &
+time srun -p batch -N1 -n1 -c2  ./Pthread_time 7.in out.out 2 &
+time srun -p batch -N1 -n1 -c4  ./Pthread_time 7.in out.out 4 &
+time srun -p batch -N1 -n1 -c8  ./Pthread_time 7.in out.out 8 &
+time srun -p batch -N1 -n1 -c4  ./Pthread_time 7.in out.out 4 &
+gcc Pthread_time.c -o Pthread_time -std=c99 -pthread -O3
+time srun -p batch -N1 -n1 -c4  ./Pthread_time 7.in out.out 4 &
+time srun -p batch -N1 -n1 -c8  ./Pthread_time 7.in out.out 8 &
+time srun -p batch -N1 -n1 -c2  ./Pthread_time 7.in out.out 2 &
+squeue
+cd hw3
+cd hw3
+gcc Pthread_time.c -o Pthread_time -std=c99 -pthread -O3
+time srun -p batch -N1 -n1 -c2  ./Pthread_time 7.in out.out 2 &
+cd hw3
+time srun -p batch -N1 -n1 -c2 perf record ./Pthread_time 7.in out.out 2 &
+perf record time srun -p batch -N1 -n1 -c2 perf record ./Pthread_time 7.in out.out 2 &
+apt-get install linux-tools
+sudo apt-get install linux-tools
+perf
+wget http://sam.zoy.org/writings/programming/gprof-helper.c .
+ls
+gcc -shared -fPIC gprof-helper.c -o gprof-helper.so -lpthread -ldl
+LD_PRELOAD=./gprof-helper.so APSP_Pthread
+ls
+LD_PRELOAD=./gprof-helper.so ./APSP_Pthread
+LD_PRELOAD=./gprof-helper.so ./APSP_Pthread 3.in out.out 4.
+LD_PRELOAD=./gprof-helper.so ./APSP_Pthread 3.in out.out 4
+./APSP_Pthread 3.in out.out 4
+ls
+LD_PRELOAD=./gprof-helper.so Pthread_time.c 
+LD_PRELOAD=./gprof-helper.so gcc Pthread_time.c 
+LD_PRELOAD=./gprof-helper.so gcc -std=gnu99 Pthread_time.c 
+LD_PRELOAD=./gprof-helper.so gcc -std=gnu99 Pthread_time.c -lpthread
+cat Pthread_time.c 
+time srun -p batch -N1 -n1 -c2  ./Pthread_time 7.in out.out 2 &
+LD_PRELOAD=./gprof-helper.so gcc -std=gnu99 Pthread_time.c -lpthread -O3
+time srun -p batch -N1 -n1 -c2  ./Pthread_time 7.in out.out 2 &
+gcc -std=gnu99 Pthread_time.c -lpthread -O3
+time srun -p batch -N1 -n1 -c2  ./Pthread_time 7.in out.out 2 &
+time srun -p batch -N1 -n1 -c4  ./Pthread_time 7.in out.out 4 &
+time srun -p batch -N1 -n1 -c8  ./Pthread_time 7.in out.out 8 &
+cd homework/
+mkdir HW3
+cp ../hw3/AP* HW3
+cd HW#
+cd HW3
+ls
+cp ../HW1/Makefile .
+vim Makefile 
+make
+make all
+make clean
+make
+vim Makefile 
+make
+make clean
+make
+cp ../hw3/7.* .
+cp ../hw3/7* .
+cp ../../hw3/7* .
+ls
+make
+time srun -p batch -N1 -n1 -c8  ./APSP_Pthread 7.in out.out 8 &
+diff 7.out out.out 
+ls
+time srun -p batch --overcommit -N1 -n2000  ./APSP_MPI_sync 7.in out.out 2000 
+time srun -p batch --overcommit -N4 -n2000  ./APSP_MPI_sync 7.in out.out 2000 
+time srun -p batch --overcommit -N4 -n2000  ./APSP_MPI_async 7.in out.out 2000 
+squeue
+cp ../../hw3/4* .
+time srun -p batch --overcommit -N4 -n100  ./APSP_MPI_async 4.in out.out 100
+diff out.out 4.out 
+time srun -p batch --overcommit -N4 -n100  ./APSP_MPI_sync 4.in out.out 100
+diff out.out 4.out 
+cd ..
+cd hw3
+history | grep mpicc
+mpicc -std=c99 APSP_MPI_async.c -o APSP_MPI_async
+history | grep async
+time srun -p batch --overcommit -N4 -n100  ./APSP_MPI_async 4.in out.out 100
+diff out.out 4.out 
+mpicc -std=c99 APSP_MPI_async_dynamic.c -o APSP_MPI_async_dynamic
+time srun -p batch --overcommit -N4 -n100  ./APSP_MPI_async_dynamic 4.in out.out 100
+difff out.out 4.out 
+diff out.out 4.out 
+mpicc -std=c99 APSP_MPI_sync_static.c -o APSP_MPI_sync_static
+time srun -p batch --overcommit -N4 -n100  ./APSP_MPI_sync_static 4.in out.out 100
+time srun -p batch --overcommit -N4 -n100  ./APSP_MPI_sync 4.in out.out 100
+time srun -p batch --overcommit -N4 -n150  ./APSP_MPI_sync 5.in out.out 150
+time srun -p batch --overcommit -N4 -n150  ./APSP_MPI_sync_static 5.in out.out 150
+time srun -p batch --overcommit -N4 -n150  ./APSP_MPI_async 5.in out.out 150
+time srun -p batch --overcommit -N4 -n150  ./APSP_MPI_async_dynamic 5.in out.out 150
+diff 5.out out.out 
+vim 6.in 
+time srun -p batch --overcommit -N4 -n1000  ./APSP_MPI_async_dynamic 6.in out.out 1000
+time srun -p batch --overcommit -N4 -n150  ./APSP_MPI_async_dynamic 5.in out.out 150
+cp hw3/APSP_MPI_async_dynamic.c homework/HW3/
+cd homework/HW3/
+mv APSP_MPI_async_dynamic.c APSP_MPI_async.c 
+make
+ls
+cd ~/hw3
+time srun -p batch -N4 -n150 --overcommit ./APSP_MPI_sync 5.in out.out 150 
+time srun -p batch -N2 -n150 --overcommit ./APSP_MPI_sync 5.in out.out 150 
+time srun -p batch -N1 -n150 --overcommit ./APSP_MPI_sync 5.in out.out 150 
+time srun -p batch -N1 -n150 --overcommit ./APSP_MPI_async 5.in out.out 150 
+time srun -p batch -N1 -n100 --overcommit ./APSP_MPI_async 4.in out.out 100 
+time srun -p batch -N1 -n50 --overcommit ./APSP_MPI_async 3.in out.out 50 
+time srun -p batch -N2 -n50 --overcommit ./APSP_MPI_async 3.in out.out 50 
+time srun -p batch -N4 -n50 --overcommit ./APSP_MPI_async 3.in out.out 50 
+ls
+mkdir HW3_103061108
+mv APSP_Pthread.c HW3_103061108
+cp APSP_MPI_sync.c HW3_103061108
+cp ../homework/HW3/Makefile .
+cp APSP_MPI_async_dynamic.c HW3_103061108
+mv HW3_103061108_report.pdf HW3_103061108
+cd HW3_103061108/
+ls
+cp ../Makefile .
+mv APSP_MPI_async_dynamic.c APSP_MPI_async.c 
+cd ..
+zip -r HW3_103061108.zip HW3_103061108/
+cd hw3
+ls
+time srun -p batch -N1 -n150 --overcommit ./APSP_MPI_sync 5.in out.out 150
+diff out.out 5.out 
+time srun -p batch -N1 -n150 --overcommit ./APSP_MPI_sync 5.in out.out 150

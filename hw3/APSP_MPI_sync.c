@@ -80,6 +80,10 @@ int main(int argc, char** argv) {
     		int *dist = (int*)malloc(vertex * sizeof(int));
     		int flag;
     		int done_recv=0, done, new_dist;
+    		/* Dynamic Table */ 
+    		if(v>0){
+    			MPI_Recv(&map[0], vertex*vertex, MPI_INT, v-1, 5*v, MPI_COMM_WORLD, &status);
+    		}
 
     		for(int i =0; i<vertex; i++){
     			weight[i] = map[v * vertex + i];
@@ -112,9 +116,12 @@ int main(int argc, char** argv) {
 	    		MPI_Barrier(MPI_COMM_WORLD);
 	    	}
 	    	for(int i =0; i<vertex; i++){
-	    		if(i != myrank)
+	    		if(i != myrank){
     				MPI_Recv(&map[v * vertex + i], 1, MPI_INT, i, vertex+v , MPI_COMM_WORLD, &status);
+	    			map[i * vertex + v] = map[v * vertex + i];
+	    		}
     		}
+
     		MPI_Barrier(MPI_COMM_WORLD);
     	}
     	else{ // other vertex
@@ -125,6 +132,18 @@ int main(int argc, char** argv) {
        		MPI_Status status;
     		MPI_Request req1;
     		dist = INF;
+    		if(v >0){
+    			if(myrank == v-1){
+    				for(int j = 0; j<vertex; j++){
+    					if(j!=v-1)
+    						MPI_Send(&map[0], vertex*vertex, MPI_INT, j, 5*v, MPI_COMM_WORLD);
+    				}
+    			}
+    			else if(myrank != v){
+    				MPI_Recv(&map[0], vertex*vertex, MPI_INT, v-1, 5*v, MPI_COMM_WORLD, &status);
+    			}
+    		}
+
     		for(int i =0; i<vertex; i++){
     			weight[i] = map[myrank * vertex + i];
        		}
@@ -175,7 +194,6 @@ int main(int argc, char** argv) {
     	MPI_Send(&map[myrank * vertex], vertex, MPI_INT, 0, 2 * vertex, MPI_COMM_WORLD);
     	MPI_Barrier(MPI_COMM_WORLD);
     }
-    /* Save the result */
 
     /* cleanup */    
     MPI_Finalize();
