@@ -31,6 +31,7 @@ int main(int argc, char** argv) {
 
     double total_IO_time = 0.0;
     double total_comm_time = 0.0;
+    double total_isend_time = 0.0;
     double while_time = 0.0;
     double total_time = 0.0;
     int vertex;
@@ -119,6 +120,19 @@ int main(int argc, char** argv) {
 	    	while(done_recv != vertex){
 	    		done = 1;
 	    		/* Read State */
+	    		flag = 1;
+	    		while(flag == 1){
+	    			MPI_Iprobe(MPI_ANY_SOURCE, v, MPI_COMM_WORLD, &flag, &status);
+	    			if(flag == 1){
+			    		int proc_num = status.MPI_SOURCE;
+			    		MPI_Recv(&new_dist, 1, MPI_INT, proc_num, v, MPI_COMM_WORLD, &status);
+			    		if(dist[proc_num] > new_dist){
+			    			dist[proc_num] = new_dist;
+			    			done = 0;
+			    		}
+		    		}
+	    		}
+	    		/*
 	    		for(int i =0; i<vertex; i++){
 	    			if(i != v){
 		    			MPI_Iprobe(i, v, MPI_COMM_WORLD, &flag, &status);
@@ -132,6 +146,7 @@ int main(int argc, char** argv) {
 		    			}
 		    		}
 	    		}
+	    		*/
 	    		MPI_Allreduce(&done, &done_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
 	    		MPI_Barrier(MPI_COMM_WORLD);
 	    	}
@@ -180,7 +195,22 @@ int main(int argc, char** argv) {
 	    		done = 1;
 	    		dist_source = vertex;
 	    		int active =0;
+	    		flag =1;
 	    		/* Read State */
+	    		while(flag == 1){
+	    			MPI_Iprobe(MPI_ANY_SOURCE, v, MPI_COMM_WORLD, &flag, &status);
+	    			if(flag ==1){
+	    				int proc_num = status.MPI_SOURCE;
+		    			MPI_Recv(&new_dist, 1, MPI_INT, proc_num, v, MPI_COMM_WORLD, &status);
+		    			if(dist > new_dist){
+		    				dist_source = proc_num;
+		    				dist = new_dist;
+		    				done = 0;
+		    				active = 1;
+		    			}
+	    			}
+	    		}
+	    		/*
 	    		for(int i=0; i<vertex; i++){
 	    			if(vertex != myrank){
 		    			MPI_Iprobe(i, v, MPI_COMM_WORLD, &flag, &status);
@@ -195,27 +225,30 @@ int main(int argc, char** argv) {
 			    			}
 		    			}
 		    		}
-	    		}
+	    		}*/
 	    		MPI_Allreduce(&done, &done_recv, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
+	    		total_isend_time -= MPI_Wtime();
 	    		/* Send if receive new distance */
-	    		//if(active == 1){
+	    		if(active == 1){
 		    		for( int j=0; j<vertex; j++){
 		    			if( j != myrank && weight[j] != INF && j != dist_source){
 		    				d = weight[j] + dist;
 		    				MPI_Isend(&d, 1, MPI_INT, j, v, MPI_COMM_WORLD, &req1);
 		    			}
 		    		}
-	    		//}
+	    		}
+	    		total_isend_time += MPI_Wtime();
 	    		MPI_Barrier(MPI_COMM_WORLD);
 	    	}
 	    	while_time += MPI_Wtime();
 	    	total_comm_time -= MPI_Wtime();
 	    	MPI_Send(&dist, 1, MPI_INT, v, vertex+v, MPI_COMM_WORLD);
-	    	MPI_Barrier(MPI_COMM_WORLD);
 	    	total_comm_time += MPI_Wtime();
+	    	MPI_Barrier(MPI_COMM_WORLD);
+	    	
     	}
     }
-    total_comm_time -= MPI_Wtime();
+    //total_comm_time -= MPI_Wtime();
     if(myrank ==0){
     	MPI_Status status;
     	for(int i=1; i<vertex; i++){
@@ -229,11 +262,12 @@ int main(int argc, char** argv) {
     	MPI_Send(&map[myrank * vertex], vertex, MPI_INT, 0, 2 * vertex, MPI_COMM_WORLD);
     	MPI_Barrier(MPI_COMM_WORLD);
     }
-    total_comm_time += MPI_Wtime();
+    //total_comm_time += MPI_Wtime();
 
     total_time += MPI_Wtime();
 
     printf("total time = %lf\n", total_time);
+    printf("total_isend_time time = %lf\n", total_isend_time);
     printf("IO time = %lf\n", total_IO_time);
     printf("comm time = %lf\n", total_comm_time);
     printf("while time = %lf\n", while_time);

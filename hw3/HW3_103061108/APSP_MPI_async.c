@@ -86,11 +86,6 @@ int main(int argc, char** argv) {
     		int done, new_dist;
     		int token = WHITE;
     		int rank_pre, rank_post;
-
-    		if(v>0){
-    			MPI_Recv(&map[0], vertex*vertex, MPI_INT, v-1, 5*v, MPI_COMM_WORLD, &status);
-    		}
-
     		for(int i =0; i<vertex; i++){
     			weight[i] = map[v * vertex + i];
     			dist[i] = map[v * vertex + i];
@@ -113,6 +108,19 @@ int main(int argc, char** argv) {
 			/* Read several times & send */
 	    	while(done){
 	    		/* Read State */
+	    		
+	    		flag = 1;
+	    		while(flag == 1){
+	    			MPI_Iprobe(MPI_ANY_SOURCE, v, MPI_COMM_WORLD, &flag, &status);
+	    			if(flag == 1){
+			    		int proc_num = status.MPI_SOURCE;
+			    		MPI_Recv(&new_dist, 1, MPI_INT, proc_num, v, MPI_COMM_WORLD, &status);
+			    		if(dist[proc_num] > new_dist){
+			    			dist[proc_num] = new_dist;
+			    		}
+		    		}
+	    		}
+	    		/*
 	    		for(int i =0; i<vertex; i++){
 	    			MPI_Iprobe(i, v, MPI_COMM_WORLD, &flag, &status);
 	    			if(flag == 1){
@@ -123,6 +131,7 @@ int main(int argc, char** argv) {
 		    			}
 	    			}
 	    		}
+	    		*/
 	    		MPI_Iprobe(rank_pre, 2*vertex +v, MPI_COMM_WORLD, &flag_token, &status);
 	    			if(flag_token == 1){
     					MPI_Recv(&token, 1, MPI_INT, rank_pre, 2*vertex +v, MPI_COMM_WORLD, &status);
@@ -140,10 +149,8 @@ int main(int argc, char** argv) {
 	    	}
 	    	
 	    	for(int i =0; i<vertex; i++){
-	    		if(i != myrank){
+	    		if(i != myrank)
     				MPI_Recv(&map[v * vertex + i], 1, MPI_INT, i, vertex+v , MPI_COMM_WORLD, &status);
-	    			map[i * vertex + v] = map[v * vertex + i];
-	    		}
     		}
     		
     		MPI_Barrier(MPI_COMM_WORLD);
@@ -159,19 +166,6 @@ int main(int argc, char** argv) {
        		MPI_Status status;
     		MPI_Request req1;
     		dist = INF;
-
-    		if(v >0){
-    			if(myrank == v-1){
-    				for(int j = 0; j<vertex; j++){
-    					if(j!=v-1)
-    						MPI_Send(&map[0], vertex*vertex, MPI_INT, j, 5*v, MPI_COMM_WORLD);
-    				}
-    			}
-    			else if(myrank != v){
-    				MPI_Recv(&map[0], vertex*vertex, MPI_INT, v-1, 5*v, MPI_COMM_WORLD, &status);
-    			}
-    		}
-
     		for(int i =0; i<vertex; i++){
     			weight[i] = map[myrank * vertex + i];
        		}
@@ -194,6 +188,22 @@ int main(int argc, char** argv) {
 	    		dist_source = vertex;
 	    		activate = 0;
 	    		/* Read State */
+	    		
+	    		flag = 1;
+	    		while(flag == 1){
+	    			MPI_Iprobe(MPI_ANY_SOURCE, v, MPI_COMM_WORLD, &flag, &status);
+	    			if(flag ==1){
+	    				int proc_num = status.MPI_SOURCE;
+		    			MPI_Recv(&new_dist, 1, MPI_INT, proc_num, v, MPI_COMM_WORLD, &status);
+		    			if(dist > new_dist){
+		    				dist_source = proc_num;
+		    				dist = new_dist;
+		    				done = 0;
+		    				activate = 1;
+		    			}
+	    			}
+	    		}
+	    		/*
 	    		for(int i=0; i<vertex; i++){
 	    			MPI_Iprobe(i, v, MPI_COMM_WORLD, &flag, &status);
 	    			if(flag==1){
@@ -206,6 +216,7 @@ int main(int argc, char** argv) {
 		    			}
 	    			}
 	    		}
+	    		*/
 	    		MPI_Iprobe(rank_pre,  2*vertex +v, MPI_COMM_WORLD, &flag_token, &status);
 	    		if(flag_token==1){
 	    			MPI_Recv(&token, 1, MPI_INT, rank_pre, 2*vertex +v, MPI_COMM_WORLD, &status);
