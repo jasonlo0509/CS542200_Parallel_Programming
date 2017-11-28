@@ -1,13 +1,3 @@
-./ASAP_seq 
-gcc -std=c99 ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-diff out.out 3.out 
-gcc -std=c99 ASAP_seq.c -o ASAP_seq
-./ASAP_seq 
-diff out.out 3.out 
-cd ..
-git add .
-git --ignore-removal .
 git add --ignore-removal .
 git commit -m "start adding things"
 git push
@@ -998,3 +988,13 @@ ls
 time srun -p batch -N1 -n150 --overcommit ./APSP_MPI_sync 5.in out.out 150
 diff out.out 5.out 
 time srun -p batch -N1 -n150 --overcommit ./APSP_MPI_sync 5.in out.out 150
+git add .
+git add . --ignore-removal
+git commit -m "need to modify IO"
+git push
+cd hw3
+history | grep mpicc
+mpicc -std=c99 APSP_MPI_sync.c -o APSP_MPI_sync
+history | grep sync
+time srun -p batch -N1 -n150 --overcommit ./APSP_MPI_sync 5.in out.out 150
+diff out.out 5.out 
