@@ -265,12 +265,13 @@ int main(int argc, char** argv) {
     //total_comm_time += MPI_Wtime();
 
     total_time += MPI_Wtime();
-
+/*
     printf("total time = %lf\n", total_time);
     printf("total_isend_time time = %lf\n", total_isend_time);
     printf("IO time = %lf\n", total_IO_time);
     printf("comm time = %lf\n", total_comm_time);
     printf("while time = %lf\n", while_time);
+*/
     /* cleanup */    
     MPI_Finalize();
 }
