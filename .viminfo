@@ -11,9 +11,9 @@
 ~MSle0~/req
 
 # Command Line History (newest to oldest):
+:q!
 :wq
 :Wq
-:q!
 
 # Search String History (newest to oldest):
 ?/req
@@ -27,18 +27,21 @@
 # Registers:
 
 # File marks:
-'0  1  0  ~/hw3/6.in
-'1  3  32  ~/homework/HW3/Makefile
-'2  7  46  ~/homework/HW3/Makefile
-'3  1  0  ~/hw3/5.in
-'4  42  14  ~/lab1b/pi.c
-'5  4  25  ~/hw2/Makefile
-'6  8  9  ~/hw2/Makefile
-'7  1  9  ~/hw2/Makefile
-'8  601  0  ~/hw1/HW1_103061108_advanced.c
-'9  6  15  ~/hw2/Makefile
+'0  1  0  ~/hw3/hw3-judge-all
+'1  1  0  /home/pp17/ta/hw3/500.in
+'2  1  0  /home/pp17/ta/hw3/2000.in
+'3  1  0  ~/hw3/6.in
+'4  3  32  ~/homework/HW3/Makefile
+'5  7  46  ~/homework/HW3/Makefile
+'6  1  0  ~/hw3/5.in
+'7  42  14  ~/lab1b/pi.c
+'8  4  25  ~/hw2/Makefile
+'9  8  9  ~/hw2/Makefile
 
 # Jumplist (newest first):
+-'  1  0  ~/hw3/hw3-judge-all
+-'  1  0  /home/pp17/ta/hw3/500.in
+-'  1  0  /home/pp17/ta/hw3/2000.in
 -'  1  0  ~/hw3/6.in
 -'  3  32  ~/homework/HW3/Makefile
 -'  7  0  ~/homework/HW3/Makefile
@@ -134,10 +137,17 @@
 -'  11  1  ~/lab2/pi_hybrid.c
 -'  10  1  ~/lab2/pi_hybrid.c
 -'  1  0  ~/lab2/pi_hybrid.c
--'  601  0  ~/hw1/HW1_103061108_advanced.c
--'  1  0  ~/hw1/HW1_103061108_advanced.c
 
 # History of marks within files (newest to oldest):
+
+> ~/hw3/hw3-judge-all
+	"	1	0
+
+> /home/pp17/ta/hw3/500.in
+	"	1	0
+
+> /home/pp17/ta/hw3/2000.in
+	"	1	0
 
 > ~/hw3/6.in
 	"	1	0
