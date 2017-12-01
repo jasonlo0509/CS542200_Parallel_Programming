@@ -108,6 +108,19 @@ int main(int argc, char** argv) {
 			/* Read several times & send */
 	    	while(done){
 	    		/* Read State */
+	    		/*
+	    		flag = 1;
+	    		while(flag == 1){
+	    			MPI_Iprobe(MPI_ANY_SOURCE, v, MPI_COMM_WORLD, &flag, &status);
+	    			if(flag == 1){
+			    		int proc_num = status.MPI_SOURCE;
+			    		MPI_Recv(&new_dist, 1, MPI_INT, proc_num, v, MPI_COMM_WORLD, &status);
+			    		if(dist[proc_num] > new_dist){
+			    			dist[proc_num] = new_dist;
+			    		}
+		    		}
+	    		}
+	    		*/
 	    		
 	    		for(int i =0; i<vertex; i++){
 	    			MPI_Iprobe(i, v, MPI_COMM_WORLD, &flag, &status);
